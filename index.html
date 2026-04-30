@@ -271,7 +271,7 @@
   .logo-mark:hover img { transform: scale(1.06) rotate(-2deg); }
   .logo-mark .logo-text {
     font-family: var(--sans);
-    font-weight: 800;
+    font-weight: 400;
     font-size: 1.35rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -280,6 +280,7 @@
     display: inline-block;
     transition: font-size 500ms cubic-bezier(.25,.1,.25,1);
   }
+  .logo-mark .logo-text b { font-weight: 800; }
   .nav.scrolled .logo-mark .logo-text { font-size: 1.1rem; }
   @media (max-width: 900px) {
     .logo-mark .logo-text { font-size: 1.1rem; letter-spacing: 0.05em; }
@@ -415,6 +416,37 @@
       radial-gradient(ellipse 100% 80% at 20% 100%, rgba(42,61,47,0.08), transparent 60%),
       linear-gradient(180deg, var(--cream-warm) 0%, var(--cream) 100%);
     z-index: -1;
+  }
+
+  /* Soft cream wash over the left side of the hero so the title and copy
+     stay legible while the photo remains clearly visible on the right. */
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg,
+        rgba(245,240,230,0.78) 0%,
+        rgba(245,240,230,0.55) 28%,
+        rgba(245,240,230,0.20) 55%,
+        rgba(245,240,230,0)    78%),
+      linear-gradient(180deg,
+        rgba(245,240,230,0.20) 0%,
+        rgba(245,240,230,0)    20%,
+        rgba(245,240,230,0)    80%,
+        rgba(245,240,230,0.35) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  @media (max-width: 760px) {
+    .hero::after {
+      background:
+        linear-gradient(180deg,
+          rgba(245,240,230,0.55) 0%,
+          rgba(245,240,230,0.30) 35%,
+          rgba(245,240,230,0.15) 60%,
+          rgba(245,240,230,0.40) 100%);
+    }
   }
 
   .hero-decor {
@@ -2022,7 +2054,7 @@
   }
 
   /* Section-specific photo treatments */
-  .hero      img.bg-photo { --bg-opacity: 0.38; filter: blur(6px) saturate(1.1) contrast(1.05); }
+  .hero      img.bg-photo { --bg-opacity: 0.72; filter: blur(2px) saturate(1.05) contrast(1.02); }
   .programs  img.bg-photo { --bg-opacity: 0.18; filter: blur(14px) saturate(0.9); }
   .method    img.bg-photo { --bg-opacity: 0.45; filter: blur(7px) saturate(1.15) contrast(1.1); }
   .location  img.bg-photo { --bg-opacity: 0.45; filter: blur(6px) saturate(1.1); }
@@ -2171,7 +2203,7 @@
 <nav class="nav" id="nav" aria-label="Navegación principal">
   <a href="#" class="logo-mark" aria-label="Equexcellent · Inicio">
     <img src="assets/equexcellent-mark.png" alt="Equexcellent — Terapias con caballos">
-    <span class="logo-text">EQUEXCELLENT</span>
+    <span class="logo-text"><b>EQU</b>EXCELLENT</span>
   </a>
   <div class="nav-links" id="nav-menu" role="list">
     <a href="#programas" role="listitem">Programas</a>
