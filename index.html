@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equexcellent — Terapias con caballos · Calidad y compromiso</title>
+<meta name="description" content="Campamentos de verano de alta especialización para niños y adolescentes con TEA y vulnerabilidad emocional. Hípica El Carrizal de Cubas. Plazas muy limitadas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,30..100;1,9..144,300..900,30..100&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ─────────────────────────────────────────────
+     Equexcellent — Editorial design system
+     ───────────────────────────────────────────── */
+  :root {
+    --ink:        #1a1d1a;
+    --ink-soft:   #3a3f3a;
+    --forest:     #2a3d2f;
+    --forest-deep:#1c2a20;
+    --sage:       #8a9a83;
+    --bronze:     #b8954d;
+    --bronze-deep:#8c6d33;
+    --cream:      #f5f0e6;
+    --cream-warm: #f9f4eb;
+    --stone:      #e6dfce;
+    --bone:       #ebe5d7;
+    --white-warm: #fcfaf4;
+
+    --serif: "Fraunces", "Cormorant Garamond", Georgia, serif;
+    --sans:  "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --max: 1240px;
+    --gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+    --t-fast: 240ms cubic-bezier(.4,0,.2,1);
+    --t-med:  520ms cubic-bezier(.25,.1,.25,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--cream);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* (Noise texture applied per-section where it adds value — not globally) */
+
+  img, svg { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  button { font: inherit; cursor: pointer; border: none; background: none; }
+
+  /* ─── Typography ─── */
+  .display {
+    font-family: var(--serif);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 0.96;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+  }
+
+  .lede {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    font-variation-settings: "opsz" 30;
+  }
+
+  em { font-style: italic; }
+  strong { font-weight: 600; }
+
+  /* ─── Layout ─── */
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  section { padding: clamp(5rem, 10vw, 9rem) 0; position: relative; }
+
+  /* ─────────────────────────────────────────────
+     NAV
+     ───────────────────────────────────────────── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 1.1rem var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(245, 240, 230, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--t-fast);
+  }
+  .nav.scrolled { border-bottom-color: rgba(26,29,26,0.08); }
+
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    color: var(--forest);
+  }
+  .logo-glyph {
+    width: 32px; height: 32px;
+    display: grid; place-items: center;
+    background: var(--forest);
+    color: var(--cream);
+    border-radius: 50%;
+    font-size: 0.85rem;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .nav-links a {
+    color: var(--ink-soft);
+    transition: color var(--t-fast);
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--forest); }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 1px;
+    background: var(--bronze);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--t-fast);
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-links a.nav-cta {
+    padding: 0.6rem 1.1rem;
+    background: var(--forest);
+    color: var(--cream-warm);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background var(--t-fast), transform var(--t-fast);
+  }
+  .nav-links a.nav-cta::after { display: none; }
+  .nav-links a.nav-cta:hover { background: var(--forest-deep); color: var(--cream-warm); transform: translateY(-1px); }
+
+  .nav-toggle {
+    display: none;
+    width: 28px; height: 20px;
+    position: relative;
+  }
+  .nav-toggle span {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1.5px;
+    background: var(--forest);
+    transition: transform var(--t-fast);
+  }
+  .nav-toggle span:nth-child(1) { top: 2px; }
+  .nav-toggle span:nth-child(2) { top: 50%; margin-top: -1px; }
+  .nav-toggle span:nth-child(3) { bottom: 2px; }
+
+  @media (max-width: 820px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+  @media (max-width: 500px) {
+    .nav-cta { display: none; }
+    .nav-toggle { display: block; }
+  }
+
+  /* ─────────────────────────────────────────────
+     HERO
+     ───────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Hero background: layered warm gradient + botanical echo */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 80% 20%, rgba(184,149,77,0.12), transparent 60%),
+      radial-gradient(ellipse 100% 80% at 20% 100%, rgba(42,61,47,0.08), transparent 60%),
+      linear-gradient(180deg, var(--cream-warm) 0%, var(--cream) 100%);
+    z-index: -1;
+  }
+
+  /* Decorative horse silhouette */
+  .hero-decor {
+    position: absolute;
+    right: -8%;
+    top: 14%;
+    width: min(58vw, 720px);
+    opacity: 0.10;
+    z-index: -1;
+    pointer-events: none;
+  }
+  @media (max-width: 820px) {
+    .hero-decor { right: -20%; top: auto; bottom: 5%; width: 95vw; opacity: 0.07; }
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 900ms var(--t-med) 100ms, transform 900ms var(--t-med) 100ms;
+  }
+  body.loaded .hero-top { opacity: 1; transform: translateY(0); }
+
+  .hero-top-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--bronze) 0%, transparent 100%);
+    max-width: 180px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 8.5vw, 6.5rem);
+    margin: 1.5rem 0 2rem;
+    max-width: 18ch;
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 900ms var(--t-med) 250ms, transform 900ms var(--t-med) 250ms;
+  }
+  body.loaded .hero-title { opacity: 1; transform: translateY(0); }
+
+  .hero-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--bronze-deep);
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+
+  .hero-sub {
+    max-width: 40ch;
+    color: var(--ink-soft);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 900ms var(--t-med) 400ms, transform 900ms var(--t-med) 400ms;
+  }
+  body.loaded .hero-sub { opacity: 1; transform: translateY(0); }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 900ms var(--t-med) 550ms, transform 900ms var(--t-med) 550ms;
+  }
+  body.loaded .hero-actions { opacity: 1; transform: translateY(0); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 1.75rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: transform var(--t-fast), background var(--t-fast), box-shadow var(--t-fast);
+  }
+  .btn-primary {
+    background: var(--forest);
+    color: var(--cream-warm);
+  }
+  .btn-primary:hover {
+    background: var(--forest-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -12px rgba(42,61,47,0.4);
+  }
+  .btn-ghost {
+    color: var(--forest);
+    background: transparent;
+    border: 1px solid rgba(42,61,47,0.2);
+  }
+  .btn-ghost:hover {
+    border-color: var(--forest);
+    background: rgba(42,61,47,0.04);
+  }
+  .btn-arrow { transition: transform var(--t-fast); }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+
+  /* Hero meta-strip */
+  .hero-meta {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(26,29,26,0.1);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 900ms var(--t-med) 700ms, transform 900ms var(--t-med) 700ms;
+  }
+  body.loaded .hero-meta { opacity: 1; transform: translateY(0); }
+  .hero-meta-item h4 {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+    margin-bottom: 0.6rem;
+  }
+  .hero-meta-item p {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─────────────────────────────────────────────
+     INTRO / QUOTE
+     ───────────────────────────────────────────── */
+  .intro {
+    background: var(--white-warm);
+    position: relative;
+  }
+  .intro::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--stone), transparent);
+  }
+
+  .quote-block {
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .quote-mark {
+    font-family: var(--serif);
+    font-size: 5rem;
+    line-height: 0.5;
+    color: var(--bronze);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-weight: 300;
+  }
+  .quote-text {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    font-variation-settings: "opsz" 144, "SOFT" 60;
+  }
+  .quote-text em {
+    font-style: italic;
+    color: var(--forest);
+    font-weight: 400;
+  }
+  .quote-attribution {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+  }
+
+  /* ─────────────────────────────────────────────
+     PROGRAMS OVERVIEW (two cards)
+     ───────────────────────────────────────────── */
+  .programs {
+    background: var(--cream);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    max-width: 780px;
+  }
+  .section-head-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem 3rem;
+    align-items: start;
+    max-width: 100%;
+    margin-bottom: 4rem;
+  }
+  @media (max-width: 700px) {
+    .section-head-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
+
+  .section-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: var(--bronze-deep);
+    letter-spacing: 0.05em;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    max-width: 18ch;
+    line-height: 1;
+  }
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 55ch;
+    margin-top: 1rem;
+  }
+
+  .program-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 820px) {
+    .program-grid { grid-template-columns: 1fr; }
+  }
+
+  .program-card {
+    position: relative;
+    padding: clamp(2rem, 4vw, 3rem);
+    border-radius: 4px;
+    overflow: hidden;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform var(--t-med);
+  }
+  .program-card:hover { transform: translateY(-4px); }
+
+  .program-card.tea {
+    background: linear-gradient(155deg, var(--forest) 0%, var(--forest-deep) 100%);
+    color: var(--cream-warm);
+  }
+  .program-card.emo {
+    background: linear-gradient(155deg, #2b3948 0%, #1a2733 100%);
+    color: var(--cream-warm);
+  }
+
+  .program-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.22 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .program-card > * { position: relative; z-index: 1; }
+
+  .program-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(245,240,230,0.3);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245,240,230,0.9);
+    margin-bottom: 1.5rem;
+    width: fit-content;
+  }
+  .program-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--bronze);
+    border-radius: 50%;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .program-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+    font-variation-settings: "opsz" 144, "SOFT" 60;
+  }
+  .program-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--bronze);
+  }
+
+  .program-body {
+    font-size: 1rem;
+    color: rgba(245,240,230,0.78);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 40ch;
+  }
+
+  .program-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(245,240,230,0.15);
+    margin-bottom: 2rem;
+  }
+  .program-stat-num {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--bronze);
+    font-variation-settings: "opsz" 144;
+  }
+  .program-stat-label {
+    font-size: 0.78rem;
+    color: rgba(245,240,230,0.7);
+    margin-top: 0.3rem;
+    letter-spacing: 0.02em;
+  }
+
+  .program-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--cream-warm);
+    letter-spacing: 0.03em;
+    transition: gap var(--t-fast);
+    width: fit-content;
+  }
+  .program-link:hover { gap: 1rem; }
+  .program-link svg { width: 16px; height: 16px; }
+
+  /* ─────────────────────────────────────────────
+     DIFFERENTIATORS
+     ───────────────────────────────────────────── */
+  .diff {
+    background: var(--bone);
+    position: relative;
+  }
+
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(26,29,26,0.1);
+  }
+  .diff-item {
+    padding: 2.5rem 1.75rem 2.5rem 0;
+    border-bottom: 1px solid rgba(26,29,26,0.1);
+    border-right: 1px solid rgba(26,29,26,0.1);
+    position: relative;
+  }
+  .diff-item:last-child { border-right: none; }
+  @media (max-width: 900px) {
+    .diff-item { border-right: none; padding-right: 0; }
+  }
+
+  .diff-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: var(--bronze-deep);
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+  .diff-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    margin-bottom: 0.85rem;
+    color: var(--forest);
+    font-variation-settings: "opsz" 30, "SOFT" 50;
+  }
+  .diff-body {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .diff-grid > :nth-child(n+4) { padding-top: 2.5rem; }
+
+  /* ─────────────────────────────────────────────
+     METHODOLOGY (process)
+     ───────────────────────────────────────────── */
+  .method {
+    background: var(--forest-deep);
+    color: var(--cream-warm);
+    position: relative;
+    overflow: hidden;
+  }
+  .method::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 90% 60% at 90% 10%, rgba(184,149,77,0.12), transparent 70%),
+      radial-gradient(ellipse 70% 40% at 10% 100%, rgba(138,154,131,0.10), transparent 70%);
+  }
+  .method > * { position: relative; z-index: 1; }
+
+  .method .eyebrow { color: var(--bronze); }
+
+  .method .section-title {
+    color: var(--cream-warm);
+    font-variation-settings: "opsz" 144, "SOFT" 80;
+  }
+  .method .section-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--bronze);
+  }
+
+  .method-desc {
+    color: rgba(245,240,230,0.75);
+    font-size: 1.05rem;
+    max-width: 60ch;
+  }
+
+  .process {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+  }
+  .process::before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: 6%;
+    right: 6%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(184,149,77,0.5) 20%, rgba(184,149,77,0.5) 80%, transparent);
+  }
+  @media (max-width: 820px) {
+    .process { grid-template-columns: 1fr; gap: 2.5rem; }
+    .process::before { display: none; }
+  }
+
+  .step {
+    position: relative;
+  }
+  .step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--forest);
+    border: 1px solid var(--bronze);
+    display: grid;
+    place-items: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--bronze);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  .step-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.15;
+    margin-bottom: 0.85rem;
+    color: var(--cream-warm);
+    font-variation-settings: "opsz" 30, "SOFT" 40;
+  }
+  .step-body {
+    font-size: 0.93rem;
+    color: rgba(245,240,230,0.72);
+    line-height: 1.6;
+  }
+
+  /* ─────────────────────────────────────────────
+     ISABEL + DUQUE (editorial feature)
+     ───────────────────────────────────────────── */
+  .feature {
+    background: var(--cream-warm);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+  }
+  @media (max-width: 820px) {
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+
+  .feature-card {
+    position: relative;
+    padding: 2.5rem;
+    background: var(--white-warm);
+    border: 1px solid var(--stone);
+    border-radius: 2px;
+    transition: transform var(--t-med), box-shadow var(--t-med);
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -24px rgba(26,29,26,0.15);
+  }
+
+  .feature-visual {
+    aspect-ratio: 4/5;
+    background: linear-gradient(160deg, var(--sage) 0%, var(--forest) 50%, var(--forest-deep) 100%);
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  .feature-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.7;
+  }
+  .feature-visual-content {
+    position: relative;
+    z-index: 1;
+    color: var(--cream-warm);
+    text-align: center;
+    padding: 2rem;
+  }
+  .feature-visual-content svg {
+    margin: 0 auto 1.25rem;
+    opacity: 0.85;
+  }
+  .feature-visual-label {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: rgba(245,240,230,0.85);
+  }
+
+  .feature-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+    margin-bottom: 1rem;
+  }
+  .feature-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+    color: var(--forest);
+    font-variation-settings: "opsz" 144, "SOFT" 70;
+  }
+  .feature-role {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    font-variation-settings: "opsz" 30;
+  }
+  .feature-text {
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .feature-text p + p { margin-top: 1rem; }
+  .feature-text strong { color: var(--forest); font-weight: 500; }
+
+  .feature-award {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, rgba(184,149,77,0.1), rgba(184,149,77,0.04));
+    border-left: 2px solid var(--bronze);
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .feature-award strong { color: var(--bronze-deep); }
+
+  /* ─────────────────────────────────────────────
+     DETAILED PROGRAMS
+     ───────────────────────────────────────────── */
+  .detail {
+    background: var(--cream);
+  }
+
+  .detail-block {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    border-top: 1px solid var(--stone);
+  }
+  .detail-block:last-of-type { border-bottom: 1px solid var(--stone); }
+
+  @media (max-width: 820px) {
+    .detail-block { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  .detail-meta .eyebrow { margin-bottom: 1rem; display: block; }
+
+  .detail-heading {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.02;
+    color: var(--forest);
+    margin-bottom: 1.5rem;
+    font-variation-settings: "opsz" 144, "SOFT" 60;
+  }
+  .detail-heading em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--bronze-deep);
+  }
+
+  .detail-facts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .detail-fact {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--stone);
+    font-size: 0.92rem;
+  }
+  .detail-fact-label {
+    color: var(--bronze-deep);
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding-top: 0.1rem;
+  }
+  .detail-fact-value {
+    color: var(--ink);
+  }
+
+  .detail-body {
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+  .detail-body p + p { margin-top: 1.2rem; }
+  .detail-body strong { color: var(--forest); font-weight: 600; }
+
+  .team-grid {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--stone);
+  }
+  .team-role {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--forest);
+    font-variation-settings: "opsz" 30;
+  }
+  .team-count {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 2.2rem;
+    line-height: 1;
+    color: var(--bronze);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-variation-settings: "opsz" 144;
+  }
+  .team-detail {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 0.3rem;
+    line-height: 1.4;
+  }
+
+  .detail-includes {
+    margin-top: 2rem;
+    padding: 1.75rem;
+    background: var(--white-warm);
+    border: 1px solid var(--stone);
+    border-radius: 2px;
+  }
+  .detail-includes h4 {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+    margin-bottom: 1.25rem;
+  }
+  .detail-includes ul { list-style: none; }
+  .detail-includes li {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 0.6rem;
+    align-items: start;
+    padding: 0.5rem 0;
+    font-size: 0.93rem;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .detail-includes li::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--bronze);
+    border-radius: 50%;
+    margin-top: 0.55rem;
+  }
+
+  /* ─────────────────────────────────────────────
+     LOCATION
+     ───────────────────────────────────────────── */
+  .location {
+    background: var(--forest-deep);
+    color: var(--cream-warm);
+    position: relative;
+    overflow: hidden;
+  }
+  .location::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 100% 0%, rgba(184,149,77,0.15), transparent 60%),
+      radial-gradient(ellipse 80% 60% at 0% 100%, rgba(138,154,131,0.1), transparent 60%);
+  }
+  .location > * { position: relative; z-index: 1; }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+  }
+  @media (max-width: 820px) {
+    .location-grid { grid-template-columns: 1fr; }
+  }
+
+  .location .eyebrow { color: var(--bronze); }
+  .location-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    line-height: 1;
+    color: var(--cream-warm);
+    margin: 1rem 0 1.5rem;
+    font-variation-settings: "opsz" 144, "SOFT" 70;
+  }
+  .location-title em { font-style: italic; font-weight: 300; color: var(--bronze); }
+  .location-text {
+    color: rgba(245,240,230,0.78);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .location-text p + p { margin-top: 1rem; }
+
+  .location-facts {
+    margin-top: 2rem;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .location-facts li {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 0.8rem;
+    font-size: 0.93rem;
+    color: rgba(245,240,230,0.85);
+    align-items: start;
+    padding: 0.3rem 0;
+  }
+  .location-facts li svg {
+    width: 18px; height: 18px;
+    color: var(--bronze);
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  .map-card {
+    aspect-ratio: 5/6;
+    background: linear-gradient(135deg, rgba(245,240,230,0.05), rgba(245,240,230,0.02));
+    border: 1px solid rgba(245,240,230,0.12);
+    border-radius: 2px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-decor {
+    position: absolute;
+    inset: 0;
+    opacity: 0.25;
+    display: grid;
+    place-items: center;
+  }
+  .map-card-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .coords {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--bronze);
+    font-variation-settings: "opsz" 30;
+  }
+  .map-card-bottom {
+    position: relative;
+    z-index: 1;
+  }
+  .map-place {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--cream-warm);
+    margin-bottom: 0.3rem;
+    font-variation-settings: "opsz" 30;
+  }
+  .map-region {
+    font-size: 0.88rem;
+    color: rgba(245,240,230,0.6);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─────────────────────────────────────────────
+     SEGURIDAD / TRUST
+     ───────────────────────────────────────────── */
+  .trust {
+    background: var(--bone);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .trust-item {
+    position: relative;
+    padding: 2rem 1.5rem 2rem 0;
+  }
+  .trust-icon {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--bronze);
+    display: grid;
+    place-items: center;
+    margin-bottom: 1.25rem;
+  }
+  .trust-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--forest);
+    margin-bottom: 0.5rem;
+    font-variation-settings: "opsz" 30, "SOFT" 50;
+  }
+  .trust-text {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ─────────────────────────────────────────────
+     CTA / RESERVA
+     ───────────────────────────────────────────── */
+  .cta {
+    background: var(--cream);
+    text-align: center;
+    padding-top: clamp(6rem, 12vw, 10rem);
+    padding-bottom: clamp(6rem, 12vw, 10rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(184,149,77,0.08), transparent 70%);
+  }
+  .cta > * { position: relative; z-index: 1; }
+
+  .cta-kicker {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--bronze-deep);
+    letter-spacing: 0.02em;
+    font-variation-settings: "opsz" 30;
+  }
+  .cta-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    line-height: 1.02;
+    color: var(--forest);
+    max-width: 16ch;
+    margin: 1rem auto 2rem;
+    font-variation-settings: "opsz" 144, "SOFT" 80;
+  }
+  .cta-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--bronze-deep);
+  }
+  .cta-text {
+    max-width: 50ch;
+    margin: 0 auto 3rem;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .cta-contact {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--stone);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .cta-contact-item .eyebrow { display: block; margin-bottom: 0.5rem; }
+  .cta-contact-item a,
+  .cta-contact-item p {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--forest);
+    font-variation-settings: "opsz" 30;
+  }
+  .cta-contact-item a:hover { color: var(--bronze-deep); }
+
+  /* ─────────────────────────────────────────────
+     FOOTER
+     ───────────────────────────────────────────── */
+  footer {
+    background: var(--forest-deep);
+    color: rgba(245,240,230,0.7);
+    padding: 4rem 0 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(245,240,230,0.1);
+  }
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--cream-warm);
+    margin-bottom: 0.5rem;
+    font-variation-settings: "opsz" 30, "SOFT" 40;
+  }
+  .footer-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--bronze);
+    font-variation-settings: "opsz" 30;
+  }
+  .footer-about {
+    margin-top: 1.5rem;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(245,240,230,0.6);
+    max-width: 44ch;
+  }
+
+  .footer-col h5 {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 1.25rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.7rem; }
+  .footer-col a {
+    font-size: 0.92rem;
+    color: rgba(245,240,230,0.75);
+    transition: color var(--t-fast);
+  }
+  .footer-col a:hover { color: var(--bronze); }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: rgba(245,240,230,0.5);
+    letter-spacing: 0.03em;
+  }
+
+  /* ─────────────────────────────────────────────
+     Scroll reveal
+     ───────────────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 800ms cubic-bezier(.25,.1,.25,1), transform 800ms cubic-bezier(.25,.1,.25,1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 80ms; }
+  .reveal-delay-2 { transition-delay: 160ms; }
+  .reveal-delay-3 { transition-delay: 240ms; }
+
+  /* Small text selection */
+  ::selection { background: var(--bronze); color: var(--cream); }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav" id="nav">
+  <a href="#" class="logo-mark">
+    <span class="logo-glyph">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 19c0-4 3-7 7-7s7 3 7 7"/>
+        <path d="M12 12V6"/>
+        <path d="M12 6c-1.5 0-3-1-3-2.5S10.5 1 12 1s3 1 3 2.5S13.5 6 12 6z"/>
+        <path d="M15 3.5c1.5 0 3 1 3 2.5"/>
+      </svg>
+    </span>
+    Equexcellent
+  </a>
+  <div class="nav-links">
+    <a href="#programas">Programas</a>
+    <a href="#metodo">Metodología</a>
+    <a href="#equipo">Equipo</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a href="#contacto" class="nav-cta">Reservar plaza</a>
+  </div>
+  <button class="nav-toggle" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ─── HERO ─── -->
+<header class="hero">
+  <svg class="hero-decor" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="0.6" style="color: var(--forest);">
+      <circle cx="300" cy="300" r="270" opacity="0.18"/>
+      <circle cx="300" cy="300" r="225" opacity="0.24"/>
+      <circle cx="300" cy="300" r="180" opacity="0.30"/>
+      <circle cx="300" cy="300" r="135" opacity="0.36"/>
+      <circle cx="300" cy="300" r="90"  opacity="0.42"/>
+      <circle cx="300" cy="300" r="45"  opacity="0.50"/>
+    </g>
+    <circle cx="300" cy="300" r="4" fill="var(--bronze)" opacity="0.85"/>
+  </svg>
+
+  <div class="wrap hero-inner">
+    <div class="hero-top">
+      <span class="hero-top-line"></span>
+      <span class="eyebrow">Terapias con caballos · Calidad y compromiso</span>
+    </div>
+
+    <h1 class="display hero-title">
+      No es un campamento.<br>
+      Es una <em>experiencia</em> transformadora.
+    </h1>
+
+    <p class="lede hero-sub">
+      Una intervención de alta especialización para niños con TEA y
+      adolescentes con vulnerabilidad emocional. En la Hípica El Carrizal
+      de Cubas, con caballos, psicóloga clínica y la metodología de Isabel Vera.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#programas" class="btn btn-primary">
+        Ver los programas
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#contacto" class="btn btn-ghost">Reservar plaza</a>
+    </div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <h4>Edición</h4>
+        <p>Julio 2026</p>
+      </div>
+      <div class="hero-meta-item">
+        <h4>Horario</h4>
+        <p>09:00 – 14:00</p>
+      </div>
+      <div class="hero-meta-item">
+        <h4>Plazas TEA</h4>
+        <p>10 en toda España</p>
+      </div>
+      <div class="hero-meta-item">
+        <h4>Plazas Emocional</h4>
+        <p>6 en toda España</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── INTRO QUOTE ─── -->
+<section class="intro">
+  <div class="wrap quote-block reveal">
+    <div class="quote-mark">“</div>
+    <p class="quote-text">
+      No se trata solo de montar a caballo.
+      Se trata de <em>conectar</em>, <em>confiar</em> y <em>crecer</em>.
+    </p>
+    <p class="quote-attribution">— metodología Equexcellent</p>
+  </div>
+</section>
+
+<!-- ─── PROGRAMS OVERVIEW ─── -->
+<section class="programs" id="programas">
+  <div class="wrap">
+    <div class="section-head-grid reveal">
+      <div class="section-num">§ I</div>
+      <div>
+        <span class="eyebrow">Programas de verano · Julio 2026</span>
+        <h2 class="display section-title" style="margin-top: 1rem;">Dos líneas. Una sola <em>mirada</em> cuidada.</h2>
+        <p class="section-desc">
+          Cada programa nace de un perfil real, con objetivos individualizados, equipo especializado
+          y una ratio que garantiza atención intensiva. Grupos pequeños por convicción, no por limitación.
+        </p>
+      </div>
+    </div>
+
+    <div class="program-grid">
+      <!-- TEA -->
+      <article class="program-card tea reveal">
+        <div>
+          <span class="program-badge"><span class="dot"></span>Línea TEA</span>
+          <h3 class="program-title">Niños y adolescentes con <em>Trastorno del Espectro Autista</em></h3>
+          <p class="program-body">
+            Intervención estructurada con caballos, integradores sociales y técnicos ecuestres.
+            Estudio previo, objetivos personalizados y evaluación final de progreso.
+          </p>
+        </div>
+        <div>
+          <div class="program-stats">
+            <div>
+              <div class="program-stat-num">10</div>
+              <div class="program-stat-label">plazas en toda España</div>
+            </div>
+            <div>
+              <div class="program-stat-num">7</div>
+              <div class="program-stat-label">profesionales al día</div>
+            </div>
+          </div>
+          <a href="#tea-detail" class="program-link">
+            Explorar programa TEA
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- EMOCIONAL -->
+      <article class="program-card emo reveal reveal-delay-1">
+        <div>
+          <span class="program-badge"><span class="dot"></span>Línea Emocional</span>
+          <h3 class="program-title">Adolescentes con <em>vulnerabilidad emocional</em></h3>
+          <p class="program-body">
+            Para TCA, ansiedad, conductas autolíticas, depresión, baja autoestima
+            o trastornos de conducta. Con psicóloga clínica integrada en la jornada.
+          </p>
+        </div>
+        <div>
+          <div class="program-stats">
+            <div>
+              <div class="program-stat-num">6</div>
+              <div class="program-stat-label">plazas en toda España</div>
+            </div>
+            <div>
+              <div class="program-stat-num">1:2</div>
+              <div class="program-stat-label">ratio en franja clínica</div>
+            </div>
+          </div>
+          <a href="#emo-detail" class="program-link">
+            Explorar programa Emocional
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DIFFERENTIATORS ─── -->
+<section class="diff">
+  <div class="wrap">
+    <div class="section-head-grid reveal">
+      <div class="section-num">§ II</div>
+      <div>
+        <span class="eyebrow">Lo que nos distingue</span>
+        <h2 class="display section-title" style="margin-top: 1rem;">Cuatro dimensiones, rara vez juntas.</h2>
+        <p class="section-desc">
+          La mayoría de campamentos destacan en un eje: TEA, inclusión, emocional, naturaleza o animales.
+          Reunimos las cuatro dimensiones que el mercado suele ofrecer por separado.
+        </p>
+      </div>
+    </div>
+
+    <div class="diff-grid reveal">
+      <div class="diff-item">
+        <div class="diff-num">01 / Atención</div>
+        <h3 class="diff-title">Individualización real</h3>
+        <p class="diff-body">
+          Estudio previo, objetivos personalizados e informes psicopedagógicos pre y post intervención.
+          Nunca plantilla. Siempre persona.
+        </p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">02 / Equipo</div>
+        <h3 class="diff-title">Perfiles clínicos integrados</h3>
+        <p class="diff-body">
+          Psicóloga clínica, integradores sociales, técnicos ecuestres y socorrista titulado.
+          Sin externalizar la parte más delicada.
+        </p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">03 / Entorno</div>
+        <h3 class="diff-title">Caballos con propósito</h3>
+        <p class="diff-body">
+          No paseos turísticos. Mediación animal orientada a vínculo, regulación emocional y confianza.
+          Incluye a Duque.
+        </p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">04 / Seguridad</div>
+        <h3 class="diff-title">Cobertura sin atajos</h3>
+        <p class="diff-body">
+          Seguro de accidentes, responsabilidad civil, material de equitación incluido
+          y socorrista titulado en las actividades acuáticas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── METHOD ─── -->
+<section class="method" id="metodo">
+  <div class="wrap">
+    <div class="section-head-grid reveal">
+      <div class="section-num" style="color: var(--bronze);">§ III</div>
+      <div>
+        <span class="eyebrow">Metodología</span>
+        <h2 class="display section-title" style="margin-top: 1rem;">Un proceso ordenado. <em>Nunca</em> improvisado.</h2>
+        <p class="method-desc">
+          Antes de empezar estudiamos al participante. Durante la experiencia, ajustamos.
+          Al terminar, devolvemos una valoración que tiene utilidad real para la familia y la escuela.
+        </p>
+      </div>
+    </div>
+
+    <div class="process reveal">
+      <div class="step">
+        <div class="step-num">I</div>
+        <h3 class="step-title">Estudio previo</h3>
+        <p class="step-body">
+          Recogemos perfil, sensibilidades, intereses, apoyos previos y prioridades de la familia.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-num">II</div>
+        <h3 class="step-title">Diseño de objetivos</h3>
+        <p class="step-body">
+          Objetivos claros y realistas en lo emocional, lo social, la autonomía y el vínculo.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-num">III</div>
+        <h3 class="step-title">Intervención individualizada</h3>
+        <p class="step-body">
+          El caballo, el entorno y el acompañamiento profesional como herramientas de intervención.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-num">IV</div>
+        <h3 class="step-title">Evaluación del progreso</h3>
+        <p class="step-body">
+          Valoración observada durante y al final del proceso. Devolución clara a la familia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURE (Isabel + Duque) ─── -->
+<section class="feature" id="equipo">
+  <div class="wrap">
+    <div class="section-head-grid reveal">
+      <div class="section-num">§ IV</div>
+      <div>
+        <span class="eyebrow">Detrás del programa</span>
+        <h2 class="display section-title" style="margin-top: 1rem;">Una metodología premiada, un caballo <em>reconocido</em>.</h2>
+        <p class="section-desc">
+          Equexcellent nace con la colaboración altruista de Isabel Vera, creadora del programa
+          “A caballo por la luna”, y cuenta con Duque, uno de los caballos más emblemáticos
+          vinculados a esa trayectoria.
+        </p>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <!-- Isabel -->
+      <article class="feature-card reveal">
+        <div class="feature-visual">
+          <div class="feature-visual-content">
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="36" cy="28" r="10"/>
+              <path d="M20 58c0-8 7-14 16-14s16 6 16 14"/>
+              <circle cx="36" cy="36" r="30" stroke-dasharray="2 4"/>
+            </svg>
+            <span class="feature-visual-label">Isabel Vera · A caballo por la luna</span>
+          </div>
+        </div>
+        <span class="feature-tag">Diseño y supervisión</span>
+        <h3 class="feature-name">Isabel Vera</h3>
+        <p class="feature-role">Máster en Terapias e Intervenciones Asistidas con Caballos (TEIAC)</p>
+        <div class="feature-text">
+          <p>
+            Fundadora del <strong>premiado programa “A caballo por la luna”</strong>
+            y presidenta de la asociación Caballo Educa.
+          </p>
+          <p>
+            Participa de forma altruista en el diseño y la supervisión del campamento,
+            aportando una metodología contrastada con años de recorrido en el trabajo
+            con menores vulnerables.
+          </p>
+        </div>
+      </article>
+
+      <!-- Duque -->
+      <article class="feature-card reveal reveal-delay-1">
+        <div class="feature-visual">
+          <div class="feature-visual-content">
+            <svg width="100" height="88" viewBox="0 0 100 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Stylized horse head -->
+              <path d="M30 75c0-4 2-8 3-11 2-4 1-8-1-12-3-5-5-11-5-18 0-10 6-18 15-22 6-3 13-3 19-1 5 2 9 6 12 11 3 4 5 9 7 14 1 3 3 5 6 5 2 0 3 2 3 4 0 3-2 5-5 6-3 0-6-1-8-3-1-1-2-1-3 0-3 4-4 9-3 14 0 4-1 8-4 10-2 2-5 3-8 3h-12c-5 0-9 0-12-1-2-1-4 0-4 1z"/>
+              <path d="M42 50c2 0 4-1 4-3"/>
+              <circle cx="48" cy="42" r="1.5" fill="currentColor"/>
+            </svg>
+            <span class="feature-visual-label" style="margin-top: 1rem;">Duque · Premio Bienestar Animal COLVEMA 2025</span>
+          </div>
+        </div>
+        <span class="feature-tag">Caballo del programa</span>
+        <h3 class="feature-name">Duque</h3>
+        <p class="feature-role">Reconocido por su compromiso emocional con los jóvenes</p>
+        <div class="feature-text">
+          <p>
+            Uno de los animales más emblemáticos vinculados al programa
+            <strong>“A caballo por la luna”</strong>. Su sensibilidad y trayectoria
+            lo convierten en un compañero excepcional para el trabajo terapéutico.
+          </p>
+        </div>
+        <div class="feature-award">
+          <strong>Premio Bienestar Animal · COLVEMA 2025</strong><br>
+          Reconocido por el apoyo emocional que presta a los jóvenes a través del programa.
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DETAILED PROGRAMS ─── -->
+<section class="detail">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom: 2rem;">
+      <span class="eyebrow">§ V · Los dos programas en detalle</span>
+    </div>
+
+    <!-- TEA DETAIL -->
+    <div class="detail-block" id="tea-detail">
+      <div class="detail-meta reveal">
+        <span class="eyebrow">Línea TEA</span>
+        <h3 class="detail-heading">Campamento ecuestre <em>premium</em> para niños y adolescentes con TEA</h3>
+        <div class="detail-facts">
+          <div class="detail-fact"><span class="detail-fact-label">Plazas</span><span class="detail-fact-value">10 únicas · Toda España</span></div>
+          <div class="detail-fact"><span class="detail-fact-label">Cuándo</span><span class="detail-fact-value">Julio 2026 · Lun – Vie</span></div>
+          <div class="detail-fact"><span class="detail-fact-label">Horario</span><span class="detail-fact-value">09:00 – 14:00</span></div>
+          <div class="detail-fact"><span class="detail-fact-label">Dónde</span><span class="detail-fact-value">Hípica El Carrizal de Cubas</span></div>
+          <div class="detail-fact"><span class="detail-fact-label">Edición</span><span class="detail-fact-value">Primera · 2026</span></div>
+        </div>
+      </div>
+
+      <div class="detail-content reveal reveal-delay-1">
+        <div class="detail-body">
+          <p>
+            Un campamento <strong>exclusivo y diferente</strong>, concebido no como una simple
+            actividad de verano, sino como una intervención altamente cuidada y estructurada.
+            Solo 10 plazas en toda España para preservar una atención realmente individualizada.
+          </p>
+          <p>
+            Programa diseñado individualmente, con objetivos personalizados e
+            informes psicopedagógicos pre y post intervención. Trabajo en entorno
+            ecuestre y natural, con uso educativo y emocional de los caballos,
+            actividades acuáticas en piscina con socorrista titulado y material
+            de equitación aportado por la organización.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div>
+            <span class="team-count">1</span>
+            <div class="team-role">Psicólogo/a clínico/a</div>
+            <div class="team-detail">Presencia permanente en la franja central</div>
+          </div>
+          <div>
+            <span class="team-count">2</span>
+            <div class="team-role">Integradores sociales</div>
+            <div class="team-detail">Apoyo socioeducativo y anticipación</div>
+          </div>
+          <div>
+            <span class="team-count">4</span>
+            <div class="team-role">Técnicos ecuestres</div>
+            <div class="team-detail">Seguridad y dinámicas con caballos</div>
+          </div>
+          <div>
+            <span class="team-count">1</span>
+            <div class="team-role">Socorrista titulado</div>
+            <div class="team-detail">Cobertura acuática durante piscina</div>
+          </div>
+        </div>
+
+        <div class="detail-includes">
+          <h4>Qué incluye</h4>
+          <ul>
+            <li>Estudio previo personalizado e informes psicopedagógicos pre y post</li>
+            <li>Intervenciones educativas y emocionales con caballos y rutas por el campo</li>
+            <li>Actividades acuáticas en piscina con socorrista titulado</li>
+            <li>Material de equitación y seguridad aportado por la organización</li>
+            <li>Seguro de accidentes y responsabilidad civil</li>
+            <li>Presencia de Duque, caballo premiado por COLVEMA</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMOCIONAL DETAIL -->
+    <div class="detail-block" id="emo-detail">
+      <div class="detail-meta reveal">
+        <span class="eyebrow">Línea Emocional</span>
+        <h3 class="detail-heading">Campamento para adolescentes con <em>vulnerabilidad emocional</em></h3>
+        <div class="detail-facts">
+          <div class="detail-fact"><span class="detail-fact-label">Plazas</span><span class="detail-fact-value">6 únicas · Toda España</span></div>
+          <div class="detail-fact"><span class="detail-fact-label">Cuándo</span><span class="detail-fact-value">Julio 2026 · Lun – Vie</span></div>
+          <div class="detail-fact"><span class="detail-fact-label">Horario</span><span class="detail-fact-value">09:00 – 14:00</span></div>
+          <div class="detail-fact"><span class="detail-fact-label">Indicado</span><span class="detail-fact-value">TCA, ansiedad, depresión</span></div>
+          <div class="detail-fact"><span class="detail-fact-label">Clínica</span><span class="detail-fact-value">Psicóloga integrada</span></div>
+        </div>
+      </div>
+
+      <div class="detail-content reveal reveal-delay-1">
+        <div class="detail-body">
+          <p>
+            Una propuesta exclusiva para adolescentes con <strong>TCA, ansiedad,
+            comportamientos autolíticos, ideaciones suicidas, depresión, problemas
+            de autoestima o trastornos de conducta</strong>. No es una propuesta
+            recreativa convencional: es un entorno cuidado, estable y seguro.
+          </p>
+          <p>
+            El trabajo comienza con un estudio previo de necesidades, continúa con
+            el diseño de objetivos claros y realistas y se completa con una
+            evaluación del progreso alcanzado. La <strong>psicóloga clínica está
+            integrada en la dinámica diaria</strong>, no como consulta aparte.
+          </p>
+          <p>
+            Un entorno libre de contaminación digital, con naturaleza, caballos,
+            actividad física y acompañamiento emocional real.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div>
+            <span class="team-count">1</span>
+            <div class="team-role">Psicóloga clínica</div>
+            <div class="team-detail">Integrada en las sesiones diarias</div>
+          </div>
+          <div>
+            <span class="team-count">2</span>
+            <div class="team-role">Técnicos ecuestres</div>
+            <div class="team-detail">Conducen actividades con caballos</div>
+          </div>
+          <div>
+            <span class="team-count">2</span>
+            <div class="team-role">Integradores sociales</div>
+            <div class="team-detail">Apoyo socioeducativo estable</div>
+          </div>
+          <div>
+            <span class="team-count">1</span>
+            <div class="team-role">Socorrista titulado</div>
+            <div class="team-detail">Supervisión actividad acuática</div>
+          </div>
+        </div>
+
+        <div class="detail-includes">
+          <h4>Qué incluye</h4>
+          <ul>
+            <li>Recogida previa de información personal, emocional y familiar relevante</li>
+            <li>Objetivos individualizados y actividades ajustadas a cada adolescente</li>
+            <li>Presencia clínica real dentro de la jornada (no como consulta externa)</li>
+            <li>Mediación con caballos: vínculo, regulación emocional y confianza</li>
+            <li>Actividades acuáticas con socorrista titulado</li>
+            <li>Seguro de accidentes y responsabilidad civil</li>
+            <li>Devolución final a la familia con valoración clara del progreso</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOCATION ─── -->
+<section class="location" id="ubicacion">
+  <div class="wrap">
+    <div class="location-grid">
+      <div class="reveal">
+        <span class="eyebrow">§ VI · Ubicación</span>
+        <h2 class="location-title">Hípica <em>El Carrizal</em> de Cubas</h2>
+        <div class="location-text">
+          <p>
+            Unas instalaciones ecuestres de alta calidad, en un entorno sereno y seguro,
+            diseñadas para acoger la parte más sensible del programa: el vínculo con el caballo.
+          </p>
+          <p>
+            La combinación de pista, campo abierto y piscina permite alternar trabajo
+            estructurado con naturaleza libre, algo clave para la regulación emocional
+            de ambos perfiles.
+          </p>
+        </div>
+
+        <ul class="location-facts">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Cubas de la Sagra · Comunidad de Madrid
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Julio 2026 · Lunes a viernes · 09:00 – 14:00
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10"/><path d="M12 2a15 15 0 0 0-4 10 15 15 0 0 0 4 10"/></svg>
+            Entorno natural libre de contaminación digital
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10a9 9 0 0 0 18 0V7l-9-5z"/><polyline points="9 12 11 14 15 10"/></svg>
+            Instalaciones con piscina y cobertura de socorrista
+          </li>
+        </ul>
+      </div>
+
+      <div class="map-card reveal reveal-delay-1">
+        <svg class="map-decor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="0.5" style="color: var(--bronze);">
+            <circle cx="100" cy="100" r="80"/>
+            <circle cx="100" cy="100" r="60"/>
+            <circle cx="100" cy="100" r="40"/>
+            <line x1="20" y1="100" x2="180" y2="100"/>
+            <line x1="100" y1="20" x2="100" y2="180"/>
+            <line x1="40" y1="40" x2="160" y2="160"/>
+            <line x1="160" y1="40" x2="40" y2="160"/>
+          </g>
+          <circle cx="100" cy="100" r="4" fill="var(--bronze)"/>
+        </svg>
+
+        <div class="map-card-top">
+          <span class="eyebrow">Coordenadas</span>
+          <span class="coords">40.28° N · 3.83° W</span>
+        </div>
+        <div class="map-card-bottom">
+          <div class="map-place">Hípica El Carrizal</div>
+          <div class="map-region">Cubas de la Sagra · Madrid</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST / SEGURIDAD ─── -->
+<section class="trust">
+  <div class="wrap">
+    <div class="section-head-grid reveal">
+      <div class="section-num">§ VII</div>
+      <div>
+        <span class="eyebrow">Seguridad y cobertura</span>
+        <h2 class="display section-title" style="margin-top: 1rem;">Lo delicado se cuida <em>desde antes</em>.</h2>
+        <p class="section-desc">
+          Cada elemento de seguridad viene definido, contratado y documentado antes
+          del primer día. Para que la familia pueda pensar en lo que importa.
+        </p>
+      </div>
+    </div>
+
+    <div class="trust-grid reveal">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10a9 9 0 0 0 18 0V7l-9-5z"/></svg>
+        </div>
+        <h4 class="trust-title">Seguro de accidentes</h4>
+        <p class="trust-text">Cobertura específica para todos los participantes durante la totalidad del programa.</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <h4 class="trust-title">Responsabilidad civil</h4>
+        <p class="trust-text">Seguro de RC contratado por la organización, con la cobertura propia de una actividad especializada.</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h4 class="trust-title">Socorrista titulado</h4>
+        <p class="trust-text">Presencia de socorrista titulado durante todas las actividades acuáticas en piscina.</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <h4 class="trust-title">Material de equitación</h4>
+        <p class="trust-text">Casco, protecciones y material de seguridad aportado por el campamento. Sin coste añadido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta" id="contacto">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="cta-kicker">plazas muy limitadas · reserva personalizada</span>
+      <h2 class="cta-title">Reserva una conversación, <em>no solo una plaza</em>.</h2>
+      <p class="cta-text">
+        Cada participante empieza con un estudio previo. Por eso preferimos conocerte
+        antes. Escríbenos y acordamos una llamada para entender si el programa encaja
+        con lo que tu hijo o hija necesita este verano.
+      </p>
+      <div class="cta-actions">
+        <a href="mailto:info@equxcellent.com?subject=Reserva%20campamento%20Equexcellent&amp;body=Hola,%20me%20gustar%C3%ADa%20reservar%20una%20conversaci%C3%B3n%20sobre%20el%20campamento..." class="btn btn-primary">
+          Escribir a Equexcellent
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#programas" class="btn btn-ghost">Volver a los programas</a>
+      </div>
+    </div>
+
+    <div class="cta-contact reveal reveal-delay-1">
+      <div class="cta-contact-item">
+        <span class="eyebrow">Email</span>
+        <a href="mailto:info@equxcellent.com">info@equxcellent.com</a>
+      </div>
+      <div class="cta-contact-item">
+        <span class="eyebrow">Ubicación</span>
+        <p>Hípica El Carrizal de Cubas<br>Cubas de la Sagra, Madrid</p>
+      </div>
+      <div class="cta-contact-item">
+        <span class="eyebrow">Edición 2026</span>
+        <p>Julio · Lunes a viernes<br>09:00 – 14:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Equexcellent</div>
+        <div class="footer-tagline">Terapias con caballos · Calidad y compromiso</div>
+        <p class="footer-about">
+          Programa diseñado y supervisado con la colaboración altruista de Isabel Vera,
+          Máster en Terapias e Intervenciones Asistidas con Caballos y fundadora del
+          premiado programa “A caballo por la luna”.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Programas</h5>
+        <ul>
+          <li><a href="#tea-detail">Línea TEA</a></li>
+          <li><a href="#emo-detail">Línea Emocional</a></li>
+          <li><a href="#metodo">Metodología</a></li>
+          <li><a href="#equipo">Equipo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:info@equxcellent.com">info@equxcellent.com</a></li>
+          <li><a href="#ubicacion">Hípica El Carrizal</a></li>
+          <li><a href="#contacto">Reservar plaza</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Equexcellent · Todos los derechos reservados</span>
+      <span>Julio 2026 · Primera edición</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Trigger hero entrance animations
+  requestAnimationFrame(() => {
+    document.body.classList.add('loaded');
+  });
+
+  // Nav border on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }, { passive: true });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Fallback: if IntersectionObserver misfires or there's no scroll, reveal after 500ms
+  setTimeout(() => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('in');
+    });
+  }, 500);
+</script>
+</body>
+</html>
