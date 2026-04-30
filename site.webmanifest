@@ -1,0 +1,15 @@
+{
+  "name": "Equexcellent — Terapias con caballos",
+  "short_name": "Equexcellent",
+  "description": "Campamentos de verano de alta especialización para niños y adolescentes con TEA y vulnerabilidad emocional.",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "theme_color": "#2a3d2f",
+  "background_color": "#f5f0e6",
+  "display": "standalone",
+  "lang": "es",
+  "scope": "/",
+  "start_url": "/"
+}
