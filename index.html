@@ -395,16 +395,20 @@
      HERO
      ───────────────────────────────────────────── */
   .hero {
-    min-height: 100vh;
-    padding-top: 9rem;
-    padding-bottom: 4rem;
+    min-height: 100svh;
+    padding-top: 7.5rem;
+    padding-bottom: 3rem;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
   }
   @media (max-width: 600px) {
-    .hero { padding-top: 7rem; }
+    .hero { padding-top: 5.5rem; padding-bottom: 2rem; }
+  }
+  /* On short laptops/landscape phones make sure the CTA fits without scroll. */
+  @media (max-height: 760px) and (min-width: 601px) {
+    .hero { padding-top: 6rem; padding-bottom: 2rem; }
   }
 
   .hero::before {
@@ -487,12 +491,18 @@
   }
 
   .hero-title {
-    font-size: clamp(2.4rem, 8.5vw, 6.5rem);
-    margin: 1.5rem 0 2rem;
+    font-size: clamp(2.2rem, 7.5vw, 5.6rem);
+    margin: 0.75rem 0 1.25rem;
     max-width: 18ch;
     opacity: 0;
     transform: translateY(22px);
     transition: opacity 900ms var(--t-med) 250ms, transform 900ms var(--t-med) 250ms;
+  }
+  @media (max-height: 760px) {
+    .hero-title { font-size: clamp(2rem, 5.6vw, 3.6rem); margin: 0.5rem 0 0.9rem; }
+  }
+  @media (max-width: 600px) {
+    .hero-title { font-size: clamp(2rem, 8vw, 3.2rem); margin: 0.5rem 0 1rem; }
   }
   body.loaded .hero-title { opacity: 1; transform: translateY(0); }
 
@@ -517,10 +527,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 2.5rem;
+    margin-top: 1.75rem;
     opacity: 0;
     transform: translateY(22px);
     transition: opacity 900ms var(--t-med) 550ms, transform 900ms var(--t-med) 550ms;
+  }
+  @media (max-height: 760px), (max-width: 600px) {
+    .hero-actions { margin-top: 1.25rem; }
   }
   body.loaded .hero-actions { opacity: 1; transform: translateY(0); }
 
@@ -556,33 +569,46 @@
   .btn-arrow { transition: transform var(--t-fast); }
   .btn:hover .btn-arrow { transform: translateX(4px); }
 
-  /* Hero meta-strip */
-  .hero-meta {
-    margin-top: 5rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(26,29,26,0.1);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity 900ms var(--t-med) 700ms, transform 900ms var(--t-med) 700ms;
+  /* Hero meta-strip — standalone band that sits just below the hero so the
+     CTA stays in the viewport and these data points are the first thing the
+     visitor sees when they begin scrolling. */
+  .hero-meta-strip {
+    background: linear-gradient(180deg, var(--cream-warm) 0%, var(--cream) 100%);
+    border-top: 1px solid rgba(26,29,26,0.08);
+    border-bottom: 1px solid rgba(26,29,26,0.06);
+    padding: 2rem var(--gutter);
+    position: relative;
+    z-index: 4;
   }
-  body.loaded .hero-meta { opacity: 1; transform: translateY(0); }
+  .hero-meta {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  @media (max-width: 900px) {
+    .hero-meta { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; }
+  }
+  @media (max-width: 480px) {
+    .hero-meta-strip { padding: 1.5rem var(--gutter); }
+    .hero-meta { gap: 1.25rem 1rem; }
+  }
   .hero-meta-item h4 {
     font-family: var(--sans);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--bronze-deep);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.4rem;
   }
   .hero-meta-item p {
     font-family: var(--serif);
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.4vw, 1.1rem);
     color: var(--ink);
     font-weight: 400;
+    line-height: 1.25;
   }
 
   @keyframes rise {
@@ -2344,27 +2370,29 @@
       </a>
       <a href="#inscripcion" class="btn btn-ghost">Reservar plaza</a>
     </div>
-
-    <div class="hero-meta" role="list" aria-label="Datos del programa">
-      <div class="hero-meta-item" role="listitem">
-        <h4>Edición</h4>
-        <p>Julio 2026</p>
-      </div>
-      <div class="hero-meta-item" role="listitem">
-        <h4>Horario</h4>
-        <p>09:00 – 14:00</p>
-      </div>
-      <div class="hero-meta-item" role="listitem">
-        <h4>Plazas TEA</h4>
-        <p>10 en toda España</p>
-      </div>
-      <div class="hero-meta-item" role="listitem">
-        <h4>Plazas Emocional</h4>
-        <p>6 en toda España</p>
-      </div>
-    </div>
   </div>
 </header>
+
+<section class="hero-meta-strip" aria-label="Datos del programa">
+  <div class="hero-meta" role="list">
+    <div class="hero-meta-item" role="listitem">
+      <h4>Edición</h4>
+      <p>Julio 2026</p>
+    </div>
+    <div class="hero-meta-item" role="listitem">
+      <h4>Horario</h4>
+      <p>09:00 – 14:00</p>
+    </div>
+    <div class="hero-meta-item" role="listitem">
+      <h4>Plazas TEA</h4>
+      <p>10 en toda España</p>
+    </div>
+    <div class="hero-meta-item" role="listitem">
+      <h4>Plazas Emocional</h4>
+      <p>6 en toda España</p>
+    </div>
+  </div>
+</section>
 
 <!-- ─── INTRO QUOTE ─── -->
 <section class="intro" aria-label="Filosofía">
