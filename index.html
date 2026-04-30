@@ -2087,59 +2087,77 @@
   }
 
   /* ─── Hero slideshow crossfade ──────────────────
-     Two stacked images that slowly fade between each other while a subtle
-     Ken-Burns zoom keeps the scene alive. The cycle is 16s per image with a
-     2.4s crossfade, and respects prefers-reduced-motion. */
+     Two stacked images that crossfade like a slow carousel: each image is
+     visible ~10s, then there's a 4s smooth fade to the next. Both
+     crossfades are symmetric (same duration in & out) so the loop is
+     seamless and never feels abrupt. A subtle horizontal pan + light
+     Ken-Burns add cinematic motion. */
   .hero img.bg-photo.hero-bg {
     animation:
       bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
-      heroSlideA 32s ease-in-out 1600ms infinite,
-      heroKenBurns 32s ease-in-out 1600ms infinite;
+      heroSlideA 28s cubic-bezier(.45,0,.55,1) 1600ms infinite,
+      heroPanA   28s cubic-bezier(.4,0,.4,1)   1600ms infinite;
   }
   .hero img.bg-photo.hero-bg.hero-bg-2 {
     animation:
       bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
-      heroSlideB 32s ease-in-out 1600ms infinite,
-      heroKenBurnsB 32s ease-in-out 1600ms infinite;
+      heroSlideB 28s cubic-bezier(.45,0,.55,1) 1600ms infinite,
+      heroPanB   28s cubic-bezier(.4,0,.4,1)   1600ms infinite;
   }
+
+  /* Visible window: 0%→35% (10s). Fade-out: 35%→50% (4s).
+     Hidden: 50%→85% (10s).        Fade-in: 85%→100% (4s).
+     Image B is offset by 50% — so when A fades out, B fades in. */
   @keyframes heroSlideA {
-    0%, 45%   { opacity: var(--bg-opacity, 0.72); }
-    55%, 95%  { opacity: 0; }
+    0%, 35%   { opacity: var(--bg-opacity, 0.72); }
+    50%, 85%  { opacity: 0; }
     100%      { opacity: var(--bg-opacity, 0.72); }
   }
   @keyframes heroSlideB {
-    0%, 45%   { opacity: 0; }
-    55%, 95%  { opacity: var(--bg-opacity, 0.72); }
+    0%, 35%   { opacity: 0; }
+    50%, 85%  { opacity: var(--bg-opacity, 0.72); }
     100%      { opacity: 0; }
   }
-  @keyframes heroKenBurns {
-    0%   { transform: scale(1.12); }
-    50%  { transform: scale(1.18) translate(-1.2%, -0.6%); }
-    100% { transform: scale(1.12); }
+
+  /* Pan + scale: drifts gently while visible, returns to start while hidden
+     so the loop is seamless. Image B mirrors image A's pan direction. */
+  @keyframes heroPanA {
+    0%   { transform: scale(1.12) translate3d(0, 0, 0); }
+    35%  { transform: scale(1.16) translate3d(-1.5%, -0.6%, 0); }
+    50%  { transform: scale(1.16) translate3d(-1.5%, -0.6%, 0); }
+    85%  { transform: scale(1.12) translate3d(0, 0, 0); }
+    100% { transform: scale(1.12) translate3d(0, 0, 0); }
   }
-  @keyframes heroKenBurnsB {
-    0%   { transform: scale(1.18) translate(1.2%, 0.6%); }
-    50%  { transform: scale(1.12); }
-    100% { transform: scale(1.18) translate(1.2%, 0.6%); }
+  @keyframes heroPanB {
+    0%   { transform: scale(1.12) translate3d(1.5%, 0.6%, 0); }
+    35%  { transform: scale(1.12) translate3d(1.5%, 0.6%, 0); }
+    50%  { transform: scale(1.12) translate3d(0, 0, 0); }
+    85%  { transform: scale(1.16) translate3d(-1.5%, -0.6%, 0); }
+    100% { transform: scale(1.12) translate3d(1.5%, 0.6%, 0); }
   }
 
-  /* Lighter Ken-Burns on tablets / smaller screens — less GPU load. */
+  /* Slightly lighter motion on tablets — keeps the carousel feel
+     but eases up the GPU work. */
   @media (max-width: 900px) {
     .hero img.bg-photo { object-position: 62% center; }
-    @keyframes heroKenBurns {
-      0%   { transform: scale(1.10); }
-      50%  { transform: scale(1.14) translate(-0.6%, -0.3%); }
-      100% { transform: scale(1.10); }
+    @keyframes heroPanA {
+      0%   { transform: scale(1.10) translate3d(0, 0, 0); }
+      35%  { transform: scale(1.13) translate3d(-1%, -0.4%, 0); }
+      50%  { transform: scale(1.13) translate3d(-1%, -0.4%, 0); }
+      85%  { transform: scale(1.10) translate3d(0, 0, 0); }
+      100% { transform: scale(1.10) translate3d(0, 0, 0); }
     }
-    @keyframes heroKenBurnsB {
-      0%   { transform: scale(1.14) translate(0.6%, 0.3%); }
-      50%  { transform: scale(1.10); }
-      100% { transform: scale(1.14) translate(0.6%, 0.3%); }
+    @keyframes heroPanB {
+      0%   { transform: scale(1.10) translate3d(1%, 0.4%, 0); }
+      35%  { transform: scale(1.10) translate3d(1%, 0.4%, 0); }
+      50%  { transform: scale(1.10) translate3d(0, 0, 0); }
+      85%  { transform: scale(1.13) translate3d(-1%, -0.4%, 0); }
+      100% { transform: scale(1.10) translate3d(1%, 0.4%, 0); }
     }
   }
 
-  /* On phones drop the Ken-Burns entirely (battery / paint cost) but keep
-     the elegant crossfade. Use a static base scale and longer cycle. */
+  /* On phones drop the pan/Ken-Burns entirely (battery / paint cost) but
+     keep the elegant symmetric crossfade. */
   @media (max-width: 600px) {
     .hero img.bg-photo.hero-bg,
     .hero img.bg-photo.hero-bg.hero-bg-2 {
@@ -2149,12 +2167,12 @@
     .hero img.bg-photo.hero-bg {
       animation:
         bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
-        heroSlideA 36s ease-in-out 1600ms infinite;
+        heroSlideA 30s cubic-bezier(.45,0,.55,1) 1600ms infinite;
     }
     .hero img.bg-photo.hero-bg.hero-bg-2 {
       animation:
         bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
-        heroSlideB 36s ease-in-out 1600ms infinite;
+        heroSlideB 30s cubic-bezier(.45,0,.55,1) 1600ms infinite;
     }
   }
 
