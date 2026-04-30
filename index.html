@@ -3,11 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary meta -->
 <title>Equexcellent — Terapias con caballos · Calidad y compromiso</title>
 <meta name="description" content="Campamentos de verano de alta especialización para niños y adolescentes con TEA y vulnerabilidad emocional. Hípica El Carrizal de Cubas. Plazas muy limitadas.">
+<meta name="author" content="Equexcellent">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://equexcellent.com/">
+<meta name="theme-color" content="#2a3d2f">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Equexcellent">
+<meta property="og:title" content="Equexcellent — Terapias con caballos · Calidad y compromiso">
+<meta property="og:description" content="Campamentos de verano de alta especialización para niños y adolescentes con TEA y vulnerabilidad emocional. Hípica El Carrizal de Cubas. Plazas muy limitadas.">
+<meta property="og:url" content="https://equexcellent.com/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Equexcellent — Terapias con caballos · Calidad y compromiso">
+<meta name="twitter:description" content="Campamentos de verano de alta especialización para niños y adolescentes con TEA y vulnerabilidad emocional. Plazas muy limitadas.">
+
+<!-- Fonts -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,30..100;1,9..144,300..900,30..100&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://equexcellent.com/#organization",
+      "name": "Equexcellent",
+      "description": "Terapias con caballos de alta especialización para niños y adolescentes con TEA y vulnerabilidad emocional",
+      "url": "https://equexcellent.com",
+      "email": "info@equxcellent.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cubas de la Sagra",
+        "addressRegion": "Madrid",
+        "addressCountry": "ES"
+      }
+    },
+    {
+      "@type": "Event",
+      "@id": "https://equexcellent.com/#evento-tea-2026",
+      "name": "Campamento ecuestre TEA — Equexcellent Julio 2026",
+      "description": "Campamento de alta especialización para niños y adolescentes con Trastorno del Espectro Autista. Intervención estructurada con caballos, psicóloga clínica e integradores sociales.",
+      "startDate": "2026-07-01",
+      "endDate": "2026-07-31",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Hípica El Carrizal de Cubas",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cubas de la Sagra",
+          "addressRegion": "Madrid",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.28,
+          "longitude": -3.83
+        }
+      },
+      "organizer": { "@id": "https://equexcellent.com/#organization" },
+      "maximumAttendeeCapacity": 10
+    },
+    {
+      "@type": "Event",
+      "@id": "https://equexcellent.com/#evento-emocional-2026",
+      "name": "Campamento ecuestre Emocional — Equexcellent Julio 2026",
+      "description": "Campamento para adolescentes con vulnerabilidad emocional: TCA, ansiedad, depresión. Con psicóloga clínica integrada en la jornada.",
+      "startDate": "2026-07-01",
+      "endDate": "2026-07-31",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Hípica El Carrizal de Cubas",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cubas de la Sagra",
+          "addressRegion": "Madrid",
+          "addressCountry": "ES"
+        }
+      },
+      "organizer": { "@id": "https://equexcellent.com/#organization" },
+      "maximumAttendeeCapacity": 6
+    }
+  ]
+}
+</script>
+
 <style>
   /* ─────────────────────────────────────────────
      Equexcellent — Editorial design system
@@ -51,13 +147,35 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* (Noise texture applied per-section where it adds value — not globally) */
-
   img, svg { max-width: 100%; display: block; }
 
   a { color: inherit; text-decoration: none; }
 
   button { font: inherit; cursor: pointer; border: none; background: none; }
+
+  /* ─── Skip link ─── */
+  .skip-link {
+    position: absolute;
+    top: -120%;
+    left: 1rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--forest);
+    color: var(--cream-warm);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 0 0 4px 4px;
+    z-index: 200;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; outline: 2px solid var(--bronze); outline-offset: 2px; }
+
+  /* ─── Focus styles ─── */
+  :focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
 
   /* ─── Typography ─── */
   .display {
@@ -180,25 +298,53 @@
     display: none;
     width: 28px; height: 20px;
     position: relative;
+    background: none;
+    border: none;
+    padding: 0;
   }
   .nav-toggle span {
     position: absolute;
     left: 0; right: 0;
     height: 1.5px;
     background: var(--forest);
-    transition: transform var(--t-fast);
+    transition: transform var(--t-fast), opacity var(--t-fast);
   }
   .nav-toggle span:nth-child(1) { top: 2px; }
   .nav-toggle span:nth-child(2) { top: 50%; margin-top: -1px; }
   .nav-toggle span:nth-child(3) { bottom: 2px; }
 
+  /* Hamburger → X animation */
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   @media (max-width: 820px) {
     .nav-links a:not(.nav-cta) { display: none; }
   }
   @media (max-width: 500px) {
-    .nav-cta { display: none; }
+    .nav-links { display: none; }
     .nav-toggle { display: block; }
   }
+
+  /* Mobile nav open state */
+  .nav.nav-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(245, 240, 230, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 1.5rem var(--gutter) 2rem;
+    gap: 1.25rem;
+    border-bottom: 1px solid rgba(26,29,26,0.1);
+  }
+  .nav.nav-open .nav-links a:not(.nav-cta) { display: flex; }
+  .nav.nav-open .nav-links a.nav-cta { display: inline-flex; }
+  .nav.nav-open .nav-links a::after { display: none; }
 
   /* ─────────────────────────────────────────────
      HERO
@@ -213,7 +359,6 @@
     overflow: hidden;
   }
 
-  /* Hero background: layered warm gradient + botanical echo */
   .hero::before {
     content: "";
     position: absolute;
@@ -225,7 +370,6 @@
     z-index: -1;
   }
 
-  /* Decorative horse silhouette */
   .hero-decor {
     position: absolute;
     right: -8%;
@@ -1308,17 +1452,43 @@
   .reveal-delay-2 { transition-delay: 160ms; }
   .reveal-delay-3 { transition-delay: 240ms; }
 
-  /* Small text selection */
+  /* Text selection */
   ::selection { background: var(--bronze); color: var(--cream); }
+
+  /* ─────────────────────────────────────────────
+     Reduced motion
+     ───────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      transition-delay: 0ms !important;
+    }
+    .reveal,
+    .hero-top,
+    .hero-title,
+    .hero-sub,
+    .hero-actions,
+    .hero-meta {
+      opacity: 1;
+      transform: none;
+    }
+  }
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Ir al contenido principal</a>
+
 <!-- ─── NAV ─── -->
-<nav class="nav" id="nav">
+<nav class="nav" id="nav" aria-label="Navegación principal">
   <a href="#" class="logo-mark">
-    <span class="logo-glyph">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <span class="logo-glyph" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
         <path d="M5 19c0-4 3-7 7-7s7 3 7 7"/>
         <path d="M12 12V6"/>
         <path d="M12 6c-1.5 0-3-1-3-2.5S10.5 1 12 1s3 1 3 2.5S13.5 6 12 6z"/>
@@ -1327,21 +1497,23 @@
     </span>
     Equexcellent
   </a>
-  <div class="nav-links">
-    <a href="#programas">Programas</a>
-    <a href="#metodo">Metodología</a>
-    <a href="#equipo">Equipo</a>
-    <a href="#ubicacion">Ubicación</a>
-    <a href="#contacto" class="nav-cta">Reservar plaza</a>
+  <div class="nav-links" id="nav-menu" role="list">
+    <a href="#programas" role="listitem">Programas</a>
+    <a href="#metodo" role="listitem">Metodología</a>
+    <a href="#equipo" role="listitem">Equipo</a>
+    <a href="#ubicacion" role="listitem">Ubicación</a>
+    <a href="#contacto" class="nav-cta" role="listitem">Reservar plaza</a>
   </div>
-  <button class="nav-toggle" aria-label="Menú">
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
+<main id="main">
+
 <!-- ─── HERO ─── -->
 <header class="hero">
-  <svg class="hero-decor" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <svg class="hero-decor" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
     <g fill="none" stroke="currentColor" stroke-width="0.6" style="color: var(--forest);">
       <circle cx="300" cy="300" r="270" opacity="0.18"/>
       <circle cx="300" cy="300" r="225" opacity="0.24"/>
@@ -1355,7 +1527,7 @@
 
   <div class="wrap hero-inner">
     <div class="hero-top">
-      <span class="hero-top-line"></span>
+      <span class="hero-top-line" aria-hidden="true"></span>
       <span class="eyebrow">Terapias con caballos · Calidad y compromiso</span>
     </div>
 
@@ -1373,25 +1545,25 @@
     <div class="hero-actions">
       <a href="#programas" class="btn btn-primary">
         Ver los programas
-        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
       <a href="#contacto" class="btn btn-ghost">Reservar plaza</a>
     </div>
 
-    <div class="hero-meta">
-      <div class="hero-meta-item">
+    <div class="hero-meta" role="list" aria-label="Datos del programa">
+      <div class="hero-meta-item" role="listitem">
         <h4>Edición</h4>
         <p>Julio 2026</p>
       </div>
-      <div class="hero-meta-item">
+      <div class="hero-meta-item" role="listitem">
         <h4>Horario</h4>
         <p>09:00 – 14:00</p>
       </div>
-      <div class="hero-meta-item">
+      <div class="hero-meta-item" role="listitem">
         <h4>Plazas TEA</h4>
         <p>10 en toda España</p>
       </div>
-      <div class="hero-meta-item">
+      <div class="hero-meta-item" role="listitem">
         <h4>Plazas Emocional</h4>
         <p>6 en toda España</p>
       </div>
@@ -1400,25 +1572,25 @@
 </header>
 
 <!-- ─── INTRO QUOTE ─── -->
-<section class="intro">
+<section class="intro" aria-label="Filosofía">
   <div class="wrap quote-block reveal">
-    <div class="quote-mark">“</div>
-    <p class="quote-text">
+    <div class="quote-mark" aria-hidden="true">"</div>
+    <blockquote class="quote-text">
       No se trata solo de montar a caballo.
       Se trata de <em>conectar</em>, <em>confiar</em> y <em>crecer</em>.
-    </p>
+    </blockquote>
     <p class="quote-attribution">— metodología Equexcellent</p>
   </div>
 </section>
 
 <!-- ─── PROGRAMS OVERVIEW ─── -->
-<section class="programs" id="programas">
+<section class="programs" id="programas" aria-labelledby="programas-title">
   <div class="wrap">
     <div class="section-head-grid reveal">
-      <div class="section-num">§ I</div>
+      <div class="section-num" aria-hidden="true">§ I</div>
       <div>
         <span class="eyebrow">Programas de verano · Julio 2026</span>
-        <h2 class="display section-title" style="margin-top: 1rem;">Dos líneas. Una sola <em>mirada</em> cuidada.</h2>
+        <h2 id="programas-title" class="display section-title" style="margin-top: 1rem;">Dos líneas. Una sola <em>mirada</em> cuidada.</h2>
         <p class="section-desc">
           Cada programa nace de un perfil real, con objetivos individualizados, equipo especializado
           y una ratio que garantiza atención intensiva. Grupos pequeños por convicción, no por limitación.
@@ -1428,17 +1600,17 @@
 
     <div class="program-grid">
       <!-- TEA -->
-      <article class="program-card tea reveal">
+      <article class="program-card tea reveal" aria-labelledby="card-tea-title">
         <div>
-          <span class="program-badge"><span class="dot"></span>Línea TEA</span>
-          <h3 class="program-title">Niños y adolescentes con <em>Trastorno del Espectro Autista</em></h3>
+          <span class="program-badge"><span class="dot" aria-hidden="true"></span>Línea TEA</span>
+          <h3 id="card-tea-title" class="program-title">Niños y adolescentes con <em>Trastorno del Espectro Autista</em></h3>
           <p class="program-body">
             Intervención estructurada con caballos, integradores sociales y técnicos ecuestres.
             Estudio previo, objetivos personalizados y evaluación final de progreso.
           </p>
         </div>
         <div>
-          <div class="program-stats">
+          <div class="program-stats" aria-label="Estadísticas del programa TEA">
             <div>
               <div class="program-stat-num">10</div>
               <div class="program-stat-label">plazas en toda España</div>
@@ -1450,23 +1622,23 @@
           </div>
           <a href="#tea-detail" class="program-link">
             Explorar programa TEA
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
       </article>
 
       <!-- EMOCIONAL -->
-      <article class="program-card emo reveal reveal-delay-1">
+      <article class="program-card emo reveal reveal-delay-1" aria-labelledby="card-emo-title">
         <div>
-          <span class="program-badge"><span class="dot"></span>Línea Emocional</span>
-          <h3 class="program-title">Adolescentes con <em>vulnerabilidad emocional</em></h3>
+          <span class="program-badge"><span class="dot" aria-hidden="true"></span>Línea Emocional</span>
+          <h3 id="card-emo-title" class="program-title">Adolescentes con <em>vulnerabilidad emocional</em></h3>
           <p class="program-body">
             Para TCA, ansiedad, conductas autolíticas, depresión, baja autoestima
             o trastornos de conducta. Con psicóloga clínica integrada en la jornada.
           </p>
         </div>
         <div>
-          <div class="program-stats">
+          <div class="program-stats" aria-label="Estadísticas del programa Emocional">
             <div>
               <div class="program-stat-num">6</div>
               <div class="program-stat-label">plazas en toda España</div>
@@ -1478,7 +1650,7 @@
           </div>
           <a href="#emo-detail" class="program-link">
             Explorar programa Emocional
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
       </article>
@@ -1487,13 +1659,13 @@
 </section>
 
 <!-- ─── DIFFERENTIATORS ─── -->
-<section class="diff">
+<section class="diff" aria-labelledby="diff-title">
   <div class="wrap">
     <div class="section-head-grid reveal">
-      <div class="section-num">§ II</div>
+      <div class="section-num" aria-hidden="true">§ II</div>
       <div>
         <span class="eyebrow">Lo que nos distingue</span>
-        <h2 class="display section-title" style="margin-top: 1rem;">Cuatro dimensiones, rara vez juntas.</h2>
+        <h2 id="diff-title" class="display section-title" style="margin-top: 1rem;">Cuatro dimensiones, rara vez juntas.</h2>
         <p class="section-desc">
           La mayoría de campamentos destacan en un eje: TEA, inclusión, emocional, naturaleza o animales.
           Reunimos las cuatro dimensiones que el mercado suele ofrecer por separado.
@@ -1503,7 +1675,7 @@
 
     <div class="diff-grid reveal">
       <div class="diff-item">
-        <div class="diff-num">01 / Atención</div>
+        <div class="diff-num" aria-hidden="true">01 / Atención</div>
         <h3 class="diff-title">Individualización real</h3>
         <p class="diff-body">
           Estudio previo, objetivos personalizados e informes psicopedagógicos pre y post intervención.
@@ -1511,7 +1683,7 @@
         </p>
       </div>
       <div class="diff-item">
-        <div class="diff-num">02 / Equipo</div>
+        <div class="diff-num" aria-hidden="true">02 / Equipo</div>
         <h3 class="diff-title">Perfiles clínicos integrados</h3>
         <p class="diff-body">
           Psicóloga clínica, integradores sociales, técnicos ecuestres y socorrista titulado.
@@ -1519,7 +1691,7 @@
         </p>
       </div>
       <div class="diff-item">
-        <div class="diff-num">03 / Entorno</div>
+        <div class="diff-num" aria-hidden="true">03 / Entorno</div>
         <h3 class="diff-title">Caballos con propósito</h3>
         <p class="diff-body">
           No paseos turísticos. Mediación animal orientada a vínculo, regulación emocional y confianza.
@@ -1527,7 +1699,7 @@
         </p>
       </div>
       <div class="diff-item">
-        <div class="diff-num">04 / Seguridad</div>
+        <div class="diff-num" aria-hidden="true">04 / Seguridad</div>
         <h3 class="diff-title">Cobertura sin atajos</h3>
         <p class="diff-body">
           Seguro de accidentes, responsabilidad civil, material de equitación incluido
@@ -1539,13 +1711,13 @@
 </section>
 
 <!-- ─── METHOD ─── -->
-<section class="method" id="metodo">
+<section class="method" id="metodo" aria-labelledby="metodo-title">
   <div class="wrap">
     <div class="section-head-grid reveal">
-      <div class="section-num" style="color: var(--bronze);">§ III</div>
+      <div class="section-num" style="color: var(--bronze);" aria-hidden="true">§ III</div>
       <div>
         <span class="eyebrow">Metodología</span>
-        <h2 class="display section-title" style="margin-top: 1rem;">Un proceso ordenado. <em>Nunca</em> improvisado.</h2>
+        <h2 id="metodo-title" class="display section-title" style="margin-top: 1rem;">Un proceso ordenado. <em>Nunca</em> improvisado.</h2>
         <p class="method-desc">
           Antes de empezar estudiamos al participante. Durante la experiencia, ajustamos.
           Al terminar, devolvemos una valoración que tiene utilidad real para la familia y la escuela.
@@ -1553,50 +1725,50 @@
       </div>
     </div>
 
-    <div class="process reveal">
-      <div class="step">
-        <div class="step-num">I</div>
+    <ol class="process reveal" aria-label="Pasos de la metodología">
+      <li class="step">
+        <div class="step-num" aria-hidden="true">I</div>
         <h3 class="step-title">Estudio previo</h3>
         <p class="step-body">
           Recogemos perfil, sensibilidades, intereses, apoyos previos y prioridades de la familia.
         </p>
-      </div>
-      <div class="step">
-        <div class="step-num">II</div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">II</div>
         <h3 class="step-title">Diseño de objetivos</h3>
         <p class="step-body">
           Objetivos claros y realistas en lo emocional, lo social, la autonomía y el vínculo.
         </p>
-      </div>
-      <div class="step">
-        <div class="step-num">III</div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">III</div>
         <h3 class="step-title">Intervención individualizada</h3>
         <p class="step-body">
           El caballo, el entorno y el acompañamiento profesional como herramientas de intervención.
         </p>
-      </div>
-      <div class="step">
-        <div class="step-num">IV</div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">IV</div>
         <h3 class="step-title">Evaluación del progreso</h3>
         <p class="step-body">
           Valoración observada durante y al final del proceso. Devolución clara a la familia.
         </p>
-      </div>
-    </div>
+      </li>
+    </ol>
   </div>
 </section>
 
 <!-- ─── FEATURE (Isabel + Duque) ─── -->
-<section class="feature" id="equipo">
+<section class="feature" id="equipo" aria-labelledby="equipo-title">
   <div class="wrap">
     <div class="section-head-grid reveal">
-      <div class="section-num">§ IV</div>
+      <div class="section-num" aria-hidden="true">§ IV</div>
       <div>
         <span class="eyebrow">Detrás del programa</span>
-        <h2 class="display section-title" style="margin-top: 1rem;">Una metodología premiada, un caballo <em>reconocido</em>.</h2>
+        <h2 id="equipo-title" class="display section-title" style="margin-top: 1rem;">Una metodología premiada, un caballo <em>reconocido</em>.</h2>
         <p class="section-desc">
           Equexcellent nace con la colaboración altruista de Isabel Vera, creadora del programa
-          “A caballo por la luna”, y cuenta con Duque, uno de los caballos más emblemáticos
+          "A caballo por la luna", y cuenta con Duque, uno de los caballos más emblemáticos
           vinculados a esa trayectoria.
         </p>
       </div>
@@ -1604,10 +1776,10 @@
 
     <div class="feature-grid">
       <!-- Isabel -->
-      <article class="feature-card reveal">
-        <div class="feature-visual">
+      <article class="feature-card reveal" aria-labelledby="isabel-name">
+        <div class="feature-visual" aria-hidden="true">
           <div class="feature-visual-content">
-            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <circle cx="36" cy="28" r="10"/>
               <path d="M20 58c0-8 7-14 16-14s16 6 16 14"/>
               <circle cx="36" cy="36" r="30" stroke-dasharray="2 4"/>
@@ -1616,11 +1788,11 @@
           </div>
         </div>
         <span class="feature-tag">Diseño y supervisión</span>
-        <h3 class="feature-name">Isabel Vera</h3>
+        <h3 id="isabel-name" class="feature-name">Isabel Vera</h3>
         <p class="feature-role">Máster en Terapias e Intervenciones Asistidas con Caballos (TEIAC)</p>
         <div class="feature-text">
           <p>
-            Fundadora del <strong>premiado programa “A caballo por la luna”</strong>
+            Fundadora del <strong>premiado programa "A caballo por la luna"</strong>
             y presidenta de la asociación Caballo Educa.
           </p>
           <p>
@@ -1632,11 +1804,10 @@
       </article>
 
       <!-- Duque -->
-      <article class="feature-card reveal reveal-delay-1">
-        <div class="feature-visual">
+      <article class="feature-card reveal reveal-delay-1" aria-labelledby="duque-name">
+        <div class="feature-visual" aria-hidden="true">
           <div class="feature-visual-content">
-            <svg width="100" height="88" viewBox="0 0 100 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <!-- Stylized horse head -->
+            <svg width="100" height="88" viewBox="0 0 100 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M30 75c0-4 2-8 3-11 2-4 1-8-1-12-3-5-5-11-5-18 0-10 6-18 15-22 6-3 13-3 19-1 5 2 9 6 12 11 3 4 5 9 7 14 1 3 3 5 6 5 2 0 3 2 3 4 0 3-2 5-5 6-3 0-6-1-8-3-1-1-2-1-3 0-3 4-4 9-3 14 0 4-1 8-4 10-2 2-5 3-8 3h-12c-5 0-9 0-12-1-2-1-4 0-4 1z"/>
               <path d="M42 50c2 0 4-1 4-3"/>
               <circle cx="48" cy="42" r="1.5" fill="currentColor"/>
@@ -1645,12 +1816,12 @@
           </div>
         </div>
         <span class="feature-tag">Caballo del programa</span>
-        <h3 class="feature-name">Duque</h3>
+        <h3 id="duque-name" class="feature-name">Duque</h3>
         <p class="feature-role">Reconocido por su compromiso emocional con los jóvenes</p>
         <div class="feature-text">
           <p>
             Uno de los animales más emblemáticos vinculados al programa
-            <strong>“A caballo por la luna”</strong>. Su sensibilidad y trayectoria
+            <strong>"A caballo por la luna"</strong>. Su sensibilidad y trayectoria
             lo convierten en un compañero excepcional para el trabajo terapéutico.
           </p>
         </div>
@@ -1664,10 +1835,10 @@
 </section>
 
 <!-- ─── DETAILED PROGRAMS ─── -->
-<section class="detail">
+<section class="detail" aria-labelledby="detail-heading">
   <div class="wrap">
     <div class="section-head reveal" style="margin-bottom: 2rem;">
-      <span class="eyebrow">§ V · Los dos programas en detalle</span>
+      <span id="detail-heading" class="eyebrow">§ V · Los dos programas en detalle</span>
     </div>
 
     <!-- TEA DETAIL -->
@@ -1675,13 +1846,28 @@
       <div class="detail-meta reveal">
         <span class="eyebrow">Línea TEA</span>
         <h3 class="detail-heading">Campamento ecuestre <em>premium</em> para niños y adolescentes con TEA</h3>
-        <div class="detail-facts">
-          <div class="detail-fact"><span class="detail-fact-label">Plazas</span><span class="detail-fact-value">10 únicas · Toda España</span></div>
-          <div class="detail-fact"><span class="detail-fact-label">Cuándo</span><span class="detail-fact-value">Julio 2026 · Lun – Vie</span></div>
-          <div class="detail-fact"><span class="detail-fact-label">Horario</span><span class="detail-fact-value">09:00 – 14:00</span></div>
-          <div class="detail-fact"><span class="detail-fact-label">Dónde</span><span class="detail-fact-value">Hípica El Carrizal de Cubas</span></div>
-          <div class="detail-fact"><span class="detail-fact-label">Edición</span><span class="detail-fact-value">Primera · 2026</span></div>
-        </div>
+        <dl class="detail-facts">
+          <div class="detail-fact">
+            <dt class="detail-fact-label">Plazas</dt>
+            <dd class="detail-fact-value">10 únicas · Toda España</dd>
+          </div>
+          <div class="detail-fact">
+            <dt class="detail-fact-label">Cuándo</dt>
+            <dd class="detail-fact-value">Julio 2026 · Lun – Vie</dd>
+          </div>
+          <div class="detail-fact">
+            <dt class="detail-fact-label">Horario</dt>
+            <dd class="detail-fact-value">09:00 – 14:00</dd>
+          </div>
+          <div class="detail-fact">
+            <dt class="detail-fact-label">Dónde</dt>
+            <dd class="detail-fact-value">Hípica El Carrizal de Cubas</dd>
+          </div>
+          <div class="detail-fact">
+            <dt class="detail-fact-label">Edición</dt>
+            <dd class="detail-fact-value">Primera · 2026</dd>
+          </div>
+        </dl>
       </div>
 
       <div class="detail-content reveal reveal-delay-1">
@@ -1700,24 +1886,24 @@
           </p>
         </div>
 
-        <div class="team-grid">
+        <div class="team-grid" aria-label="Equipo TEA">
           <div>
-            <span class="team-count">1</span>
+            <span class="team-count" aria-label="1">1</span>
             <div class="team-role">Psicólogo/a clínico/a</div>
             <div class="team-detail">Presencia permanente en la franja central</div>
           </div>
           <div>
-            <span class="team-count">2</span>
+            <span class="team-count" aria-label="2">2</span>
             <div class="team-role">Integradores sociales</div>
             <div class="team-detail">Apoyo socioeducativo y anticipación</div>
           </div>
           <div>
-            <span class="team-count">4</span>
+            <span class="team-count" aria-label="4">4</span>
             <div class="team-role">Técnicos ecuestres</div>
             <div class="team-detail">Seguridad y dinámicas con caballos</div>
           </div>
           <div>
-            <span class="team-count">1</span>
+            <span class="team-count" aria-label="1">1</span>
             <div class="team-role">Socorrista titulado</div>
             <div class="team-detail">Cobertura acuática durante piscina</div>
           </div>
@@ -1742,13 +1928,28 @@
       <div class="detail-meta reveal">
         <span class="eyebrow">Línea Emocional</span>
         <h3 class="detail-heading">Campamento para adolescentes con <em>vulnerabilidad emocional</em></h3>
-        <div class="detail-facts">
-          <div class="detail-fact"><span class="detail-fact-label">Plazas</span><span class="detail-fact-value">6 únicas · Toda España</span></div>
-          <div class="detail-fact"><span class="detail-fact-label">Cuándo</span><span class="detail-fact-value">Julio 2026 · Lun – Vie</span></div>
-          <div class="detail-fact"><span class="detail-fact-label">Horario</span><span class="detail-fact-value">09:00 – 14:00</span></div>
-          <div class="detail-fact"><span class="detail-fact-label">Indicado</span><span class="detail-fact-value">TCA, ansiedad, depresión</span></div>
-          <div class="detail-fact"><span class="detail-fact-label">Clínica</span><span class="detail-fact-value">Psicóloga integrada</span></div>
-        </div>
+        <dl class="detail-facts">
+          <div class="detail-fact">
+            <dt class="detail-fact-label">Plazas</dt>
+            <dd class="detail-fact-value">6 únicas · Toda España</dd>
+          </div>
+          <div class="detail-fact">
+            <dt class="detail-fact-label">Cuándo</dt>
+            <dd class="detail-fact-value">Julio 2026 · Lun – Vie</dd>
+          </div>
+          <div class="detail-fact">
+            <dt class="detail-fact-label">Horario</dt>
+            <dd class="detail-fact-value">09:00 – 14:00</dd>
+          </div>
+          <div class="detail-fact">
+            <dt class="detail-fact-label">Indicado</dt>
+            <dd class="detail-fact-value">TCA, ansiedad, depresión</dd>
+          </div>
+          <div class="detail-fact">
+            <dt class="detail-fact-label">Clínica</dt>
+            <dd class="detail-fact-value">Psicóloga integrada</dd>
+          </div>
+        </dl>
       </div>
 
       <div class="detail-content reveal reveal-delay-1">
@@ -1771,24 +1972,24 @@
           </p>
         </div>
 
-        <div class="team-grid">
+        <div class="team-grid" aria-label="Equipo Emocional">
           <div>
-            <span class="team-count">1</span>
+            <span class="team-count" aria-label="1">1</span>
             <div class="team-role">Psicóloga clínica</div>
             <div class="team-detail">Integrada en las sesiones diarias</div>
           </div>
           <div>
-            <span class="team-count">2</span>
+            <span class="team-count" aria-label="2">2</span>
             <div class="team-role">Técnicos ecuestres</div>
             <div class="team-detail">Conducen actividades con caballos</div>
           </div>
           <div>
-            <span class="team-count">2</span>
+            <span class="team-count" aria-label="2">2</span>
             <div class="team-role">Integradores sociales</div>
             <div class="team-detail">Apoyo socioeducativo estable</div>
           </div>
           <div>
-            <span class="team-count">1</span>
+            <span class="team-count" aria-label="1">1</span>
             <div class="team-role">Socorrista titulado</div>
             <div class="team-detail">Supervisión actividad acuática</div>
           </div>
@@ -1812,12 +2013,12 @@
 </section>
 
 <!-- ─── LOCATION ─── -->
-<section class="location" id="ubicacion">
+<section class="location" id="ubicacion" aria-labelledby="ubicacion-title">
   <div class="wrap">
     <div class="location-grid">
       <div class="reveal">
         <span class="eyebrow">§ VI · Ubicación</span>
-        <h2 class="location-title">Hípica <em>El Carrizal</em> de Cubas</h2>
+        <h2 id="ubicacion-title" class="location-title">Hípica <em>El Carrizal</em> de Cubas</h2>
         <div class="location-text">
           <p>
             Unas instalaciones ecuestres de alta calidad, en un entorno sereno y seguro,
@@ -1832,26 +2033,26 @@
 
         <ul class="location-facts">
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Cubas de la Sagra · Comunidad de Madrid
           </li>
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             Julio 2026 · Lunes a viernes · 09:00 – 14:00
           </li>
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10"/><path d="M12 2a15 15 0 0 0-4 10 15 15 0 0 0 4 10"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10"/><path d="M12 2a15 15 0 0 0-4 10 15 15 0 0 0 4 10"/></svg>
             Entorno natural libre de contaminación digital
           </li>
           <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10a9 9 0 0 0 18 0V7l-9-5z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2 3 7v10a9 9 0 0 0 18 0V7l-9-5z"/><polyline points="9 12 11 14 15 10"/></svg>
             Instalaciones con piscina y cobertura de socorrista
           </li>
         </ul>
       </div>
 
-      <div class="map-card reveal reveal-delay-1">
-        <svg class="map-decor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <div class="map-card reveal reveal-delay-1" aria-label="Coordenadas: Hípica El Carrizal, Cubas de la Sagra, Madrid">
+        <svg class="map-decor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
           <g fill="none" stroke="currentColor" stroke-width="0.5" style="color: var(--bronze);">
             <circle cx="100" cy="100" r="80"/>
             <circle cx="100" cy="100" r="60"/>
@@ -1878,13 +2079,13 @@
 </section>
 
 <!-- ─── TRUST / SEGURIDAD ─── -->
-<section class="trust">
+<section class="trust" aria-labelledby="trust-title">
   <div class="wrap">
     <div class="section-head-grid reveal">
-      <div class="section-num">§ VII</div>
+      <div class="section-num" aria-hidden="true">§ VII</div>
       <div>
         <span class="eyebrow">Seguridad y cobertura</span>
-        <h2 class="display section-title" style="margin-top: 1rem;">Lo delicado se cuida <em>desde antes</em>.</h2>
+        <h2 id="trust-title" class="display section-title" style="margin-top: 1rem;">Lo delicado se cuida <em>desde antes</em>.</h2>
         <p class="section-desc">
           Cada elemento de seguridad viene definido, contratado y documentado antes
           del primer día. Para que la familia pueda pensar en lo que importa.
@@ -1894,31 +2095,31 @@
 
     <div class="trust-grid reveal">
       <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10a9 9 0 0 0 18 0V7l-9-5z"/></svg>
+        <div class="trust-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2 3 7v10a9 9 0 0 0 18 0V7l-9-5z"/></svg>
         </div>
-        <h4 class="trust-title">Seguro de accidentes</h4>
+        <h3 class="trust-title">Seguro de accidentes</h3>
         <p class="trust-text">Cobertura específica para todos los participantes durante la totalidad del programa.</p>
       </div>
       <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+        <div class="trust-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
         </div>
-        <h4 class="trust-title">Responsabilidad civil</h4>
+        <h3 class="trust-title">Responsabilidad civil</h3>
         <p class="trust-text">Seguro de RC contratado por la organización, con la cobertura propia de una actividad especializada.</p>
       </div>
       <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        <div class="trust-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
-        <h4 class="trust-title">Socorrista titulado</h4>
+        <h3 class="trust-title">Socorrista titulado</h3>
         <p class="trust-text">Presencia de socorrista titulado durante todas las actividades acuáticas en piscina.</p>
       </div>
       <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+        <div class="trust-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
         </div>
-        <h4 class="trust-title">Material de equitación</h4>
+        <h3 class="trust-title">Material de equitación</h3>
         <p class="trust-text">Casco, protecciones y material de seguridad aportado por el campamento. Sin coste añadido.</p>
       </div>
     </div>
@@ -1926,11 +2127,11 @@
 </section>
 
 <!-- ─── CTA ─── -->
-<section class="cta" id="contacto">
+<section class="cta" id="contacto" aria-labelledby="cta-title">
   <div class="wrap">
     <div class="reveal">
       <span class="cta-kicker">plazas muy limitadas · reserva personalizada</span>
-      <h2 class="cta-title">Reserva una conversación, <em>no solo una plaza</em>.</h2>
+      <h2 id="cta-title" class="cta-title">Reserva una conversación, <em>no solo una plaza</em>.</h2>
       <p class="cta-text">
         Cada participante empieza con un estudio previo. Por eso preferimos conocerte
         antes. Escríbenos y acordamos una llamada para entender si el programa encaja
@@ -1939,7 +2140,7 @@
       <div class="cta-actions">
         <a href="mailto:info@equxcellent.com?subject=Reserva%20campamento%20Equexcellent&amp;body=Hola,%20me%20gustar%C3%ADa%20reservar%20una%20conversaci%C3%B3n%20sobre%20el%20campamento..." class="btn btn-primary">
           Escribir a Equexcellent
-          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a href="#programas" class="btn btn-ghost">Volver a los programas</a>
       </div>
@@ -1962,8 +2163,10 @@
   </div>
 </section>
 
+</main><!-- /#main -->
+
 <!-- ─── FOOTER ─── -->
-<footer>
+<footer aria-label="Pie de página">
   <div class="wrap">
     <div class="footer-grid">
       <div>
@@ -1972,10 +2175,10 @@
         <p class="footer-about">
           Programa diseñado y supervisado con la colaboración altruista de Isabel Vera,
           Máster en Terapias e Intervenciones Asistidas con Caballos y fundadora del
-          premiado programa “A caballo por la luna”.
+          premiado programa "A caballo por la luna".
         </p>
       </div>
-      <div class="footer-col">
+      <nav class="footer-col" aria-label="Programas">
         <h5>Programas</h5>
         <ul>
           <li><a href="#tea-detail">Línea TEA</a></li>
@@ -1983,15 +2186,15 @@
           <li><a href="#metodo">Metodología</a></li>
           <li><a href="#equipo">Equipo</a></li>
         </ul>
-      </div>
-      <div class="footer-col">
+      </nav>
+      <nav class="footer-col" aria-label="Contacto">
         <h5>Contacto</h5>
         <ul>
           <li><a href="mailto:info@equxcellent.com">info@equxcellent.com</a></li>
           <li><a href="#ubicacion">Hípica El Carrizal</a></li>
           <li><a href="#contacto">Reservar plaza</a></li>
         </ul>
-      </div>
+      </nav>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Equexcellent · Todos los derechos reservados</span>
@@ -2001,37 +2204,79 @@
 </footer>
 
 <script>
-  // Trigger hero entrance animations
-  requestAnimationFrame(() => {
-    document.body.classList.add('loaded');
-  });
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Nav border on scroll
+  // Hero entrance animations
+  if (!prefersReducedMotion) {
+    requestAnimationFrame(() => document.body.classList.add('loaded'));
+  } else {
+    document.body.classList.add('loaded');
+  }
+
+  // Nav border on scroll (debounced)
   const nav = document.getElementById('nav');
+  let scrollTicking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
   }, { passive: true });
 
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  // Mobile nav toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
 
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  navToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  });
 
-  // Fallback: if IntersectionObserver misfires or there's no scroll, reveal after 500ms
-  setTimeout(() => {
-    document.querySelectorAll('.reveal').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) el.classList.add('in');
+  // Close mobile nav on link click
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Abrir menú');
     });
-  }, 500);
+  });
+
+  // Close mobile nav on outside click
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('nav-open') && !nav.contains(e.target)) {
+      nav.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Abrir menú');
+    }
+  });
+
+  // Scroll reveal
+  if (!prefersReducedMotion) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Fallback for elements already in viewport
+    setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+      });
+    }, 500);
+  } else {
+    // Skip animations for reduced motion
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
 </script>
 </body>
 </html>
