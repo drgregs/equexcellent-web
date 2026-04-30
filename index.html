@@ -1982,30 +1982,30 @@
   /* ─────────────────────────────────────────────
      Background photos (editorial, blurred, atmospheric)
      ───────────────────────────────────────────── */
-  .bg-photo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+  img.bg-photo {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover;
     object-position: center;
-    filter: blur(8px) saturate(1.05);
-    opacity: 0;
     pointer-events: none;
     transform: scale(1.12);
-    z-index: 0;
-    transition: opacity 1400ms cubic-bezier(.25,.1,.25,1), transform 12000ms ease-out;
+    z-index: 0 !important;
     will-change: transform, opacity;
+    animation: bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both;
   }
-  .bg-photo.loaded { opacity: var(--bg-opacity, 0.18); }
-  .bg-photo.parallax { transform: scale(1.12) translate3d(0, var(--bg-parallax, 0), 0); }
+  @keyframes bgFadeIn {
+    from { opacity: 0; }
+    to   { opacity: var(--bg-opacity, 0.32); }
+  }
 
   /* Section-specific photo treatments */
-  .hero      .bg-photo { --bg-opacity: 0.22; filter: blur(8px) saturate(1.05) contrast(1.05); }
-  .programs  .bg-photo { --bg-opacity: 0.10; filter: blur(16px) saturate(0.85); }
-  .method    .bg-photo { --bg-opacity: 0.30; filter: blur(8px) saturate(1.15) contrast(1.1); mix-blend-mode: luminosity; }
-  .location  .bg-photo { --bg-opacity: 0.32; filter: blur(7px) saturate(1.1); mix-blend-mode: luminosity; }
-  .cta       .bg-photo { --bg-opacity: 0.10; filter: blur(18px) saturate(0.9); }
+  .hero      img.bg-photo { --bg-opacity: 0.38; filter: blur(6px) saturate(1.1) contrast(1.05); }
+  .programs  img.bg-photo { --bg-opacity: 0.18; filter: blur(14px) saturate(0.9); }
+  .method    img.bg-photo { --bg-opacity: 0.45; filter: blur(7px) saturate(1.15) contrast(1.1); }
+  .location  img.bg-photo { --bg-opacity: 0.45; filter: blur(6px) saturate(1.1); }
+  .cta       img.bg-photo { --bg-opacity: 0.16; filter: blur(16px) saturate(0.9); }
 
   /* Sections that host bg-photo need positioning context */
   .programs, .forms, .cta {
@@ -2015,27 +2015,32 @@
 
   /* All content wraps must be above bg-photo */
   .hero .hero-inner,
-  .programs .wrap,
-  .method .wrap,
-  .location .wrap,
-  .cta .wrap {
+  .programs > .wrap,
+  .method > .wrap,
+  .location > .wrap,
+  .cta > .wrap {
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 
   /* Existing ::before gradients now act as a soft tint OVER the photo */
-  .hero::before { z-index: 1; }
-  .method::before { z-index: 1; }
-  .location::before { z-index: 1; }
-  .cta::before { z-index: 1; }
+  .hero::before,
+  .method::before,
+  .location::before,
+  .cta::before {
+    z-index: 1 !important;
+  }
 
   /* Replace hero opaque cream linear-gradient with semi-transparent tint */
   .hero::before {
     background:
       radial-gradient(ellipse 80% 60% at 80% 20%, rgba(184,149,77,0.18), transparent 60%),
       radial-gradient(ellipse 100% 80% at 20% 100%, rgba(42,61,47,0.12), transparent 60%),
-      linear-gradient(180deg, rgba(249,244,235,0.55) 0%, rgba(245,240,230,0.75) 100%);
+      linear-gradient(180deg, rgba(249,244,235,0.40) 0%, rgba(245,240,230,0.60) 100%) !important;
   }
+
+  /* Make programs section bg semi-transparent so photo shows through */
+  .programs { background: rgba(245,240,230,0.5) !important; }
 
   /* Vignette overlay on dark sections to deepen edges */
   .method::after,
@@ -2045,7 +2050,7 @@
     inset: 0;
     background: radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(28,42,32,0.55) 100%);
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
   }
 
   /* ─────────────────────────────────────────────
@@ -3683,16 +3688,11 @@
   }
 
   // ───────────────────────────────────────────────
-  // BACKGROUND PHOTOS — fade in & parallax
+  // BACKGROUND PHOTOS — error fallback (CSS handles fade-in)
   // ───────────────────────────────────────────────
   const bgPhotos = document.querySelectorAll('.bg-photo');
   bgPhotos.forEach(img => {
-    if (img.complete && img.naturalWidth > 0) {
-      requestAnimationFrame(() => img.classList.add('loaded'));
-    } else {
-      img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
-      img.addEventListener('error', () => img.style.display = 'none', { once: true });
-    }
+    img.addEventListener('error', () => img.style.display = 'none', { once: true });
   });
 
   // ───────────────────────────────────────────────
@@ -3710,11 +3710,10 @@
       bgPhotos.forEach(img => {
         const rect = img.parentElement.getBoundingClientRect();
         const winH = window.innerHeight;
-        // Element progress through viewport: 0 (entering bottom) → 1 (exiting top)
+        if (rect.bottom < -200 || rect.top > winH + 200) return; // skip if far off-screen
         const progress = (winH - rect.top) / (winH + rect.height);
-        const offset = (progress - 0.5) * 60; // up to ±30px
-        img.style.setProperty('--bg-parallax', `${offset}px`);
-        img.classList.add('parallax');
+        const offset = (progress - 0.5) * 60;
+        img.style.transform = `scale(1.12) translate3d(0, ${offset}px, 0)`;
       });
       parallaxTicking = false;
     }
