@@ -43,7 +43,7 @@
       "name": "Equexcellent",
       "description": "Terapias con caballos de alta especialización para niños y adolescentes con TEA y vulnerabilidad emocional",
       "url": "https://equexcellent.com",
-      "email": "info@equxcellent.com",
+      "email": "info@equexcellent.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Cubas de la Sagra",
@@ -247,13 +247,16 @@
     letter-spacing: 0.04em;
     color: var(--forest);
   }
-  .logo-glyph {
-    width: 32px; height: 32px;
-    display: grid; place-items: center;
-    background: var(--forest);
-    color: var(--cream);
-    border-radius: 50%;
-    font-size: 0.85rem;
+  .logo-mark img {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+  .logo-mark .logo-text {
+    display: none;
+  }
+  @media (max-width: 380px) {
+    .logo-mark img { height: 32px; }
   }
 
   .nav-links {
@@ -607,13 +610,36 @@
     margin-top: 1rem;
   }
 
+  .separation-note {
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1.1rem;
+    background: linear-gradient(135deg, rgba(184,149,77,0.12), rgba(184,149,77,0.04));
+    border: 1px solid rgba(184,149,77,0.25);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--forest);
+    letter-spacing: 0.02em;
+  }
+  .separation-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--bronze);
+    animation: pulse 2.5s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
   .program-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
+    position: relative;
   }
   @media (max-width: 820px) {
-    .program-grid { grid-template-columns: 1fr; }
+    .program-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   }
 
   .program-card {
@@ -720,6 +746,12 @@
     letter-spacing: 0.02em;
   }
 
+  .program-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.75rem;
+    align-items: center;
+  }
   .program-link {
     display: inline-flex;
     align-items: center;
@@ -728,11 +760,17 @@
     font-weight: 600;
     color: var(--cream-warm);
     letter-spacing: 0.03em;
-    transition: gap var(--t-fast);
+    transition: gap var(--t-fast), color var(--t-fast);
     width: fit-content;
   }
   .program-link:hover { gap: 1rem; }
   .program-link svg { width: 16px; height: 16px; }
+  .program-link-alt {
+    color: var(--bronze);
+    border-bottom: 1px solid rgba(184,149,77,0.4);
+    padding-bottom: 2px;
+  }
+  .program-link-alt:hover { color: var(--cream-warm); border-bottom-color: var(--bronze); }
 
   /* ─────────────────────────────────────────────
      DIFFERENTIATORS
@@ -1456,6 +1494,322 @@
   ::selection { background: var(--bronze); color: var(--cream); }
 
   /* ─────────────────────────────────────────────
+     INSCRIPCIÓN / FORMS
+     ───────────────────────────────────────────── */
+  .forms {
+    background: var(--cream-warm);
+    position: relative;
+  }
+  .forms::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--stone), transparent);
+  }
+
+  .form-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 0;
+    margin-top: 1rem;
+  }
+  @media (max-width: 700px) {
+    .form-tabs { grid-template-columns: 1fr; }
+  }
+
+  .form-tab {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem 1.75rem;
+    background: var(--white-warm);
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color var(--t-fast), background var(--t-fast), transform var(--t-fast);
+    font: inherit;
+    color: inherit;
+  }
+  .form-tab:hover {
+    border-color: var(--bronze);
+    transform: translateY(-2px);
+  }
+  .form-tab[aria-selected="true"] {
+    border-color: var(--forest);
+    background: var(--forest);
+    color: var(--cream-warm);
+  }
+  .form-tab-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: var(--bronze);
+    line-height: 1;
+    flex-shrink: 0;
+    font-variation-settings: "opsz" 144;
+  }
+  .form-tab[aria-selected="true"] .form-tab-num { color: var(--bronze); }
+  .form-tab-label { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-tab-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+  }
+  .form-tab[aria-selected="true"] .form-tab-eyebrow { color: var(--bronze); }
+  .form-tab-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--forest);
+    font-variation-settings: "opsz" 30;
+  }
+  .form-tab[aria-selected="true"] .form-tab-title { color: var(--cream-warm); }
+
+  .form-panel {
+    margin-top: 2.5rem;
+    padding: clamp(1.75rem, 4vw, 3rem);
+    background: var(--white-warm);
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+  }
+  .form-panel[hidden] { display: none; }
+
+  .form-intro {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, rgba(184,149,77,0.08), rgba(184,149,77,0.02));
+    border-left: 2px solid var(--bronze);
+    margin-bottom: 2.5rem;
+  }
+
+  .form-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 2.5rem;
+  }
+  .form-fieldset legend {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--forest);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-variation-settings: "opsz" 30, "SOFT" 50;
+    width: 100%;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--stone);
+  }
+  .form-legend-num {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--bronze-deep);
+    letter-spacing: 0.05em;
+    font-variation-settings: "opsz" 30;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+  .form-row-single { grid-template-columns: 1fr; }
+  .form-field-full { grid-column: 1 / -1; }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .form-label {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+  }
+  .form-help {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 0.3rem;
+    line-height: 1.4;
+  }
+
+  .form-field input[type="text"],
+  .form-field input[type="email"],
+  .form-field input[type="tel"],
+  .form-field input[type="number"],
+  .form-field input[type="date"],
+  .form-field textarea,
+  .form-field select {
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--ink);
+    padding: 0.85rem 1rem;
+    background: var(--cream-warm);
+    border: 1px solid var(--stone);
+    border-radius: 3px;
+    transition: border-color var(--t-fast), background var(--t-fast), box-shadow var(--t-fast);
+    width: 100%;
+  }
+  .form-field input:hover,
+  .form-field textarea:hover,
+  .form-field select:hover {
+    border-color: var(--sage);
+  }
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    outline: none;
+    border-color: var(--forest);
+    background: var(--white-warm);
+    box-shadow: 0 0 0 3px rgba(184,149,77,0.15);
+  }
+  .form-field textarea {
+    min-height: 90px;
+    resize: vertical;
+    font-family: var(--sans);
+    line-height: 1.5;
+  }
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: rgba(58,63,58,0.5);
+  }
+
+  .form-checks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.3rem;
+  }
+  .form-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 1rem;
+    background: var(--cream-warm);
+    border: 1px solid var(--stone);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color var(--t-fast), background var(--t-fast), color var(--t-fast);
+  }
+  .form-check:hover { border-color: var(--bronze); }
+  .form-check input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    border: 1.5px solid var(--sage);
+    border-radius: 3px;
+    background: var(--white-warm);
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: border-color var(--t-fast), background var(--t-fast);
+  }
+  .form-check input:checked {
+    border-color: var(--forest);
+    background: var(--forest);
+  }
+  .form-check input:checked::after {
+    content: "";
+    position: absolute;
+    top: 1px; left: 4px;
+    width: 4px; height: 8px;
+    border: solid var(--cream-warm);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .form-check:has(input:checked) {
+    background: rgba(42,61,47,0.06);
+    border-color: var(--forest);
+    color: var(--forest);
+    font-weight: 500;
+  }
+  .form-check input:focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: 2px;
+  }
+
+  .form-consent {
+    margin-top: 1rem;
+    padding: 1.25rem;
+    background: var(--cream-warm);
+    border: 1px solid var(--stone);
+    border-radius: 3px;
+  }
+  .form-consent label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.55;
+    cursor: pointer;
+  }
+  .form-consent label + label { margin-top: 0.85rem; }
+  .form-consent input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--sage);
+    border-radius: 3px;
+    background: var(--white-warm);
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 1px;
+    cursor: pointer;
+  }
+  .form-consent input[type="checkbox"]:checked {
+    border-color: var(--forest);
+    background: var(--forest);
+  }
+  .form-consent input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 2px; left: 5px;
+    width: 5px; height: 10px;
+    border: solid var(--cream-warm);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .form-submit-row {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--stone);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+  .form-submit-note {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    max-width: 32ch;
+    line-height: 1.5;
+  }
+
+  /* ─────────────────────────────────────────────
      Reduced motion
      ───────────────────────────────────────────── */
   @media (prefers-reduced-motion: reduce) {
@@ -1486,22 +1840,15 @@
 
 <!-- ─── NAV ─── -->
 <nav class="nav" id="nav" aria-label="Navegación principal">
-  <a href="#" class="logo-mark">
-    <span class="logo-glyph" aria-hidden="true">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-        <path d="M5 19c0-4 3-7 7-7s7 3 7 7"/>
-        <path d="M12 12V6"/>
-        <path d="M12 6c-1.5 0-3-1-3-2.5S10.5 1 12 1s3 1 3 2.5S13.5 6 12 6z"/>
-        <path d="M15 3.5c1.5 0 3 1 3 2.5"/>
-      </svg>
-    </span>
-    Equexcellent
+  <a href="#" class="logo-mark" aria-label="Equexcellent · Inicio">
+    <img src="assets/equexcellent-logo.png" alt="Equexcellent — Terapias con caballos">
+    <span class="logo-text">Equexcellent</span>
   </a>
   <div class="nav-links" id="nav-menu" role="list">
     <a href="#programas" role="listitem">Programas</a>
     <a href="#metodo" role="listitem">Metodología</a>
-    <a href="#equipo" role="listitem">Equipo</a>
     <a href="#ubicacion" role="listitem">Ubicación</a>
+    <a href="#inscripcion" role="listitem">Inscripción</a>
     <a href="#contacto" class="nav-cta" role="listitem">Reservar plaza</a>
   </div>
   <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
@@ -1537,9 +1884,10 @@
     </h1>
 
     <p class="lede hero-sub">
-      Una intervención de alta especialización para niños con TEA y
-      adolescentes con vulnerabilidad emocional. En la Hípica El Carrizal
-      de Cubas, con caballos, psicóloga clínica y la metodología de Isabel Vera.
+      Dos programas <em>completamente independientes</em>, en grupos separados:
+      uno para niños y adolescentes con TEA, otro para adolescentes con
+      vulnerabilidad emocional. En la Hípica El Carrizal de Cubas,
+      con caballos especialmente domados y equipo clínico integrado.
     </p>
 
     <div class="hero-actions">
@@ -1590,11 +1938,17 @@
       <div class="section-num" aria-hidden="true">§ I</div>
       <div>
         <span class="eyebrow">Programas de verano · Julio 2026</span>
-        <h2 id="programas-title" class="display section-title" style="margin-top: 1rem;">Dos líneas. Una sola <em>mirada</em> cuidada.</h2>
+        <h2 id="programas-title" class="display section-title" style="margin-top: 1rem;">Dos programas <em>completamente separados</em>. Nunca un grupo mixto.</h2>
         <p class="section-desc">
-          Cada programa nace de un perfil real, con objetivos individualizados, equipo especializado
-          y una ratio que garantiza atención intensiva. Grupos pequeños por convicción, no por limitación.
+          Dos itinerarios <strong>independientes y diferenciados</strong>: la línea TEA y la línea de
+          vulnerabilidad emocional <strong>no comparten grupo, ni horario, ni equipo</strong>.
+          Cada participante encuentra solo a otros chicos y chicas con su mismo perfil — sin
+          etiquetas, sin sentirse identificado con un trastorno que no es el suyo.
         </p>
+        <div class="separation-note">
+          <span class="separation-dot" aria-hidden="true"></span>
+          <span>Semanas distintas en julio · Equipos distintos · Espacios distintos</span>
+        </div>
       </div>
     </div>
 
@@ -1602,9 +1956,10 @@
       <!-- TEA -->
       <article class="program-card tea reveal" aria-labelledby="card-tea-title">
         <div>
-          <span class="program-badge"><span class="dot" aria-hidden="true"></span>Línea TEA</span>
+          <span class="program-badge"><span class="dot" aria-hidden="true"></span>Programa I · Línea TEA</span>
           <h3 id="card-tea-title" class="program-title">Niños y adolescentes con <em>Trastorno del Espectro Autista</em></h3>
           <p class="program-body">
+            Programa <strong>exclusivo para perfil TEA</strong>, en grupo propio y con su propio equipo.
             Intervención estructurada con caballos, integradores sociales y técnicos ecuestres.
             Estudio previo, objetivos personalizados y evaluación final de progreso.
           </p>
@@ -1620,21 +1975,27 @@
               <div class="program-stat-label">profesionales al día</div>
             </div>
           </div>
-          <a href="#tea-detail" class="program-link">
-            Explorar programa TEA
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+          <div class="program-actions">
+            <a href="#tea-detail" class="program-link">
+              Explorar programa TEA
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#inscripcion-tea" class="program-link program-link-alt" data-form-target="tea">
+              Formulario de inscripción
+            </a>
+          </div>
         </div>
       </article>
 
       <!-- EMOCIONAL -->
       <article class="program-card emo reveal reveal-delay-1" aria-labelledby="card-emo-title">
         <div>
-          <span class="program-badge"><span class="dot" aria-hidden="true"></span>Línea Emocional</span>
+          <span class="program-badge"><span class="dot" aria-hidden="true"></span>Programa II · Línea Emocional</span>
           <h3 id="card-emo-title" class="program-title">Adolescentes con <em>vulnerabilidad emocional</em></h3>
           <p class="program-body">
-            Para TCA, ansiedad, conductas autolíticas, depresión, baja autoestima
-            o trastornos de conducta. Con psicóloga clínica integrada en la jornada.
+            Programa <strong>exclusivo para vulnerabilidad emocional</strong>, en grupo propio y
+            con equipo distinto. Para TCA, ansiedad, conductas autolíticas, depresión, baja
+            autoestima o trastornos de conducta. Psicóloga clínica integrada en la jornada.
           </p>
         </div>
         <div>
@@ -1648,10 +2009,15 @@
               <div class="program-stat-label">ratio en franja clínica</div>
             </div>
           </div>
-          <a href="#emo-detail" class="program-link">
-            Explorar programa Emocional
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+          <div class="program-actions">
+            <a href="#emo-detail" class="program-link">
+              Explorar programa Emocional
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#inscripcion-emo" class="program-link program-link-alt" data-form-target="emo">
+              Formulario de inscripción
+            </a>
+          </div>
         </div>
       </article>
     </div>
@@ -1665,45 +2031,46 @@
       <div class="section-num" aria-hidden="true">§ II</div>
       <div>
         <span class="eyebrow">Lo que nos distingue</span>
-        <h2 id="diff-title" class="display section-title" style="margin-top: 1rem;">Cuatro dimensiones, rara vez juntas.</h2>
+        <h2 id="diff-title" class="display section-title" style="margin-top: 1rem;">Cuatro dimensiones que <em>cada</em> programa cumple — por separado.</h2>
         <p class="section-desc">
-          La mayoría de campamentos destacan en un eje: TEA, inclusión, emocional, naturaleza o animales.
-          Reunimos las cuatro dimensiones que el mercado suele ofrecer por separado.
+          Aunque los dos itinerarios son independientes y nunca se mezclan, comparten la
+          misma exigencia. Estos cuatro pilares definen lo que cada participante encuentra,
+          en su grupo, con su equipo y a su ritmo.
         </p>
       </div>
     </div>
 
     <div class="diff-grid reveal">
       <div class="diff-item">
-        <div class="diff-num" aria-hidden="true">01 / Atención</div>
-        <h3 class="diff-title">Individualización real</h3>
+        <div class="diff-num" aria-hidden="true">01 / Entorno</div>
+        <h3 class="diff-title">Entorno natural con desconexión digital</h3>
         <p class="diff-body">
-          Estudio previo, objetivos personalizados e informes psicopedagógicos pre y post intervención.
-          Nunca plantilla. Siempre persona.
+          Sin pantallas ni ruido digital. La atención vuelve al cuerpo, al grupo y al animal —
+          el contexto donde la regulación emocional vuelve a ser posible.
         </p>
       </div>
       <div class="diff-item">
-        <div class="diff-num" aria-hidden="true">02 / Equipo</div>
-        <h3 class="diff-title">Perfiles clínicos integrados</h3>
+        <div class="diff-num" aria-hidden="true">02 / Caballos</div>
+        <h3 class="diff-title">Caballos especialmente domados</h3>
         <p class="diff-body">
-          Psicóloga clínica, integradores sociales, técnicos ecuestres y socorrista titulado.
-          Sin externalizar la parte más delicada.
+          No se trata sólo de actividades de ocio con caballos. Animales seleccionados y trabajados
+          específicamente para la mediación con menores vulnerables — temperamento estable, vínculo seguro.
         </p>
       </div>
       <div class="diff-item">
-        <div class="diff-num" aria-hidden="true">03 / Entorno</div>
-        <h3 class="diff-title">Caballos con propósito</h3>
+        <div class="diff-num" aria-hidden="true">03 / Programa</div>
+        <h3 class="diff-title">Diseño especializado para cada perfil e individualizado</h3>
         <p class="diff-body">
-          No paseos turísticos. Mediación animal orientada a vínculo, regulación emocional y confianza.
-          Incluye a Duque.
+          Programación específica para cada perfil — TEA o vulnerabilidad emocional — y, dentro de
+          cada perfil, un diseño individualizado con objetivos personales y seguimiento.
         </p>
       </div>
       <div class="diff-item">
-        <div class="diff-num" aria-hidden="true">04 / Seguridad</div>
-        <h3 class="diff-title">Cobertura sin atajos</h3>
+        <div class="diff-num" aria-hidden="true">04 / Foco</div>
+        <h3 class="diff-title">Competencia emocional y habilidades sociales</h3>
         <p class="diff-body">
-          Seguro de accidentes, responsabilidad civil, material de equitación incluido
-          y socorrista titulado en las actividades acuáticas.
+          Prioridad absoluta: la gestión de la competencia emocional y de las habilidades sociales.
+          Todo lo demás — actividad, juego, mediación animal — se construye sobre estos dos ejes.
         </p>
       </div>
     </div>
@@ -1758,87 +2125,11 @@
   </div>
 </section>
 
-<!-- ─── FEATURE (Isabel + Duque) ─── -->
-<section class="feature" id="equipo" aria-labelledby="equipo-title">
-  <div class="wrap">
-    <div class="section-head-grid reveal">
-      <div class="section-num" aria-hidden="true">§ IV</div>
-      <div>
-        <span class="eyebrow">Detrás del programa</span>
-        <h2 id="equipo-title" class="display section-title" style="margin-top: 1rem;">Una metodología premiada, un caballo <em>reconocido</em>.</h2>
-        <p class="section-desc">
-          Equexcellent nace con la colaboración altruista de Isabel Vera, creadora del programa
-          "A caballo por la luna", y cuenta con Duque, uno de los caballos más emblemáticos
-          vinculados a esa trayectoria.
-        </p>
-      </div>
-    </div>
-
-    <div class="feature-grid">
-      <!-- Isabel -->
-      <article class="feature-card reveal" aria-labelledby="isabel-name">
-        <div class="feature-visual" aria-hidden="true">
-          <div class="feature-visual-content">
-            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <circle cx="36" cy="28" r="10"/>
-              <path d="M20 58c0-8 7-14 16-14s16 6 16 14"/>
-              <circle cx="36" cy="36" r="30" stroke-dasharray="2 4"/>
-            </svg>
-            <span class="feature-visual-label">Isabel Vera · A caballo por la luna</span>
-          </div>
-        </div>
-        <span class="feature-tag">Diseño y supervisión</span>
-        <h3 id="isabel-name" class="feature-name">Isabel Vera</h3>
-        <p class="feature-role">Máster en Terapias e Intervenciones Asistidas con Caballos (TEIAC)</p>
-        <div class="feature-text">
-          <p>
-            Fundadora del <strong>premiado programa "A caballo por la luna"</strong>
-            y presidenta de la asociación Caballo Educa.
-          </p>
-          <p>
-            Participa de forma altruista en el diseño y la supervisión del campamento,
-            aportando una metodología contrastada con años de recorrido en el trabajo
-            con menores vulnerables.
-          </p>
-        </div>
-      </article>
-
-      <!-- Duque -->
-      <article class="feature-card reveal reveal-delay-1" aria-labelledby="duque-name">
-        <div class="feature-visual" aria-hidden="true">
-          <div class="feature-visual-content">
-            <svg width="100" height="88" viewBox="0 0 100 88" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <path d="M30 75c0-4 2-8 3-11 2-4 1-8-1-12-3-5-5-11-5-18 0-10 6-18 15-22 6-3 13-3 19-1 5 2 9 6 12 11 3 4 5 9 7 14 1 3 3 5 6 5 2 0 3 2 3 4 0 3-2 5-5 6-3 0-6-1-8-3-1-1-2-1-3 0-3 4-4 9-3 14 0 4-1 8-4 10-2 2-5 3-8 3h-12c-5 0-9 0-12-1-2-1-4 0-4 1z"/>
-              <path d="M42 50c2 0 4-1 4-3"/>
-              <circle cx="48" cy="42" r="1.5" fill="currentColor"/>
-            </svg>
-            <span class="feature-visual-label" style="margin-top: 1rem;">Duque · Premio Bienestar Animal COLVEMA 2025</span>
-          </div>
-        </div>
-        <span class="feature-tag">Caballo del programa</span>
-        <h3 id="duque-name" class="feature-name">Duque</h3>
-        <p class="feature-role">Reconocido por su compromiso emocional con los jóvenes</p>
-        <div class="feature-text">
-          <p>
-            Uno de los animales más emblemáticos vinculados al programa
-            <strong>"A caballo por la luna"</strong>. Su sensibilidad y trayectoria
-            lo convierten en un compañero excepcional para el trabajo terapéutico.
-          </p>
-        </div>
-        <div class="feature-award">
-          <strong>Premio Bienestar Animal · COLVEMA 2025</strong><br>
-          Reconocido por el apoyo emocional que presta a los jóvenes a través del programa.
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ─── DETAILED PROGRAMS ─── -->
 <section class="detail" aria-labelledby="detail-heading">
   <div class="wrap">
     <div class="section-head reveal" style="margin-bottom: 2rem;">
-      <span id="detail-heading" class="eyebrow">§ V · Los dos programas en detalle</span>
+      <span id="detail-heading" class="eyebrow">§ IV · Los dos programas en detalle (independientes)</span>
     </div>
 
     <!-- TEA DETAIL -->
@@ -1917,7 +2208,6 @@
             <li>Actividades acuáticas en piscina con socorrista titulado</li>
             <li>Material de equitación y seguridad aportado por la organización</li>
             <li>Seguro de accidentes y responsabilidad civil</li>
-            <li>Presencia de Duque, caballo premiado por COLVEMA</li>
           </ul>
         </div>
       </div>
@@ -2017,7 +2307,7 @@
   <div class="wrap">
     <div class="location-grid">
       <div class="reveal">
-        <span class="eyebrow">§ VI · Ubicación</span>
+        <span class="eyebrow">§ V · Ubicación</span>
         <h2 id="ubicacion-title" class="location-title">Hípica <em>El Carrizal</em> de Cubas</h2>
         <div class="location-text">
           <p>
@@ -2082,7 +2372,7 @@
 <section class="trust" aria-labelledby="trust-title">
   <div class="wrap">
     <div class="section-head-grid reveal">
-      <div class="section-num" aria-hidden="true">§ VII</div>
+      <div class="section-num" aria-hidden="true">§ VI</div>
       <div>
         <span class="eyebrow">Seguridad y cobertura</span>
         <h2 id="trust-title" class="display section-title" style="margin-top: 1rem;">Lo delicado se cuida <em>desde antes</em>.</h2>
@@ -2126,6 +2416,605 @@
   </div>
 </section>
 
+<!-- ─── INSCRIPCIÓN / FORMS ─── -->
+<section class="forms" id="inscripcion" aria-labelledby="inscripcion-title">
+  <div class="wrap">
+    <div class="section-head-grid reveal">
+      <div class="section-num" aria-hidden="true">§ VII</div>
+      <div>
+        <span class="eyebrow">Inscripción · Valoración inicial</span>
+        <h2 id="inscripcion-title" class="display section-title" style="margin-top: 1rem;">Solicita tu plaza con la <em>valoración inicial</em>.</h2>
+        <p class="section-desc">
+          Cada programa tiene su propio formulario de recogida de información, diseñado por
+          el equipo clínico. Se rellena en unos 5 minutos y nos sirve para valorar la
+          idoneidad y organizar los apoyos. <strong>Elige el programa que corresponde</strong>
+          al perfil de tu hijo o hija — no es posible compartir formulario.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-tabs reveal" role="tablist" aria-label="Selecciona el programa">
+      <button class="form-tab" type="button" role="tab" id="tab-tea" aria-controls="panel-tea" aria-selected="true" data-target="panel-tea">
+        <span class="form-tab-num" aria-hidden="true">I</span>
+        <span class="form-tab-label">
+          <span class="form-tab-eyebrow">Programa I</span>
+          <span class="form-tab-title">Línea TEA · Niños y adolescentes con TEA</span>
+        </span>
+      </button>
+      <button class="form-tab" type="button" role="tab" id="tab-emo" aria-controls="panel-emo" aria-selected="false" data-target="panel-emo">
+        <span class="form-tab-num" aria-hidden="true">II</span>
+        <span class="form-tab-label">
+          <span class="form-tab-eyebrow">Programa II</span>
+          <span class="form-tab-title">Línea Emocional · Vulnerabilidad emocional</span>
+        </span>
+      </button>
+    </div>
+
+    <!-- ───── TEA FORM ───── -->
+    <div class="form-panel reveal" id="panel-tea" role="tabpanel" aria-labelledby="tab-tea">
+      <p class="form-intro" id="inscripcion-tea">
+        <strong>Formulario breve de recogida de datos · Línea TEA.</strong> Para familias.
+        Finalidad: valoración inicial y selección de participantes. Por favor, completa la
+        información de forma concisa (5 minutos). Los datos se utilizarán únicamente para
+        organizar apoyos y realizar la valoración inicial de admisión.
+      </p>
+
+      <form class="equex-form" data-form-name="TEA" novalidate>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">01</span> Datos del/la menor</legend>
+          <div class="form-row">
+            <div class="form-field form-field-full">
+              <label class="form-label" for="tea-name">Nombre y apellidos</label>
+              <input type="text" id="tea-name" name="Nombre y apellidos" required autocomplete="name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="tea-dob">Fecha de nacimiento</label>
+              <input type="date" id="tea-dob" name="Fecha de nacimiento" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="tea-age">Edad</label>
+              <input type="number" id="tea-age" name="Edad" min="3" max="21" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="tea-stage">Curso / Etapa</label>
+              <select id="tea-stage" name="Curso / Etapa" required>
+                <option value="">Selecciona…</option>
+                <option>Infantil</option>
+                <option>Primaria</option>
+                <option>ESO</option>
+                <option>FPB</option>
+                <option>Otra</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="tea-municipio">Municipio</label>
+              <input type="text" id="tea-municipio" name="Municipio" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">02</span> Datos de contacto familiar</legend>
+          <div class="form-row form-row-single">
+            <div class="form-field">
+              <label class="form-label" for="tea-tutor">Madre/padre/tutor (nombre)</label>
+              <input type="text" id="tea-tutor" name="Tutor" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="tea-tel">Teléfono</label>
+              <input type="tel" id="tea-tel" name="Teléfono" required autocomplete="tel">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="tea-email">Correo electrónico</label>
+              <input type="email" id="tea-email" name="Correo electrónico" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="tea-emerg-name">Contacto de emergencia (nombre y relación)</label>
+              <input type="text" id="tea-emerg-name" name="Contacto emergencia">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="tea-emerg-tel">Teléfono de emergencia</label>
+              <input type="tel" id="tea-emerg-tel" name="Teléfono emergencia">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">03</span> Diagnóstico y apoyos actuales</legend>
+          <p class="form-help" style="margin: -0.5rem 0 1rem;">Marca lo que corresponda y complete solo si lo conoces.</p>
+          <div class="form-field">
+            <span class="form-label">TEA</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="radio" name="TEA" value="Confirmado">Confirmado</label>
+              <label class="form-check"><input type="radio" name="TEA" value="Sospecha/pendiente">Sospecha / pendiente</label>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top: 1.25rem;">
+            <div class="form-field">
+              <label class="form-label" for="tea-grado">Grado / Nivel (si se conoce)</label>
+              <input type="text" id="tea-grado" name="Grado / Nivel">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="tea-fdiag">Fecha de diagnóstico / informe</label>
+              <input type="text" id="tea-fdiag" name="Fecha de diagnóstico" placeholder="Aprox.">
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <label class="form-label" for="tea-otros">Otros diagnósticos o necesidades relevantes (opcional)</label>
+            <textarea id="tea-otros" name="Otros diagnósticos"></textarea>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <span class="form-label">Apoyos actuales</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Apoyos" value="PT">PT</label>
+              <label class="form-check"><input type="checkbox" name="Apoyos" value="AL">AL</label>
+              <label class="form-check"><input type="checkbox" name="Apoyos" value="Integrador/a">Integrador/a</label>
+              <label class="form-check"><input type="checkbox" name="Apoyos" value="Terapia externa">Terapia externa</label>
+              <label class="form-check"><input type="checkbox" name="Apoyos" value="Orientación">Orientación</label>
+              <label class="form-check"><input type="checkbox" name="Apoyos" value="Otros">Otros</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">04</span> Comunicación, autonomía y convivencia</legend>
+          <div class="form-field">
+            <span class="form-label">Comunicación principal</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Comunicación" value="Verbal">Verbal</label>
+              <label class="form-check"><input type="checkbox" name="Comunicación" value="Pocas palabras">Pocas palabras</label>
+              <label class="form-check"><input type="checkbox" name="Comunicación" value="PECS/pictos">PECS / pictos</label>
+              <label class="form-check"><input type="checkbox" name="Comunicación" value="Dispositivo">Dispositivo</label>
+              <label class="form-check"><input type="checkbox" name="Comunicación" value="Gestos">Gestos</label>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <span class="form-label">Nivel de apoyo habitual</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="radio" name="Nivel apoyo" value="Bajo">Bajo</label>
+              <label class="form-check"><input type="radio" name="Nivel apoyo" value="Medio">Medio</label>
+              <label class="form-check"><input type="radio" name="Nivel apoyo" value="Alto">Alto</label>
+              <label class="form-check"><input type="radio" name="Nivel apoyo" value="1:1">1:1</label>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <span class="form-label">Autonomía</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Autonomía" value="Baño autónomo">Baño autónomo</label>
+              <label class="form-check"><input type="checkbox" name="Autonomía" value="Necesita ayuda en baño">Ayuda en baño</label>
+              <label class="form-check"><input type="checkbox" name="Autonomía" value="Come autónomo">Come autónomo</label>
+              <label class="form-check"><input type="checkbox" name="Autonomía" value="Selectividad alimentaria">Selectividad alimentaria</label>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top: 1.25rem;">
+            <div class="form-field">
+              <label class="form-label" for="tea-instruct">Instrucciones que mejor funcionan (1 idea)</label>
+              <textarea id="tea-instruct" name="Instrucciones que funcionan"></textarea>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="tea-difg">Dificultades principales en grupo (1 idea)</label>
+              <textarea id="tea-difg" name="Dificultades en grupo"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">05</span> Sensorial y conducta</legend>
+          <div class="form-field">
+            <span class="form-label">Sensibilidades frecuentes</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Sensibilidades" value="Ruidos">Ruidos</label>
+              <label class="form-check"><input type="checkbox" name="Sensibilidades" value="Olores">Olores</label>
+              <label class="form-check"><input type="checkbox" name="Sensibilidades" value="Tacto">Tacto</label>
+              <label class="form-check"><input type="checkbox" name="Sensibilidades" value="Polvo/arena">Polvo / arena</label>
+              <label class="form-check"><input type="checkbox" name="Sensibilidades" value="Sol/calor">Sol / calor</label>
+              <label class="form-check"><input type="checkbox" name="Sensibilidades" value="Animales">Animales</label>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <span class="form-label">Conductas a tener en cuenta</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Conductas" value="Riesgo de fuga">Riesgo de fuga</label>
+              <label class="form-check"><input type="checkbox" name="Conductas" value="Impulsividad">Impulsividad</label>
+              <label class="form-check"><input type="checkbox" name="Conductas" value="Agresividad">Agresividad</label>
+              <label class="form-check"><input type="checkbox" name="Conductas" value="Autolesiones">Autolesiones</label>
+              <label class="form-check"><input type="checkbox" name="Conductas" value="Crisis/colapsos">Crisis / colapsos</label>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top: 1.25rem;">
+            <div class="form-field">
+              <label class="form-label" for="tea-desreg">Qué suele desregular (1–2 desencadenantes)</label>
+              <textarea id="tea-desreg" name="Desencadenantes"></textarea>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="tea-reg">Qué suele ayudar a regularse (1–2 estrategias)</label>
+              <textarea id="tea-reg" name="Ayuda a regularse"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">06</span> Salud (solo lo relevante para el campamento)</legend>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="tea-alergias">Alergias / asma</label>
+              <textarea id="tea-alergias" name="Alergias / asma"></textarea>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="tea-epi">Epilepsia u otras condiciones (opcional)</label>
+              <textarea id="tea-epi" name="Epilepsia y otras condiciones"></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="tea-med">Medicación (opcional, sin dosis)</label>
+              <textarea id="tea-med" name="Medicación"></textarea>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="tea-dieta">Dietas / restricciones alimentarias</label>
+              <textarea id="tea-dieta" name="Dietas / restricciones"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">07</span> Motivación y objetivos para el campamento</legend>
+          <div class="form-field">
+            <span class="form-label">Objetivos prioritarios</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Regulación emocional">Regulación emocional</label>
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Habilidades sociales">Habilidades sociales</label>
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Comunicación">Comunicación</label>
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Autonomía">Autonomía</label>
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Motricidad/tono">Motricidad / tono</label>
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Autoestima">Autoestima</label>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <label class="form-label" for="tea-intereses">Intereses especiales del/la menor (para motivación)</label>
+            <textarea id="tea-intereses" name="Intereses"></textarea>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <label class="form-label" for="tea-obs">Observaciones adicionales (muy breve)</label>
+            <textarea id="tea-obs" name="Observaciones"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">08</span> Declaración</legend>
+          <div class="form-consent">
+            <label>
+              <input type="checkbox" name="Veracidad" value="Sí" required>
+              <span>Declaro que la información aportada es veraz y se entrega con la finalidad de valoración inicial y selección de plazas.</span>
+            </label>
+            <label>
+              <input type="checkbox" name="RGPD" value="Sí" required>
+              <span>Consiento el tratamiento de estos datos por Equexcellent únicamente para la gestión del proceso de selección y organización del campamento (RGPD / LOPDGDD).</span>
+            </label>
+          </div>
+          <div class="form-row" style="margin-top: 1.5rem;">
+            <div class="form-field">
+              <label class="form-label" for="tea-firmante">Nombre y apellidos del firmante</label>
+              <input type="text" id="tea-firmante" name="Firmante" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="tea-dni">DNI / NIE</label>
+              <input type="text" id="tea-dni" name="DNI / NIE" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-submit-row">
+          <p class="form-submit-note">
+            Al enviar, abriremos tu cliente de correo con la información lista para
+            <strong>info@equexcellent.com</strong>. También puedes enviárnoslo directamente.
+          </p>
+          <button type="submit" class="btn btn-primary">
+            Enviar valoración TEA
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- ───── EMOCIONAL FORM ───── -->
+    <div class="form-panel reveal" id="panel-emo" role="tabpanel" aria-labelledby="tab-emo" hidden>
+      <p class="form-intro" id="inscripcion-emo">
+        <strong>Formulario breve de valoración inicial · Vulnerabilidad emocional.</strong>
+        Para familias y tutores. Finalidad: selección de participantes. Rellenar en
+        5 minutos. <strong>No describas métodos ni detalles sensibles.</strong>
+        Si existe riesgo inminente para el/la menor, contacta con emergencias (112).
+      </p>
+
+      <form class="equex-form" data-form-name="Vulnerabilidad emocional" novalidate>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">01</span> Datos del/de la participante</legend>
+          <div class="form-row form-row-single">
+            <div class="form-field">
+              <label class="form-label" for="emo-name">Nombre y apellidos</label>
+              <input type="text" id="emo-name" name="Nombre y apellidos" required autocomplete="name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="emo-dob">Fecha de nacimiento</label>
+              <input type="date" id="emo-dob" name="Fecha de nacimiento" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="emo-age">Edad</label>
+              <input type="number" id="emo-age" name="Edad" min="10" max="21" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="emo-stage">Curso / Etapa</label>
+              <select id="emo-stage" name="Curso / Etapa" required>
+                <option value="">Selecciona…</option>
+                <option>ESO</option>
+                <option>Bachillerato</option>
+                <option>FPB</option>
+                <option>Otra</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="emo-municipio">Municipio</label>
+              <input type="text" id="emo-municipio" name="Municipio" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">02</span> Contacto familiar / tutor</legend>
+          <div class="form-row form-row-single">
+            <div class="form-field">
+              <label class="form-label" for="emo-tutor">Madre/padre/tutor (nombre)</label>
+              <input type="text" id="emo-tutor" name="Tutor" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="emo-tel">Teléfono</label>
+              <input type="tel" id="emo-tel" name="Teléfono" required autocomplete="tel">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="emo-email">Correo electrónico</label>
+              <input type="email" id="emo-email" name="Correo electrónico" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="emo-emerg-name">Contacto de emergencia (nombre y relación)</label>
+              <input type="text" id="emo-emerg-name" name="Contacto emergencia">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="emo-emerg-tel">Teléfono de emergencia</label>
+              <input type="tel" id="emo-emerg-tel" name="Teléfono emergencia">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">03</span> Motivo de solicitud y perfil</legend>
+          <p class="form-help" style="margin: -0.5rem 0 1rem;">Marca lo que aplique (sin detallar).</p>
+          <div class="form-field">
+            <span class="form-label">Perfil / dificultades</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Perfil" value="Ansiedad">Ansiedad</label>
+              <label class="form-check"><input type="checkbox" name="Perfil" value="Depresión/ánimo bajo">Depresión / ánimo bajo</label>
+              <label class="form-check"><input type="checkbox" name="Perfil" value="TOC">TOC</label>
+              <label class="form-check"><input type="checkbox" name="Perfil" value="TCA">TCA</label>
+              <label class="form-check"><input type="checkbox" name="Perfil" value="Baja autoestima">Baja autoestima</label>
+              <label class="form-check"><input type="checkbox" name="Perfil" value="Irritabilidad">Irritabilidad</label>
+              <label class="form-check"><input type="checkbox" name="Perfil" value="Aislamiento social">Aislamiento social</label>
+              <label class="form-check"><input type="checkbox" name="Perfil" value="Absentismo">Absentismo</label>
+              <label class="form-check"><input type="checkbox" name="Perfil" value="Conflictos sociales">Conflictos sociales</label>
+              <label class="form-check"><input type="checkbox" name="Perfil" value="Trastorno de conducta">Trastorno de conducta</label>
+              <label class="form-check"><input type="checkbox" name="Perfil" value="Duelo/estrés familiar">Duelo / estrés familiar</label>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <span class="form-label">Riesgo / antecedentes (solo si existe)</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Riesgo" value="Conductas autolíticas previas">Conductas autolíticas previas</label>
+              <label class="form-check"><input type="checkbox" name="Riesgo" value="Ideación suicida previa">Ideación suicida previa</label>
+              <label class="form-check"><input type="checkbox" name="Riesgo" value="Atención en urgencias">Atención en urgencias</label>
+              <label class="form-check"><input type="checkbox" name="Riesgo" value="Ingreso previo">Ingreso previo</label>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <span class="form-label">En las últimas 2 semanas, la situación ha sido</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="radio" name="Situación 2 semanas" value="Leve">Leve</label>
+              <label class="form-check"><input type="radio" name="Situación 2 semanas" value="Moderada">Moderada</label>
+              <label class="form-check"><input type="radio" name="Situación 2 semanas" value="Alta">Alta</label>
+              <label class="form-check"><input type="radio" name="Situación 2 semanas" value="Muy alta">Muy alta</label>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top: 1.25rem;">
+            <div class="form-field">
+              <label class="form-label" for="emo-cuando">Desde cuándo se observa el problema (aprox.)</label>
+              <input type="text" id="emo-cuando" name="Desde cuándo">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="emo-espera">Qué espera la familia del campamento (1 frase)</label>
+              <input type="text" id="emo-espera" name="Qué espera la familia">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">04</span> Apoyos actuales (opcional, sin datos clínicos extensos)</legend>
+          <div class="form-field">
+            <span class="form-label">Seguimiento</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Seguimiento" value="Psicología">Psicología</label>
+              <label class="form-check"><input type="checkbox" name="Seguimiento" value="Psiquiatría">Psiquiatría</label>
+              <label class="form-check"><input type="checkbox" name="Seguimiento" value="Terapia familiar">Terapia familiar</label>
+              <label class="form-check"><input type="checkbox" name="Seguimiento" value="Orientación">Orientación</label>
+              <label class="form-check"><input type="checkbox" name="Seguimiento" value="Ninguno actualmente">Ninguno actualmente</label>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top: 1.25rem;">
+            <div class="form-field">
+              <label class="form-label" for="emo-frec">Frecuencia aproximada</label>
+              <input type="text" id="emo-frec" name="Frecuencia" placeholder="Ej. semanal, quincenal…">
+            </div>
+            <div class="form-field">
+              <span class="form-label">Medicación actual</span>
+              <div class="form-checks">
+                <label class="form-check"><input type="radio" name="Medicación" value="No">No</label>
+                <label class="form-check"><input type="radio" name="Medicación" value="Sí (sin dosis)">Sí (sin dosis)</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <label class="form-label" for="emo-med-detalle">Si Sí, indicar medicación (opcional)</label>
+            <input type="text" id="emo-med-detalle" name="Medicación detalle">
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <span class="form-label">Plan de seguridad / estrategias acordadas</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="radio" name="Plan seguridad" value="Sí">Sí</label>
+              <label class="form-check"><input type="radio" name="Plan seguridad" value="No">No</label>
+              <label class="form-check"><input type="radio" name="Plan seguridad" value="No lo sé">No lo sé</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">05</span> Regulación: desencadenantes y lo que ayuda</legend>
+          <div class="form-field">
+            <span class="form-label">Suele desregular</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Desencadenantes" value="Cambios/imprevistos">Cambios / imprevistos</label>
+              <label class="form-check"><input type="checkbox" name="Desencadenantes" value="Conflictos">Conflictos</label>
+              <label class="form-check"><input type="checkbox" name="Desencadenantes" value="Exigencia académica">Exigencia académica</label>
+              <label class="form-check"><input type="checkbox" name="Desencadenantes" value="Redes/pantallas">Redes / pantallas</label>
+              <label class="form-check"><input type="checkbox" name="Desencadenantes" value="Ruido">Ruido</label>
+              <label class="form-check"><input type="checkbox" name="Desencadenantes" value="Soledad">Soledad</label>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top: 1.25rem;">
+            <div class="form-field">
+              <label class="form-label" for="emo-alarma">Señales de alarma (1–2)</label>
+              <textarea id="emo-alarma" name="Señales de alarma"></textarea>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="emo-ayuda">Qué ayuda a regularse (1–2)</label>
+              <textarea id="emo-ayuda" name="Qué ayuda a regularse"></textarea>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <span class="form-label">Estrategias que suelen funcionar</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Estrategias" value="Respiración">Respiración</label>
+              <label class="form-check"><input type="checkbox" name="Estrategias" value="Pausa/espacio tranquilo">Pausa / espacio tranquilo</label>
+              <label class="form-check"><input type="checkbox" name="Estrategias" value="Hablar con adulto">Hablar con adulto</label>
+              <label class="form-check"><input type="checkbox" name="Estrategias" value="Actividad física">Actividad física</label>
+              <label class="form-check"><input type="checkbox" name="Estrategias" value="Rutina">Rutina</label>
+              <label class="form-check"><input type="checkbox" name="Estrategias" value="Música/arte">Música / arte</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">06</span> Convivencia y necesidades en campamento</legend>
+          <div class="form-field">
+            <span class="form-label">En grupo suele</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="En grupo" value="Integrarse bien">Integrarse bien</label>
+              <label class="form-check"><input type="checkbox" name="En grupo" value="Aislarse">Aislarse</label>
+              <label class="form-check"><input type="checkbox" name="En grupo" value="Discutir con facilidad">Discutir con facilidad</label>
+              <label class="form-check"><input type="checkbox" name="En grupo" value="Necesitar supervisión cercana">Necesitar supervisión cercana</label>
+              <label class="form-check"><input type="checkbox" name="En grupo" value="Preferir grupos pequeños">Preferir grupos pequeños</label>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <span class="form-label">Preferencias</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Preferencias" value="Ambiente tranquilo">Ambiente tranquilo</label>
+              <label class="form-check"><input type="checkbox" name="Preferencias" value="Instrucciones claras">Instrucciones claras</label>
+              <label class="form-check"><input type="checkbox" name="Preferencias" value="Anticipación de cambios">Anticipación de cambios</label>
+              <label class="form-check"><input type="checkbox" name="Preferencias" value="Tiempo de descanso">Tiempo de descanso</label>
+              <label class="form-check"><input type="checkbox" name="Preferencias" value="Tareas estructuradas">Tareas estructuradas</label>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <label class="form-label" for="emo-ajustes">Ajustes / indicaciones importantes para el equipo (muy breve)</label>
+            <textarea id="emo-ajustes" name="Ajustes para el equipo"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">07</span> Objetivos prioritarios</legend>
+          <div class="form-field">
+            <span class="form-label">Marca hasta 3</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Regulación emocional">Regulación emocional</label>
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Hábitos saludables">Hábitos saludables</label>
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Autoestima">Autoestima</label>
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Habilidades sociales">Habilidades sociales</label>
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Motivación">Motivación</label>
+              <label class="form-check"><input type="checkbox" name="Objetivos" value="Gestión de conflictos">Gestión de conflictos</label>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <label class="form-label" for="emo-intereses">Intereses del/de la participante (para motivación)</label>
+            <textarea id="emo-intereses" name="Intereses"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">08</span> Declaración</legend>
+          <div class="form-consent">
+            <label>
+              <input type="checkbox" name="Veracidad" value="Sí" required>
+              <span>Declaro que la información aportada es veraz y se entrega con la finalidad de valoración inicial y selección de plazas.</span>
+            </label>
+            <label>
+              <input type="checkbox" name="RGPD" value="Sí" required>
+              <span>Consiento el tratamiento de estos datos por Equexcellent únicamente para la gestión del proceso de selección y organización del campamento (RGPD / LOPDGDD).</span>
+            </label>
+          </div>
+          <div class="form-row" style="margin-top: 1.5rem;">
+            <div class="form-field">
+              <label class="form-label" for="emo-firmante">Nombre y apellidos del firmante</label>
+              <input type="text" id="emo-firmante" name="Firmante" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="emo-dni">DNI / NIE</label>
+              <input type="text" id="emo-dni" name="DNI / NIE" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-submit-row">
+          <p class="form-submit-note">
+            Al enviar, abriremos tu cliente de correo con la información lista para
+            <strong>info@equexcellent.com</strong>. También puedes enviárnoslo directamente.
+          </p>
+          <button type="submit" class="btn btn-primary">
+            Enviar valoración Emocional
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ─── CTA ─── -->
 <section class="cta" id="contacto" aria-labelledby="cta-title">
   <div class="wrap">
@@ -2138,7 +3027,7 @@
         con lo que tu hijo o hija necesita este verano.
       </p>
       <div class="cta-actions">
-        <a href="mailto:info@equxcellent.com?subject=Reserva%20campamento%20Equexcellent&amp;body=Hola,%20me%20gustar%C3%ADa%20reservar%20una%20conversaci%C3%B3n%20sobre%20el%20campamento..." class="btn btn-primary">
+        <a href="mailto:info@equexcellent.com?subject=Reserva%20campamento%20Equexcellent&amp;body=Hola,%20me%20gustar%C3%ADa%20reservar%20una%20conversaci%C3%B3n%20sobre%20el%20campamento..." class="btn btn-primary">
           Escribir a Equexcellent
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
@@ -2149,7 +3038,7 @@
     <div class="cta-contact reveal reveal-delay-1">
       <div class="cta-contact-item">
         <span class="eyebrow">Email</span>
-        <a href="mailto:info@equxcellent.com">info@equxcellent.com</a>
+        <a href="mailto:info@equexcellent.com">info@equexcellent.com</a>
       </div>
       <div class="cta-contact-item">
         <span class="eyebrow">Ubicación</span>
@@ -2173,9 +3062,9 @@
         <div class="footer-brand">Equexcellent</div>
         <div class="footer-tagline">Terapias con caballos · Calidad y compromiso</div>
         <p class="footer-about">
-          Programa diseñado y supervisado con la colaboración altruista de Isabel Vera,
-          Máster en Terapias e Intervenciones Asistidas con Caballos y fundadora del
-          premiado programa "A caballo por la luna".
+          Campamentos de verano de alta especialización para niños y adolescentes con TEA
+          y para adolescentes con vulnerabilidad emocional. Atención individualizada,
+          equipo clínico integrado y entorno natural cuidado.
         </p>
       </div>
       <nav class="footer-col" aria-label="Programas">
@@ -2184,13 +3073,14 @@
           <li><a href="#tea-detail">Línea TEA</a></li>
           <li><a href="#emo-detail">Línea Emocional</a></li>
           <li><a href="#metodo">Metodología</a></li>
-          <li><a href="#equipo">Equipo</a></li>
+          <li><a href="#inscripcion-tea">Formulario TEA</a></li>
+          <li><a href="#inscripcion-emo">Formulario Emocional</a></li>
         </ul>
       </nav>
       <nav class="footer-col" aria-label="Contacto">
         <h5>Contacto</h5>
         <ul>
-          <li><a href="mailto:info@equxcellent.com">info@equxcellent.com</a></li>
+          <li><a href="mailto:info@equexcellent.com">info@equexcellent.com</a></li>
           <li><a href="#ubicacion">Hípica El Carrizal</a></li>
           <li><a href="#contacto">Reservar plaza</a></li>
         </ul>
@@ -2252,6 +3142,101 @@
       navToggle.setAttribute('aria-expanded', 'false');
       navToggle.setAttribute('aria-label', 'Abrir menú');
     }
+  });
+
+  // ─── Form tabs ───
+  const tabs = document.querySelectorAll('.form-tab');
+  const panels = document.querySelectorAll('.form-panel');
+
+  function activateTab(targetId, focus = false) {
+    tabs.forEach(t => {
+      const isTarget = t.dataset.target === targetId;
+      t.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+      if (isTarget && focus) t.focus();
+    });
+    panels.forEach(p => {
+      if (p.id === targetId) {
+        p.removeAttribute('hidden');
+      } else {
+        p.setAttribute('hidden', '');
+      }
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activateTab(tab.dataset.target));
+    tab.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const idx = Array.from(tabs).indexOf(tab);
+        const nextIdx = e.key === 'ArrowRight' ? (idx + 1) % tabs.length : (idx - 1 + tabs.length) % tabs.length;
+        activateTab(tabs[nextIdx].dataset.target, true);
+      }
+    });
+  });
+
+  // Open the right tab from program-card or in-page anchor links
+  document.querySelectorAll('[data-form-target]').forEach(a => {
+    a.addEventListener('click', () => {
+      const target = a.dataset.formTarget === 'tea' ? 'panel-tea' : 'panel-emo';
+      activateTab(target);
+    });
+  });
+
+  // Auto-select tab from URL hash
+  function syncTabFromHash() {
+    const h = window.location.hash;
+    if (h === '#inscripcion-tea' || h === '#panel-tea' || h === '#tab-tea') {
+      activateTab('panel-tea');
+    } else if (h === '#inscripcion-emo' || h === '#panel-emo' || h === '#tab-emo') {
+      activateTab('panel-emo');
+    }
+  }
+  syncTabFromHash();
+  window.addEventListener('hashchange', syncTabFromHash);
+
+  // ─── Form submission via mailto ───
+  document.querySelectorAll('.equex-form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Native validation
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const formName = form.dataset.formName || 'Inscripción';
+      const data = new FormData(form);
+      const grouped = {};
+      data.forEach((value, key) => {
+        if (value === '' || value == null) return;
+        if (grouped[key]) {
+          grouped[key] = Array.isArray(grouped[key]) ? [...grouped[key], value] : [grouped[key], value];
+        } else {
+          grouped[key] = value;
+        }
+      });
+
+      const lines = [`Equexcellent — Formulario de valoración inicial · ${formName}`, '', '──────────────────────────────────────', ''];
+      Object.entries(grouped).forEach(([k, v]) => {
+        const val = Array.isArray(v) ? v.join(', ') : v;
+        lines.push(`${k}: ${val}`);
+      });
+      lines.push('', '──────────────────────────────────────');
+      lines.push('Enviado desde la web de Equexcellent.');
+
+      const subject = `Valoración inicial · ${formName} · ${grouped['Nombre y apellidos'] || ''}`.trim();
+      const body = lines.join('\n');
+      const mailto = `mailto:info@equexcellent.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.location.href = mailto;
+
+      const note = form.querySelector('.form-submit-note');
+      if (note) {
+        note.innerHTML = '<strong style="color: var(--forest);">Listo.</strong> Se ha abierto tu cliente de correo. Si no se ha abierto, copia tus datos y envíalos a info@equexcellent.com';
+      }
+    });
   });
 
   // Scroll reveal
