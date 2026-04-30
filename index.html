@@ -270,13 +270,34 @@
   }
   .logo-mark:hover img { transform: scale(1.06) rotate(-2deg); }
   .logo-mark .logo-text {
-    display: none;
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 1.35rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1c2845;
+    line-height: 1;
+    display: inline-block;
+    transition: font-size 500ms cubic-bezier(.25,.1,.25,1);
+  }
+  .nav.scrolled .logo-mark .logo-text { font-size: 1.1rem; }
+  @media (max-width: 900px) {
+    .logo-mark .logo-text { font-size: 1.1rem; letter-spacing: 0.05em; }
   }
   @media (max-width: 600px) {
     .logo-mark img { height: 48px; }
+    .logo-mark .logo-text { font-size: 0.95rem; letter-spacing: 0.04em; }
+  }
+  @media (max-width: 420px) {
+    .logo-mark { gap: 0.5rem; }
+    .logo-mark .logo-text { font-size: 0.85rem; letter-spacing: 0.03em; }
   }
   @media (max-width: 380px) {
     .logo-mark img { height: 40px; }
+    .logo-mark .logo-text { font-size: 0.78rem; letter-spacing: 0.02em; }
+  }
+  @media (max-width: 340px) {
+    .logo-mark .logo-text { display: none; }
   }
 
   .nav-links {
@@ -2150,7 +2171,7 @@
 <nav class="nav" id="nav" aria-label="Navegación principal">
   <a href="#" class="logo-mark" aria-label="Equexcellent · Inicio">
     <img src="assets/equexcellent-mark.png" alt="Equexcellent — Terapias con caballos">
-    <span class="logo-text">Equexcellent</span>
+    <span class="logo-text">EQUEXCELLENT</span>
   </a>
   <div class="nav-links" id="nav-menu" role="list">
     <a href="#programas" role="listitem">Programas</a>
