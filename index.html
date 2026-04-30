@@ -240,9 +240,9 @@
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
   }
-  .nav.scrolled .logo-mark img { height: 50px; }
+  .nav.scrolled .logo-mark img { height: 44px; }
   @media (max-width: 600px) {
-    .nav.scrolled .logo-mark img { height: 40px; }
+    .nav.scrolled .logo-mark img { height: 36px; }
   }
 
   .logo-mark {
@@ -256,20 +256,20 @@
     color: var(--forest);
   }
   .logo-mark img {
-    height: 68px;
+    height: 60px;
     width: auto;
     display: block;
-    transition: transform 400ms cubic-bezier(.25,.1,.25,1);
+    transition: transform 500ms cubic-bezier(.25,.1,.25,1);
   }
-  .logo-mark:hover img { transform: scale(1.04); }
+  .logo-mark:hover img { transform: scale(1.06) rotate(-2deg); }
   .logo-mark .logo-text {
     display: none;
   }
   @media (max-width: 600px) {
-    .logo-mark img { height: 54px; }
+    .logo-mark img { height: 48px; }
   }
   @media (max-width: 380px) {
-    .logo-mark img { height: 44px; }
+    .logo-mark img { height: 40px; }
   }
 
   .nav-links {
@@ -1360,6 +1360,15 @@
   }
   .cta > * { position: relative; z-index: 1; }
 
+  .cta-logo {
+    display: block;
+    margin: 0 auto clamp(2rem, 4vw, 3rem);
+    width: clamp(260px, 38vw, 460px);
+    height: auto;
+    filter: drop-shadow(0 12px 28px rgba(26,29,26,0.08));
+    animation: floatY 7s ease-in-out infinite;
+  }
+
   .cta-kicker {
     font-family: var(--serif);
     font-style: italic;
@@ -1440,11 +1449,21 @@
   }
 
   .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
     font-family: var(--serif);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: var(--cream-warm);
     margin-bottom: 0.5rem;
     font-variation-settings: "opsz" 30, "SOFT" 40;
+  }
+  .footer-mark {
+    width: 48px;
+    height: 48px;
+    display: block;
+    flex-shrink: 0;
+    filter: brightness(1.4) saturate(0.9);
   }
   .footer-tagline {
     font-family: var(--serif);
@@ -2049,7 +2068,7 @@
 <!-- ─── NAV ─── -->
 <nav class="nav" id="nav" aria-label="Navegación principal">
   <a href="#" class="logo-mark" aria-label="Equexcellent · Inicio">
-    <img src="assets/equexcellent-logo.png" alt="Equexcellent — Terapias con caballos">
+    <img src="assets/equexcellent-mark.png" alt="Equexcellent — Terapias con caballos">
     <span class="logo-text">Equexcellent</span>
   </a>
   <div class="nav-links" id="nav-menu" role="list">
@@ -3235,6 +3254,7 @@
 <section class="cta" id="contacto" aria-labelledby="cta-title">
   <div class="wrap">
     <div class="reveal">
+      <img class="cta-logo" src="assets/equexcellent-logo.png" alt="Equexcellent — Terapias con caballos, calidad y compromiso">
       <span class="cta-kicker">plazas muy limitadas · reserva personalizada</span>
       <h2 id="cta-title" class="cta-title">Reserva una conversación, <em>no solo una plaza</em>.</h2>
       <p class="cta-text">
@@ -3275,7 +3295,10 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">Equexcellent</div>
+        <div class="footer-brand">
+          <img class="footer-mark" src="assets/equexcellent-mark.png" alt="" aria-hidden="true">
+          <span>Equexcellent</span>
+        </div>
         <div class="footer-tagline">Terapias con caballos · Calidad y compromiso</div>
         <p class="footer-about">
           Campamentos de verano de alta especialización para niños y adolescentes con TEA
