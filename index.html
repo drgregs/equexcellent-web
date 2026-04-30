@@ -1980,6 +1980,75 @@
   .hero-decor { will-change: transform; transition: transform 200ms cubic-bezier(.25,.1,.25,1); }
 
   /* ─────────────────────────────────────────────
+     Background photos (editorial, blurred, atmospheric)
+     ───────────────────────────────────────────── */
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(8px) saturate(1.05);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.12);
+    z-index: 0;
+    transition: opacity 1400ms cubic-bezier(.25,.1,.25,1), transform 12000ms ease-out;
+    will-change: transform, opacity;
+  }
+  .bg-photo.loaded { opacity: var(--bg-opacity, 0.18); }
+  .bg-photo.parallax { transform: scale(1.12) translate3d(0, var(--bg-parallax, 0), 0); }
+
+  /* Section-specific photo treatments */
+  .hero      .bg-photo { --bg-opacity: 0.22; filter: blur(8px) saturate(1.05) contrast(1.05); }
+  .programs  .bg-photo { --bg-opacity: 0.10; filter: blur(16px) saturate(0.85); }
+  .method    .bg-photo { --bg-opacity: 0.30; filter: blur(8px) saturate(1.15) contrast(1.1); mix-blend-mode: luminosity; }
+  .location  .bg-photo { --bg-opacity: 0.32; filter: blur(7px) saturate(1.1); mix-blend-mode: luminosity; }
+  .cta       .bg-photo { --bg-opacity: 0.10; filter: blur(18px) saturate(0.9); }
+
+  /* Sections that host bg-photo need positioning context */
+  .programs, .forms, .cta {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* All content wraps must be above bg-photo */
+  .hero .hero-inner,
+  .programs .wrap,
+  .method .wrap,
+  .location .wrap,
+  .cta .wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Existing ::before gradients now act as a soft tint OVER the photo */
+  .hero::before { z-index: 1; }
+  .method::before { z-index: 1; }
+  .location::before { z-index: 1; }
+  .cta::before { z-index: 1; }
+
+  /* Replace hero opaque cream linear-gradient with semi-transparent tint */
+  .hero::before {
+    background:
+      radial-gradient(ellipse 80% 60% at 80% 20%, rgba(184,149,77,0.18), transparent 60%),
+      radial-gradient(ellipse 100% 80% at 20% 100%, rgba(42,61,47,0.12), transparent 60%),
+      linear-gradient(180deg, rgba(249,244,235,0.55) 0%, rgba(245,240,230,0.75) 100%);
+  }
+
+  /* Vignette overlay on dark sections to deepen edges */
+  .method::after,
+  .location::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(28,42,32,0.55) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ─────────────────────────────────────────────
      Custom cursor accent (desktop only)
      ───────────────────────────────────────────── */
   .cursor-accent {
@@ -2094,6 +2163,7 @@
 
 <!-- ─── HERO ─── -->
 <header class="hero">
+  <img class="bg-photo" src="assets/bg-hero.jpg" alt="" aria-hidden="true" loading="eager" decoding="async" fetchpriority="high">
   <svg class="hero-decor" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
     <g fill="none" stroke="currentColor" stroke-width="0.6" style="color: var(--forest);">
       <circle cx="300" cy="300" r="270" opacity="0.18"/>
@@ -2167,6 +2237,7 @@
 
 <!-- ─── PROGRAMS OVERVIEW ─── -->
 <section class="programs" id="programas" aria-labelledby="programas-title">
+  <img class="bg-photo" src="assets/bg-emotional.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="wrap">
     <div class="section-head-grid reveal">
       <div class="section-num" aria-hidden="true">§ I</div>
@@ -2313,6 +2384,7 @@
 
 <!-- ─── METHOD ─── -->
 <section class="method" id="metodo" aria-labelledby="metodo-title">
+  <img class="bg-photo" src="assets/bg-method.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="wrap">
     <div class="section-head-grid reveal">
       <div class="section-num" style="color: var(--bronze);" aria-hidden="true">§ III</div>
@@ -2538,6 +2610,7 @@
 
 <!-- ─── LOCATION ─── -->
 <section class="location" id="ubicacion" aria-labelledby="ubicacion-title">
+  <img class="bg-photo" src="assets/bg-tea.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="wrap">
     <div class="location-grid">
       <div class="reveal">
@@ -3259,6 +3332,7 @@
 
 <!-- ─── CTA ─── -->
 <section class="cta" id="contacto" aria-labelledby="cta-title">
+  <img class="bg-photo" src="assets/bg-emotional.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="wrap">
     <div class="reveal">
       <img class="cta-logo" src="assets/equexcellent-logo.png" alt="Equexcellent — Terapias con caballos, calidad y compromiso">
@@ -3609,14 +3683,39 @@
   }
 
   // ───────────────────────────────────────────────
-  // HERO PARALLAX
+  // BACKGROUND PHOTOS — fade in & parallax
+  // ───────────────────────────────────────────────
+  const bgPhotos = document.querySelectorAll('.bg-photo');
+  bgPhotos.forEach(img => {
+    if (img.complete && img.naturalWidth > 0) {
+      requestAnimationFrame(() => img.classList.add('loaded'));
+    } else {
+      img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+      img.addEventListener('error', () => img.style.display = 'none', { once: true });
+    }
+  });
+
+  // ───────────────────────────────────────────────
+  // HERO PARALLAX + BG-PHOTO PARALLAX
   // ───────────────────────────────────────────────
   const heroDecor = document.querySelector('.hero-decor');
-  if (heroDecor && !prefersReducedMotion) {
+  if (!prefersReducedMotion) {
     let parallaxTicking = false;
     function updateParallax() {
       const y = window.scrollY;
-      heroDecor.style.transform = `translate3d(0, ${y * 0.18}px, 0) rotate(${y * 0.015}deg)`;
+      if (heroDecor) {
+        heroDecor.style.transform = `translate3d(0, ${y * 0.18}px, 0) rotate(${y * 0.015}deg)`;
+      }
+      // Parallax each bg-photo based on its section's position relative to viewport
+      bgPhotos.forEach(img => {
+        const rect = img.parentElement.getBoundingClientRect();
+        const winH = window.innerHeight;
+        // Element progress through viewport: 0 (entering bottom) → 1 (exiting top)
+        const progress = (winH - rect.top) / (winH + rect.height);
+        const offset = (progress - 0.5) * 60; // up to ±30px
+        img.style.setProperty('--bg-parallax', `${offset}px`);
+        img.classList.add('parallax');
+      });
       parallaxTicking = false;
     }
     window.addEventListener('scroll', () => {
@@ -3625,6 +3724,7 @@
         parallaxTicking = true;
       }
     }, { passive: true });
+    updateParallax();
   }
 
   // ───────────────────────────────────────────────
