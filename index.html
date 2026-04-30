@@ -2054,7 +2054,91 @@
   }
 
   /* Section-specific photo treatments */
-  .hero      img.bg-photo { --bg-opacity: 0.72; filter: blur(2px) saturate(1.05) contrast(1.02); }
+  .hero      img.bg-photo {
+    --bg-opacity: 0.72;
+    filter: blur(2px) saturate(1.05) contrast(1.02);
+    object-position: 58% center;
+  }
+
+  /* ─── Hero slideshow crossfade ──────────────────
+     Two stacked images that slowly fade between each other while a subtle
+     Ken-Burns zoom keeps the scene alive. The cycle is 16s per image with a
+     2.4s crossfade, and respects prefers-reduced-motion. */
+  .hero img.bg-photo.hero-bg {
+    animation:
+      bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
+      heroSlideA 32s ease-in-out 1600ms infinite,
+      heroKenBurns 32s ease-in-out 1600ms infinite;
+  }
+  .hero img.bg-photo.hero-bg.hero-bg-2 {
+    animation:
+      bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
+      heroSlideB 32s ease-in-out 1600ms infinite,
+      heroKenBurnsB 32s ease-in-out 1600ms infinite;
+  }
+  @keyframes heroSlideA {
+    0%, 45%   { opacity: var(--bg-opacity, 0.72); }
+    55%, 95%  { opacity: 0; }
+    100%      { opacity: var(--bg-opacity, 0.72); }
+  }
+  @keyframes heroSlideB {
+    0%, 45%   { opacity: 0; }
+    55%, 95%  { opacity: var(--bg-opacity, 0.72); }
+    100%      { opacity: 0; }
+  }
+  @keyframes heroKenBurns {
+    0%   { transform: scale(1.12); }
+    50%  { transform: scale(1.18) translate(-1.2%, -0.6%); }
+    100% { transform: scale(1.12); }
+  }
+  @keyframes heroKenBurnsB {
+    0%   { transform: scale(1.18) translate(1.2%, 0.6%); }
+    50%  { transform: scale(1.12); }
+    100% { transform: scale(1.18) translate(1.2%, 0.6%); }
+  }
+
+  /* Lighter Ken-Burns on tablets / smaller screens — less GPU load. */
+  @media (max-width: 900px) {
+    .hero img.bg-photo { object-position: 62% center; }
+    @keyframes heroKenBurns {
+      0%   { transform: scale(1.10); }
+      50%  { transform: scale(1.14) translate(-0.6%, -0.3%); }
+      100% { transform: scale(1.10); }
+    }
+    @keyframes heroKenBurnsB {
+      0%   { transform: scale(1.14) translate(0.6%, 0.3%); }
+      50%  { transform: scale(1.10); }
+      100% { transform: scale(1.14) translate(0.6%, 0.3%); }
+    }
+  }
+
+  /* On phones drop the Ken-Burns entirely (battery / paint cost) but keep
+     the elegant crossfade. Use a static base scale and longer cycle. */
+  @media (max-width: 600px) {
+    .hero img.bg-photo.hero-bg,
+    .hero img.bg-photo.hero-bg.hero-bg-2 {
+      transform: scale(1.06);
+      will-change: opacity;
+    }
+    .hero img.bg-photo.hero-bg {
+      animation:
+        bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
+        heroSlideA 36s ease-in-out 1600ms infinite;
+    }
+    .hero img.bg-photo.hero-bg.hero-bg-2 {
+      animation:
+        bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
+        heroSlideB 36s ease-in-out 1600ms infinite;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero img.bg-photo.hero-bg,
+    .hero img.bg-photo.hero-bg.hero-bg-2 {
+      animation: bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both;
+    }
+    .hero img.bg-photo.hero-bg.hero-bg-2 { opacity: 0 !important; }
+  }
   .programs  img.bg-photo { --bg-opacity: 0.18; filter: blur(14px) saturate(0.9); }
   .method    img.bg-photo { --bg-opacity: 0.45; filter: blur(7px) saturate(1.15) contrast(1.1); }
   .location  img.bg-photo { --bg-opacity: 0.45; filter: blur(6px) saturate(1.1); }
@@ -2221,7 +2305,8 @@
 
 <!-- ─── HERO ─── -->
 <header class="hero">
-  <img class="bg-photo" src="assets/bg-hero.jpg" alt="" aria-hidden="true" loading="eager" decoding="async" fetchpriority="high">
+  <img class="bg-photo hero-bg" src="assets/bg-hero.jpg" alt="" aria-hidden="true" loading="eager" decoding="async" fetchpriority="high" width="1024" height="571">
+  <img class="bg-photo hero-bg hero-bg-2" src="assets/bg-hero-2.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" width="1024" height="571">
   <svg class="hero-decor" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
     <g fill="none" stroke="currentColor" stroke-width="0.6" style="color: var(--forest);">
       <circle cx="300" cy="300" r="270" opacity="0.18"/>
