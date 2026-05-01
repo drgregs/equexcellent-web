@@ -1337,9 +1337,14 @@
 
   .map-card {
     aspect-ratio: 4/5;
+    width: 100%;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
     background: rgba(245,240,230,0.04);
     border: 1px solid rgba(245,240,230,0.14);
-    border-radius: 4px;
+    border-radius: 22px;
+    box-shadow: 0 18px 45px -22px rgba(0,0,0,0.55);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -1394,10 +1399,10 @@
   .map-cta:hover,
   .map-cta:focus-visible { color: var(--cream-warm); }
   @media (max-width: 820px) {
-    .map-card { aspect-ratio: 5/4; }
+    .map-card { aspect-ratio: 5/4; max-width: 460px; }
   }
   @media (max-width: 480px) {
-    .map-card { aspect-ratio: 4/3; }
+    .map-card { aspect-ratio: 4/3; max-width: 100%; border-radius: 18px; }
     .map-place { font-size: 1rem; }
     .map-cta { font-size: 0.68rem; letter-spacing: 0.1em; }
   }
