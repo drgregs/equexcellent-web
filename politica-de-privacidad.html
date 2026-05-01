@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Política de Privacidad — Equexcellent</title>
+<meta name="description" content="Política de privacidad de Equexcellent. Información sobre el tratamiento de datos personales recogidos a través del sitio web equexcellent.com.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://equexcellent.com/politica-de-privacidad.html">
+<meta name="theme-color" content="#2a3d2f">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Equexcellent">
+<meta property="og:title" content="Política de Privacidad — Equexcellent">
+<meta property="og:url" content="https://equexcellent.com/politica-de-privacidad.html">
+
+<!-- Fonts -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,30..100;1,9..144,300..900,30..100&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink:         #1a1d1a;
+    --ink-soft:    #3a3f3a;
+    --forest:      #2a3d2f;
+    --forest-deep: #1c2a20;
+    --sage:        #8a9a83;
+    --bronze:      #b8954d;
+    --bronze-deep: #8c6d33;
+    --cream:       #f5f0e6;
+    --cream-warm:  #f9f4eb;
+    --stone:       #e6dfce;
+    --bone:        #ebe5d7;
+    --white-warm:  #fcfaf4;
+
+    --serif: "Fraunces", "Cormorant Garamond", Georgia, serif;
+    --sans:  "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --max:    1240px;
+    --gutter: clamp(1.25rem, 4vw, 2.5rem);
+    --t-fast: 240ms cubic-bezier(.4,0,.2,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--cream);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; }
+  em { font-style: italic; }
+  strong { font-weight: 600; }
+
+  /* Focus */
+  :focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: -120%;
+    left: 1rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--forest);
+    color: var(--cream-warm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 0 0 4px 4px;
+    z-index: 200;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
+
+  /* ─── Layout ─── */
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--forest);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 2rem;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--cream-warm);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: opacity var(--t-fast);
+  }
+  .nav-brand:hover { opacity: 0.8; }
+
+  .nav-brand-mark {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .nav-back {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--cream-warm);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity var(--t-fast);
+    text-decoration: none;
+  }
+  .nav-back:hover { opacity: 1; }
+  .nav-back svg { flex-shrink: 0; }
+
+  /* ─── HERO strip ─── */
+  .policy-hero {
+    background: var(--forest-deep);
+    color: var(--cream-warm);
+    padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+    border-bottom: 1px solid rgba(184,149,77,0.2);
+  }
+
+  .policy-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 1.2rem;
+  }
+
+  .policy-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+    margin-bottom: 1.25rem;
+  }
+
+  .policy-title em {
+    color: var(--bronze);
+    font-style: italic;
+  }
+
+  .policy-subtitle {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    color: rgba(249,244,235,0.75);
+    max-width: 600px;
+    font-variation-settings: "opsz" 30;
+  }
+
+  .policy-updated {
+    margin-top: 1.5rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(249,244,235,0.45);
+  }
+
+  /* ─── CONTENT ─── */
+  .policy-body {
+    padding: clamp(3rem, 8vw, 6rem) 0;
+  }
+
+  .policy-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  @media (max-width: 860px) {
+    .policy-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .policy-toc { display: none; }
+  }
+
+  /* ─── TOC ─── */
+  .policy-toc {
+    position: sticky;
+    top: 80px;
+  }
+
+  .toc-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+    margin-bottom: 1rem;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .toc-list a {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    padding: 0.35rem 0.75rem;
+    border-left: 2px solid var(--stone);
+    transition: color var(--t-fast), border-color var(--t-fast);
+    line-height: 1.4;
+  }
+
+  .toc-list a:hover {
+    color: var(--forest);
+    border-color: var(--bronze);
+  }
+
+  /* ─── SECTIONS ─── */
+  .policy-content {
+    max-width: 740px;
+  }
+
+  .policy-section {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid var(--stone);
+  }
+
+  .policy-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .section-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .section-heading {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--forest-deep);
+    margin-bottom: 1.25rem;
+    font-variation-settings: "opsz" 72, "SOFT" 60;
+  }
+
+  .policy-content p {
+    font-size: 0.96rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+
+  .policy-content p:last-child { margin-bottom: 0; }
+
+  .policy-content ul,
+  .policy-content ol {
+    margin: 0.75rem 0 1rem 1.2rem;
+  }
+
+  .policy-content li {
+    font-size: 0.96rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 0.4rem;
+  }
+
+  .policy-content a {
+    color: var(--bronze-deep);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--t-fast);
+  }
+
+  .policy-content a:hover { color: var(--forest); }
+
+  /* Alert / callout boxes */
+  .callout {
+    background: var(--bone);
+    border-left: 3px solid var(--bronze);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+  }
+
+  .callout p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+
+  .callout-strong {
+    background: rgba(42,61,47,0.07);
+    border-left: 3px solid var(--forest);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+  }
+
+  .callout-strong p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Data table */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.88rem;
+  }
+
+  .data-table th {
+    text-align: left;
+    padding: 0.6rem 0.9rem;
+    background: var(--forest);
+    color: var(--cream-warm);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .data-table td {
+    padding: 0.65rem 0.9rem;
+    border-bottom: 1px solid var(--stone);
+    color: var(--ink-soft);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: rgba(230,223,206,0.3); }
+
+  @media (max-width: 640px) {
+    .data-table { display: block; overflow-x: auto; }
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--forest-deep);
+    color: var(--cream-warm);
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-mark {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-tagline {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 1rem;
+  }
+
+  .footer-about {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    opacity: 0.7;
+    max-width: 360px;
+  }
+
+  .footer-col h5 {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.65rem; }
+
+  .footer-col a {
+    font-size: 0.875rem;
+    opacity: 0.7;
+    transition: opacity var(--t-fast);
+  }
+
+  .footer-col a:hover { opacity: 1; color: var(--bronze); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    opacity: 0.45;
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- ─── NAV ─── -->
+<header>
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="wrap nav-inner">
+      <a href="/" class="nav-brand" aria-label="Equexcellent — Inicio">
+        <img class="nav-brand-mark" src="assets/equexcellent-mark.png" alt="" aria-hidden="true">
+        Equexcellent
+      </a>
+      <a href="/" class="nav-back" aria-label="Volver al sitio principal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        Volver al inicio
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="policy-hero" aria-label="Cabecera de la política de privacidad">
+  <div class="wrap">
+    <p class="policy-eyebrow">Legal · Protección de datos</p>
+    <h1 class="policy-title">Política de <em>Privacidad</em></h1>
+    <p class="policy-subtitle">
+      Información sobre cómo Equexcellent recoge, trata y protege los datos
+      personales facilitados a través de este sitio web.
+    </p>
+    <p class="policy-updated">Última actualización: mayo de 2026</p>
+  </div>
+</section>
+
+<!-- ─── BODY ─── -->
+<main id="contenido">
+  <div class="policy-body">
+    <div class="wrap">
+      <div class="policy-layout">
+
+        <!-- TOC -->
+        <aside class="policy-toc" aria-label="Índice de la política">
+          <p class="toc-label">Contenido</p>
+          <ul class="toc-list">
+            <li><a href="#responsable">I. Responsable</a></li>
+            <li><a href="#datos-recogidos">II. Datos recogidos</a></li>
+            <li><a href="#finalidad">III. Finalidad</a></li>
+            <li><a href="#base-juridica">IV. Base jurídica</a></li>
+            <li><a href="#menores">V. Menores de edad</a></li>
+            <li><a href="#conservacion">VI. Conservación</a></li>
+            <li><a href="#destinatarios">VII. Destinatarios</a></li>
+            <li><a href="#transferencias">VIII. Transferencias</a></li>
+            <li><a href="#derechos">IX. Tus derechos</a></li>
+            <li><a href="#propiedad-intelectual">X. Propiedad intelectual</a></li>
+            <li><a href="#comunicaciones">XI. Comunicaciones</a></li>
+          </ul>
+        </aside>
+
+        <!-- Content -->
+        <article class="policy-content">
+
+          <!-- I. Responsable -->
+          <section class="policy-section" id="responsable">
+            <span class="section-tag">§ I</span>
+            <h2 class="section-heading">Responsable del tratamiento</h2>
+            <p>
+              En cumplimiento del Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo,
+              de 27 de abril de 2016 (RGPD), y de la Ley Orgánica 3/2018, de 5 de diciembre,
+              de Protección de Datos Personales y Garantía de los Derechos Digitales (LOPDGDD),
+              le informamos de que el responsable del tratamiento de sus datos personales es:
+            </p>
+            <table class="data-table" aria-label="Datos del responsable del tratamiento">
+              <tbody>
+                <tr>
+                  <td><strong>Denominación</strong></td>
+                  <td>Equexcellent</td>
+                </tr>
+                <tr>
+                  <td><strong>Actividad</strong></td>
+                  <td>Terapias con caballos · Campamentos de verano de alta especialización para niños y adolescentes con TEA y vulnerabilidad emocional</td>
+                </tr>
+                <tr>
+                  <td><strong>Correo electrónico</strong></td>
+                  <td><a href="mailto:info@equexcellent.com">info@equexcellent.com</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Sitio web</strong></td>
+                  <td><a href="https://equexcellent.com" target="_blank" rel="noopener noreferrer">https://equexcellent.com</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Ubicación</strong></td>
+                  <td>Hípica El Carrizal de Cubas · Cubas de la Sagra, Comunidad de Madrid</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- II. Datos recogidos -->
+          <section class="policy-section" id="datos-recogidos">
+            <span class="section-tag">§ II</span>
+            <h2 class="section-heading">Datos personales que recogemos</h2>
+            <p>
+              Los datos se recogen exclusivamente a través de los formularios de valoración
+              inicial disponibles en el sitio web, uno por cada programa ofrecido.
+              La información solicitada ha sido diseñada por el equipo clínico de Equexcellent
+              y es imprescindible para poder evaluar la idoneidad del programa para cada participante.
+            </p>
+
+            <div class="callout-strong">
+              <p>
+                <strong>Atención:</strong> Los formularios incluyen datos de salud, diagnóstico
+                clínico y perfil conductual de menores. Estos datos tienen la consideración de
+                <strong>categoría especial</strong> según el artículo 9 del RGPD y reciben el
+                máximo nivel de protección previsto por la normativa.
+              </p>
+            </div>
+
+            <table class="data-table" aria-label="Categorías de datos recogidos">
+              <thead>
+                <tr>
+                  <th>Categoría</th>
+                  <th>Datos concretos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Identificación del/la menor</strong></td>
+                  <td>Nombre y apellidos, fecha de nacimiento, edad, curso / etapa educativa, municipio de residencia</td>
+                </tr>
+                <tr>
+                  <td><strong>Contacto familiar</strong></td>
+                  <td>Nombre del padre, madre o tutor/a legal; teléfono; correo electrónico; contacto de emergencia (nombre, relación y teléfono)</td>
+                </tr>
+                <tr>
+                  <td><strong>Diagnóstico y apoyos <em>(categoría especial)</em></strong></td>
+                  <td>Diagnóstico principal (TEA, grado, fecha de informe; o perfil emocional: TCA, ansiedad, depresión, etc.), otros diagnósticos o necesidades relevantes, apoyos educativos o terapéuticos actuales</td>
+                </tr>
+                <tr>
+                  <td><strong>Perfil funcional <em>(categoría especial)</em></strong></td>
+                  <td>Modalidad de comunicación, nivel de apoyo habitual, autonomía personal (alimentación, higiene), estrategias de regulación emocional, desencadenantes habituales</td>
+                </tr>
+                <tr>
+                  <td><strong>Conducta y perfil sensorial <em>(categoría especial)</em></strong></td>
+                  <td>Sensibilidades sensoriales frecuentes, conductas relevantes para la seguridad del grupo (riesgo de fuga, impulsividad, autolesiones, crisis), estrategias de regulación</td>
+                </tr>
+                <tr>
+                  <td><strong>Salud <em>(categoría especial)</em></strong></td>
+                  <td>Alergias, asma, epilepsia u otras condiciones médicas, medicación en curso (sin dosis), restricciones alimentarias o dietéticas</td>
+                </tr>
+                <tr>
+                  <td><strong>Objetivos del programa</strong></td>
+                  <td>Objetivos terapéuticos prioritarios seleccionados por la familia y observaciones libres</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>
+              Todos los campos marcados como obligatorios son necesarios para llevar a cabo la
+              valoración inicial. Si no se facilitan, no podremos evaluar la idoneidad del programa
+              ni gestionar la solicitud de plaza.
+            </p>
+          </section>
+
+          <!-- III. Finalidad -->
+          <section class="policy-section" id="finalidad">
+            <span class="section-tag">§ III</span>
+            <h2 class="section-heading">Finalidad del tratamiento</h2>
+            <p>
+              Equexcellent trata los datos personales recogidos a través de los formularios
+              con las siguientes finalidades, todas ellas vinculadas de forma directa a la
+              prestación del servicio:
+            </p>
+            <ul>
+              <li>
+                <strong>Valoración inicial de idoneidad:</strong> revisar si el perfil del/la menor
+                encaja con el programa solicitado (Línea TEA o Línea Emocional) y planificar
+                los apoyos individualizados necesarios.
+              </li>
+              <li>
+                <strong>Contacto con la familia:</strong> ponerse en contacto con el padre, madre
+                o tutor/a para comentar la valoración, resolver dudas y acordar, en su caso, la
+                admisión en el programa.
+              </li>
+              <li>
+                <strong>Organización del campamento:</strong> si la admisión se confirma, los datos
+                de salud, perfil funcional y conducta son imprescindibles para que el equipo clínico
+                e integrador pueda preparar apoyos individualizados, garantizar la seguridad y diseñar
+                actividades ajustadas a cada participante.
+              </li>
+              <li>
+                <strong>Devolución de resultados:</strong> elaborar y compartir con la familia una
+                valoración del progreso del/la menor al finalizar el programa.
+              </li>
+            </ul>
+            <div class="callout">
+              <p>
+                Equexcellent <strong>no enviará comunicaciones comerciales</strong> ni utilizará
+                los datos para fines distintos a los aquí descritos. La información clínica
+                y conductual únicamente es accesible al equipo directamente implicado en el programa.
+              </p>
+            </div>
+          </section>
+
+          <!-- IV. Base jurídica -->
+          <section class="policy-section" id="base-juridica">
+            <span class="section-tag">§ IV</span>
+            <h2 class="section-heading">Base jurídica del tratamiento</h2>
+            <p>
+              El tratamiento de sus datos se ampara en las siguientes bases legales:
+            </p>
+            <table class="data-table" aria-label="Bases jurídicas del tratamiento">
+              <thead>
+                <tr>
+                  <th>Datos tratados</th>
+                  <th>Base jurídica</th>
+                  <th>Referencia normativa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Datos de identificación y contacto familiar</td>
+                  <td>Ejecución de medidas precontractuales a petición del interesado (tramitación de la solicitud de plaza)</td>
+                  <td>Art. 6.1.b) RGPD</td>
+                </tr>
+                <tr>
+                  <td>Datos de salud, diagnóstico, perfil funcional y conducta</td>
+                  <td>Consentimiento explícito del padre, madre o tutor/a legal, prestado mediante el envío del formulario de valoración inicial</td>
+                  <td>Art. 9.2.a) RGPD</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="callout-strong">
+              <p>
+                El consentimiento para el tratamiento de datos de categoría especial
+                (salud, diagnóstico, perfil conductual) puede retirarse en cualquier momento
+                enviando un correo a <a href="mailto:info@equexcellent.com">info@equexcellent.com</a>.
+                La retirada del consentimiento no afecta a la licitud del tratamiento realizado
+                con anterioridad.
+              </p>
+            </div>
+          </section>
+
+          <!-- V. Menores de edad -->
+          <section class="policy-section" id="menores">
+            <span class="section-tag">§ V</span>
+            <h2 class="section-heading">Datos de menores de edad</h2>
+            <p>
+              Los programas de Equexcellent están dirigidos íntegramente a niños y adolescentes.
+              Por tanto, todos los datos recogidos corresponden a menores de edad.
+            </p>
+            <p>
+              De conformidad con el artículo 8 del RGPD y el artículo 7 de la LOPDGDD, los
+              formularios deben ser cumplimentados exclusivamente por el padre, la madre o el
+              tutor o tutora legal del/la menor. Al enviar el formulario, la persona que
+              lo cumplimenta declara ser titular de la patria potestad o tutela y consiente
+              expresamente el tratamiento de los datos del/la menor, incluidos los de
+              categoría especial.
+            </p>
+            <div class="callout">
+              <p>
+                Equexcellent no recoge conscientemente datos de menores enviados por ellos
+                mismos sin el conocimiento y consentimiento de sus representantes legales.
+                Si tiene conocimiento de que un menor ha enviado datos sin autorización,
+                le rogamos que nos lo comunique a
+                <a href="mailto:info@equexcellent.com">info@equexcellent.com</a>
+                para proceder a su eliminación.
+              </p>
+            </div>
+          </section>
+
+          <!-- VI. Conservación -->
+          <section class="policy-section" id="conservacion">
+            <span class="section-tag">§ VI</span>
+            <h2 class="section-heading">Conservación de los datos</h2>
+            <p>
+              Los datos personales se conservarán durante el tiempo estrictamente necesario
+              para las finalidades que motivaron su recogida, y en todo caso:
+            </p>
+            <ul>
+              <li>
+                <strong>Si la solicitud no da lugar a admisión:</strong> los datos se conservarán
+                durante el tiempo necesario para gestionar la valoración y responder a la familia,
+                y se eliminarán a la finalización de la edición del campamento a la que
+                correspondía la solicitud.
+              </li>
+              <li>
+                <strong>Si el/la menor participa en el programa:</strong> los datos se conservarán
+                mientras dure la relación y, una vez finalizada, durante los plazos establecidos
+                por la normativa aplicable para atender posibles responsabilidades legales
+                derivadas de la prestación del servicio.
+              </li>
+              <li>
+                <strong>Datos de salud y diagnóstico:</strong> al tratarse de datos de categoría
+                especial relativos a menores, su conservación se limitará al mínimo necesario
+                para las finalidades descritas y se eliminarán de forma segura en cuanto
+                dejen de ser necesarios.
+              </li>
+            </ul>
+          </section>
+
+          <!-- VII. Destinatarios -->
+          <section class="policy-section" id="destinatarios">
+            <span class="section-tag">§ VII</span>
+            <h2 class="section-heading">Destinatarios de los datos</h2>
+            <p>
+              Los datos no serán cedidos a terceros ajenos a Equexcellent salvo en los
+              siguientes supuestos:
+            </p>
+            <ul>
+              <li>
+                <strong>Equipo clínico e integrador del programa:</strong> la psicóloga clínica,
+                los integradores sociales y demás profesionales directamente implicados en la
+                atención del/la menor accederán a los datos en la medida estrictamente necesaria
+                para el desempeño de sus funciones, con sujeción a deber de confidencialidad.
+              </li>
+              <li>
+                <strong>Proveedores tecnológicos (encargados del tratamiento):</strong> ver
+                el apartado siguiente sobre transferencias internacionales.
+              </li>
+              <li>
+                <strong>Obligación legal:</strong> en caso de requerimiento por autoridad
+                competente en virtud de la normativa vigente.
+              </li>
+            </ul>
+            <p>
+              Fuera de estos casos, los datos no serán comunicados a ninguna entidad
+              ni persona tercera.
+            </p>
+          </section>
+
+          <!-- VIII. Transferencias internacionales -->
+          <section class="policy-section" id="transferencias">
+            <span class="section-tag">§ VIII</span>
+            <h2 class="section-heading">Transferencias internacionales y encargados del tratamiento</h2>
+            <p>
+              Los formularios de valoración inicial son gestionados a través de
+              <strong>Netlify, Inc.</strong>, plataforma tecnológica de alojamiento web y
+              gestión de formularios con sede en Estados Unidos. Netlify actúa como
+              encargado del tratamiento y recibe los datos enviados a través de los formularios
+              del sitio web.
+            </p>
+            <p>
+              Esta transferencia se realiza con las garantías adecuadas de conformidad con
+              el RGPD. Puede consultar la política de privacidad de Netlify y las garantías
+              aplicables en:
+              <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">
+                https://www.netlify.com/privacy/
+              </a>
+            </p>
+            <div class="callout">
+              <p>
+                Equexcellent no utiliza los datos recogidos a través de los formularios para
+                fines publicitarios ni los comparte con plataformas de análisis de terceros.
+              </p>
+            </div>
+          </section>
+
+          <!-- IX. Derechos -->
+          <section class="policy-section" id="derechos">
+            <span class="section-tag">§ IX</span>
+            <h2 class="section-heading">Tus derechos</h2>
+            <p>
+              En su condición de representante legal del/la menor, o como persona titular
+              de los datos facilitados (datos de contacto familiar), puede ejercitar en
+              cualquier momento los siguientes derechos reconocidos por el RGPD:
+            </p>
+            <ul>
+              <li><strong>Acceso:</strong> conocer qué datos personales tratamos.</li>
+              <li><strong>Rectificación:</strong> corregir datos inexactos o incompletos.</li>
+              <li><strong>Supresión:</strong> solicitar la eliminación de los datos cuando, entre otras causas, ya no sean necesarios para la finalidad que motivó su recogida.</li>
+              <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos.</li>
+              <li><strong>Limitación del tratamiento:</strong> solicitar que suspendamos el tratamiento de sus datos en determinados supuestos.</li>
+              <li><strong>Portabilidad:</strong> recibir los datos que nos haya facilitado en un formato estructurado, de uso común y lectura mecánica.</li>
+              <li><strong>Retirada del consentimiento:</strong> retirar en cualquier momento el consentimiento prestado para el tratamiento de datos de categoría especial, sin que ello afecte a la licitud del tratamiento previo.</li>
+            </ul>
+            <p>
+              Para ejercitar cualquiera de estos derechos, puede dirigirse a Equexcellent por
+              correo electrónico a:
+              <a href="mailto:info@equexcellent.com">info@equexcellent.com</a>
+            </p>
+            <p>
+              Si considera que el tratamiento de sus datos no se ajusta a la normativa vigente,
+              tiene derecho a presentar una reclamación ante la
+              <strong>Agencia Española de Protección de Datos</strong> (AEPD),
+              autoridad de control competente en España:
+              <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>.
+            </p>
+            <p>
+              El usuario manifiesta que los datos facilitados son ciertos y correctos,
+              y se compromete a comunicar cualquier modificación que afecte a los mismos.
+            </p>
+          </section>
+
+          <!-- X. Propiedad intelectual -->
+          <section class="policy-section" id="propiedad-intelectual">
+            <span class="section-tag">§ X</span>
+            <h2 class="section-heading">Propiedad intelectual</h2>
+            <p>
+              Equexcellent es titular de todos los derechos de autor, propiedad intelectual
+              e industrial sobre los contenidos del sitio web
+              <a href="https://equexcellent.com" target="_blank" rel="noopener noreferrer">https://equexcellent.com</a>,
+              incluyendo textos, imágenes, logotipos, diseño visual y estructura de navegación,
+              así como de los programas necesarios para su implementación y la información
+              relacionada con los programas terapéuticos ofrecidos.
+            </p>
+            <p>
+              No se permite la reproducción, publicación o uso no estrictamente privado de
+              los contenidos, totales o parciales, del sitio web sin el consentimiento previo
+              y por escrito de Equexcellent.
+            </p>
+          </section>
+
+          <!-- XI. Comunicaciones comerciales -->
+          <section class="policy-section" id="comunicaciones">
+            <span class="section-tag">§ XI</span>
+            <h2 class="section-heading">Comunicaciones comerciales</h2>
+            <p>
+              En aplicación de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad
+              de la Información y de Comercio Electrónico (LSSI-CE), Equexcellent
+              <strong>no enviará comunicaciones publicitarias o promocionales</strong>
+              por correo electrónico u otro medio de comunicación electrónica equivalente
+              que previamente no hubieran sido solicitadas o expresamente autorizadas.
+            </p>
+            <p>
+              La información que Equexcellent envíe a las familias estará exclusivamente
+              relacionada con la valoración inicial, la gestión de la admisión y el
+              seguimiento del programa en el que participe el/la menor.
+            </p>
+            <p>
+              En todo caso, puede solicitar el cese de cualquier comunicación enviando
+              un correo a
+              <a href="mailto:info@equexcellent.com">info@equexcellent.com</a>.
+            </p>
+          </section>
+
+        </article>
+      </div><!-- /.policy-layout -->
+    </div><!-- /.wrap -->
+  </div><!-- /.policy-body -->
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer aria-label="Pie de página">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img class="footer-mark" src="assets/equexcellent-mark.png" alt="" aria-hidden="true">
+          <span>Equexcellent</span>
+        </div>
+        <div class="footer-tagline">Terapias con caballos · Calidad y compromiso</div>
+        <p class="footer-about">
+          Campamentos de verano de alta especialización para niños y adolescentes con TEA
+          y para adolescentes con vulnerabilidad emocional. Atención individualizada,
+          equipo clínico integrado y entorno natural cuidado.
+        </p>
+      </div>
+      <nav class="footer-col" aria-label="Programas">
+        <h5>Programas</h5>
+        <ul>
+          <li><a href="/#tea-detail">Línea TEA</a></li>
+          <li><a href="/#emo-detail">Línea Emocional</a></li>
+          <li><a href="/#metodo">Metodología</a></li>
+          <li><a href="/#inscripcion">Formulario de valoración</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Legal y contacto">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/politica-de-privacidad.html" aria-current="page">Política de privacidad</a></li>
+          <li><a href="mailto:info@equexcellent.com">info@equexcellent.com</a></li>
+          <li><a href="/#ubicacion">Hípica El Carrizal</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Equexcellent · Todos los derechos reservados</span>
+      <span>Julio 2026 · Primera edición</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

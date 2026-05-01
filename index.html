@@ -521,6 +521,8 @@
     transform: translateY(22px);
     transition: opacity 900ms var(--t-med) 400ms, transform 900ms var(--t-med) 400ms;
   }
+  .hero-sub + .hero-sub { margin-top: 0.85rem; }
+  .hero-sub strong { color: var(--forest); font-weight: 600; }
   body.loaded .hero-sub { opacity: 1; transform: translateY(0); }
 
   .hero-actions {
@@ -2397,9 +2399,13 @@
 
     <p class="lede hero-sub">
       Dos programas <em>completamente independientes</em>, en grupos separados:
-      uno para niños y adolescentes con TEA, otro para adolescentes con
-      vulnerabilidad emocional. En la Hípica El Carrizal de Cubas,
-      con caballos especialmente domados y equipo clínico integrado.
+      uno para niños y adolescentes con <strong>TEA</strong>, otro para
+      adolescentes con <strong>Vulnerabilidad Emocional</strong>.
+    </p>
+
+    <p class="lede hero-sub">
+      En la <strong>Hípica El Carrizal de Cubas</strong>, con caballos
+      especialmente domados y equipo clínico integrado.
     </p>
 
     <div class="hero-actions">
@@ -2495,8 +2501,8 @@
               Explorar programa TEA
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="#inscripcion-tea" class="program-link program-link-alt" data-form-target="tea">
-              Formulario de inscripción
+            <a href="#inscripcion" class="program-link program-link-alt">
+              Solicitar información
             </a>
           </div>
         </div>
@@ -2529,8 +2535,8 @@
               Explorar programa Emocional
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="#inscripcion-emo" class="program-link program-link-alt" data-form-target="emo">
-              Formulario de inscripción
+            <a href="#inscripcion" class="program-link program-link-alt">
+              Solicitar información
             </a>
           </div>
         </div>
@@ -2939,17 +2945,110 @@
     <div class="section-head-grid reveal">
       <div class="section-num" aria-hidden="true">§ VII</div>
       <div>
-        <span class="eyebrow">Inscripción · Valoración inicial</span>
-        <h2 id="inscripcion-title" class="display section-title" style="margin-top: 1rem;">Solicita tu plaza con la <em>valoración inicial</em>.</h2>
+        <span class="eyebrow">Solicita información · Plazas limitadas</span>
+        <h2 id="inscripcion-title" class="display section-title" style="margin-top: 1rem;">Pide <em>información</em> y reserva tu plaza.</h2>
         <p class="section-desc">
-          Cada programa tiene su propio formulario de recogida de información, diseñado por
-          el equipo clínico. Se rellena en unos 5 minutos y nos sirve para valorar la
-          idoneidad y organizar los apoyos. <strong>Elige el programa que corresponde</strong>
-          al perfil de tu hijo o hija — no es posible compartir formulario.
+          Déjanos tus datos en 1 minuto y nos pondremos en contacto contigo para
+          informarte de los <strong>detalles técnicos del programa</strong>, los
+          <strong>formularios de inscripción</strong> y las <strong>tarifas</strong>.
+          Las plazas son muy limitadas y se asignan por orden de solicitud.
         </p>
       </div>
     </div>
 
+    <!-- ───── SIMPLE CONTACT FORM (visible) ───── -->
+    <div class="form-panel reveal" id="panel-simple">
+      <p class="form-intro" id="inscripcion-info">
+        <strong>Solicitud de información.</strong> Rellena este breve formulario
+        y nos pondremos en contacto contigo en breve para informarte de los
+        detalles técnicos del programa, los formularios de inscripción y las tarifas.
+      </p>
+
+      <form class="equex-form" name="solicitud-informacion" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" data-form-name="Solicitud" novalidate>
+        <input type="hidden" name="form-name" value="solicitud-informacion">
+        <p class="form-honeypot" aria-hidden="true"><label>No rellenar: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">01</span> Contacto familiar</legend>
+          <div class="form-row form-row-single">
+            <div class="form-field">
+              <label class="form-label" for="simple-name">Nombre y apellidos (padre / madre / tutor)</label>
+              <input type="text" id="simple-name" name="Nombre y apellidos" required autocomplete="name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="simple-email">Correo electrónico</label>
+              <input type="email" id="simple-email" name="Correo electrónico" required autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="simple-tel">Teléfono</label>
+              <input type="tel" id="simple-tel" name="Teléfono" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <span class="form-label">Parentesco</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="radio" name="Parentesco" value="Padre" required>Padre</label>
+              <label class="form-check"><input type="radio" name="Parentesco" value="Madre">Madre</label>
+              <label class="form-check"><input type="radio" name="Parentesco" value="Tutor/a">Tutor/a</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">02</span> Datos del menor</legend>
+          <div class="form-field">
+            <span class="form-label">Programa de interés</span>
+            <div class="form-checks">
+              <label class="form-check"><input type="radio" name="Programa" value="TEA" required>TEA</label>
+              <label class="form-check"><input type="radio" name="Programa" value="Vulnerabilidad emocional">Vulnerabilidad emocional</label>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top: 1.25rem;">
+            <div class="form-field">
+              <label class="form-label" for="simple-age">Edad del menor</label>
+              <input type="number" id="simple-age" name="Edad del menor" min="3" max="21" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="simple-cp">Código postal / Municipio</label>
+              <input type="text" id="simple-cp" name="Código postal / Municipio" required>
+            </div>
+          </div>
+          <div class="form-field" style="margin-top: 1.25rem;">
+            <label class="form-label" for="simple-obs">Observaciones (opcional)</label>
+            <textarea id="simple-obs" name="Observaciones" rows="4"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend><span class="form-legend-num">03</span> Política de privacidad</legend>
+          <div class="form-consent">
+            <label>
+              <input type="checkbox" name="Política de privacidad" value="Aceptada" required>
+              <span>He leído y acepto la <a href="/politica-de-privacidad.html" target="_blank" rel="noopener"><strong>política de privacidad</strong></a>. Consiento el tratamiento de mis datos por Equexcellent únicamente para responder a esta solicitud de información (RGPD / LOPDGDD). Puedo ejercer mis derechos escribiendo a <a href="mailto:info@equexcellent.com">info@equexcellent.com</a>.</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-submit-row">
+          <p class="form-submit-note">
+            Tus datos se envían cifrados a Equexcellent. Solo el equipo de coordinación
+            tiene acceso — uso exclusivo para responder a tu solicitud de información.
+          </p>
+          <button type="submit" class="btn btn-primary btn-magnetic">
+            <span class="btn-label">Enviar solicitud</span>
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+        <div class="form-status" role="status" aria-live="polite"></div>
+
+      </form>
+    </div>
+
+    <!-- ───── LEGACY FORMS (hidden — preserved for future use) ───── -->
+    <div class="legacy-forms" hidden aria-hidden="true" inert>
     <div class="form-tabs reveal" role="tablist" aria-label="Selecciona el programa">
       <button class="form-tab" type="button" role="tab" id="tab-tea" aria-controls="panel-tea" aria-selected="true" data-target="panel-tea">
         <span class="form-tab-num" aria-hidden="true">I</span>
@@ -3537,6 +3636,7 @@
 
       </form>
     </div>
+    </div><!-- /.legacy-forms -->
   </div>
 </section>
 
@@ -3603,8 +3703,7 @@
           <li><a href="#tea-detail">Línea TEA</a></li>
           <li><a href="#emo-detail">Línea Emocional</a></li>
           <li><a href="#metodo">Metodología</a></li>
-          <li><a href="#inscripcion-tea">Formulario TEA</a></li>
-          <li><a href="#inscripcion-emo">Formulario Emocional</a></li>
+          <li><a href="#inscripcion">Solicitar información</a></li>
         </ul>
       </nav>
       <nav class="footer-col" aria-label="Contacto">
@@ -3618,7 +3717,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Equexcellent · Todos los derechos reservados</span>
-      <span>Julio 2026 · Primera edición</span>
+      <span><a href="/politica-de-privacidad.html" style="opacity:1;text-decoration:underline;text-underline-offset:3px;transition:color 240ms;">Política de privacidad</a> · Julio 2026 · Primera edición</span>
     </div>
   </div>
 </footer>
@@ -3736,11 +3835,17 @@
             <polyline points="20 6 9 17 4 12"/>
           </svg>
         </div>
-        <h3 class="form-success-title">Recibido. <em>Hablamos pronto.</em></h3>
+        <h3 class="form-success-title">¡Gracias! <em>Hemos recibido tu solicitud.</em></h3>
         <p class="form-success-text">
-          Tu valoración inicial (${formName}) ha llegado al equipo clínico de Equexcellent.
-          Te contactaremos en las próximas 48&nbsp;horas para acordar una conversación
-          y revisar la idoneidad del programa para tu hijo o hija.
+          En breve nos pondremos en contacto contigo para informarte de los
+          <strong>detalles técnicos del programa</strong>, los
+          <strong>formularios de inscripción</strong> y las
+          <strong>tarifas</strong>.
+        </p>
+        <p class="form-success-text" style="margin-top: 0.85rem; font-size: 0.9rem;">
+          Tus datos se tratarán conforme al RGPD/LOPDGDD, exclusivamente para
+          responder a esta solicitud. Para cualquier consulta puedes escribirnos
+          a <a href="mailto:info@equexcellent.com">info@equexcellent.com</a>.
         </p>
       </div>
     `;
@@ -3762,10 +3867,11 @@
       const formName = form.dataset.formName || 'Inscripción';
       const submitBtn = form.querySelector('button[type="submit"]');
       const statusEl = form.querySelector('.form-status');
+      const labelEl = submitBtn ? submitBtn.querySelector('.btn-label') : null;
+      const originalLabel = labelEl ? labelEl.textContent : '';
 
       if (submitBtn) {
         submitBtn.disabled = true;
-        const labelEl = submitBtn.querySelector('.btn-label');
         if (labelEl) labelEl.textContent = 'Enviando…';
       }
       if (statusEl) {
@@ -3792,8 +3898,7 @@
       } catch (err) {
         if (submitBtn) {
           submitBtn.disabled = false;
-          const labelEl = submitBtn.querySelector('.btn-label');
-          if (labelEl) labelEl.textContent = `Enviar valoración ${formName === 'TEA' ? 'TEA' : 'Emocional'}`;
+          if (labelEl) labelEl.textContent = originalLabel || 'Enviar';
         }
         if (statusEl) {
           statusEl.className = 'form-status error show';
