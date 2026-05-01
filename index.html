@@ -969,7 +969,10 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     position: relative;
+    list-style: none;
+    padding-left: 0;
   }
+  .process > .step::marker { content: ""; }
   .process::before {
     content: "";
     position: absolute;
