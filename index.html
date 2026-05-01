@@ -580,17 +580,25 @@
     transform: translateX(-50%) translateY(0);
     pointer-events: auto;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 720px) {
     .tip-bubble {
-      left: 0;
-      transform: translateX(0) translateY(6px);
-      max-width: min(300px, 88vw);
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      bottom: auto;
+      width: calc(100vw - 2.5rem);
+      max-width: 360px;
+      padding: 1.1rem 1.2rem;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      transform: translate(-50%, -48%) scale(0.96);
+      box-shadow: 0 24px 60px -12px rgba(0,0,0,0.55);
     }
-    .tip-bubble::after { left: 28px; transform: none; }
+    .tip-bubble::after { display: none; }
     .tip:hover .tip-bubble,
     .tip:focus .tip-bubble,
     .tip:focus-within .tip-bubble {
-      transform: translateX(0) translateY(0);
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 
