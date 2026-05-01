@@ -2110,51 +2110,50 @@
 
   /* ─── Hero slideshow crossfade ──────────────────
      Two stacked images that crossfade like a slow carousel: each image is
-     visible ~10s, then there's a 4s smooth fade to the next. Both
-     crossfades are symmetric (same duration in & out) so the loop is
-     seamless and never feels abrupt. A subtle horizontal pan + light
-     Ken-Burns add cinematic motion. */
+     visible ~16s, then there's a 5s smooth fade to the next. Both
+     crossfades are symmetric so the loop is seamless and never feels
+     abrupt. A subtle pan + light Ken-Burns add cinematic motion. */
   .hero img.bg-photo.hero-bg {
     animation:
       bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
-      heroSlideA 28s cubic-bezier(.45,0,.55,1) 1600ms infinite,
-      heroPanA   28s cubic-bezier(.4,0,.4,1)   1600ms infinite;
+      heroSlideA 42s cubic-bezier(.45,0,.55,1) 1600ms infinite,
+      heroPanA   42s cubic-bezier(.4,0,.4,1)   1600ms infinite;
   }
   .hero img.bg-photo.hero-bg.hero-bg-2 {
     animation:
       bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
-      heroSlideB 28s cubic-bezier(.45,0,.55,1) 1600ms infinite,
-      heroPanB   28s cubic-bezier(.4,0,.4,1)   1600ms infinite;
+      heroSlideB 42s cubic-bezier(.45,0,.55,1) 1600ms infinite,
+      heroPanB   42s cubic-bezier(.4,0,.4,1)   1600ms infinite;
   }
 
-  /* Visible window: 0%→35% (10s). Fade-out: 35%→50% (4s).
-     Hidden: 50%→85% (10s).        Fade-in: 85%→100% (4s).
-     Image B is offset by 50% — so when A fades out, B fades in. */
+  /* Visible: 0%→38% (~16s). Fade-out: 38%→50% (~5s).
+     Hidden: 50%→88% (~16s). Fade-in: 88%→100% (~5s).
+     Image B is offset by 50% — when A fades out, B fades in. */
   @keyframes heroSlideA {
-    0%, 35%   { opacity: var(--bg-opacity, 0.72); }
-    50%, 85%  { opacity: 0; }
+    0%, 38%   { opacity: var(--bg-opacity, 0.72); }
+    50%, 88%  { opacity: 0; }
     100%      { opacity: var(--bg-opacity, 0.72); }
   }
   @keyframes heroSlideB {
-    0%, 35%   { opacity: 0; }
-    50%, 85%  { opacity: var(--bg-opacity, 0.72); }
+    0%, 38%   { opacity: 0; }
+    50%, 88%  { opacity: var(--bg-opacity, 0.72); }
     100%      { opacity: 0; }
   }
 
-  /* Pan + scale: drifts gently while visible, returns to start while hidden
-     so the loop is seamless. Image B mirrors image A's pan direction. */
+  /* Pan + scale: drifts gently while visible, returns to start while
+     hidden so the loop is seamless. Image B mirrors image A's pan. */
   @keyframes heroPanA {
     0%   { transform: scale(1.12) translate3d(0, 0, 0); }
-    35%  { transform: scale(1.16) translate3d(-1.5%, -0.6%, 0); }
+    38%  { transform: scale(1.16) translate3d(-1.5%, -0.6%, 0); }
     50%  { transform: scale(1.16) translate3d(-1.5%, -0.6%, 0); }
-    85%  { transform: scale(1.12) translate3d(0, 0, 0); }
+    88%  { transform: scale(1.12) translate3d(0, 0, 0); }
     100% { transform: scale(1.12) translate3d(0, 0, 0); }
   }
   @keyframes heroPanB {
     0%   { transform: scale(1.12) translate3d(1.5%, 0.6%, 0); }
-    35%  { transform: scale(1.12) translate3d(1.5%, 0.6%, 0); }
+    38%  { transform: scale(1.12) translate3d(1.5%, 0.6%, 0); }
     50%  { transform: scale(1.12) translate3d(0, 0, 0); }
-    85%  { transform: scale(1.16) translate3d(-1.5%, -0.6%, 0); }
+    88%  { transform: scale(1.16) translate3d(-1.5%, -0.6%, 0); }
     100% { transform: scale(1.12) translate3d(1.5%, 0.6%, 0); }
   }
 
@@ -2189,12 +2188,12 @@
     .hero img.bg-photo.hero-bg {
       animation:
         bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
-        heroSlideA 30s cubic-bezier(.45,0,.55,1) 1600ms infinite;
+        heroSlideA 46s cubic-bezier(.45,0,.55,1) 1600ms infinite;
     }
     .hero img.bg-photo.hero-bg.hero-bg-2 {
       animation:
         bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
-        heroSlideB 30s cubic-bezier(.45,0,.55,1) 1600ms infinite;
+        heroSlideB 46s cubic-bezier(.45,0,.55,1) 1600ms infinite;
     }
   }
 
@@ -2371,8 +2370,8 @@
 
 <!-- ─── HERO ─── -->
 <header class="hero">
-  <img class="bg-photo hero-bg" src="assets/bg-hero.jpg" alt="" aria-hidden="true" loading="eager" decoding="async" fetchpriority="high" width="1024" height="571">
-  <img class="bg-photo hero-bg hero-bg-2" src="assets/bg-hero-2.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" width="1024" height="571">
+  <img class="bg-photo hero-bg" src="assets/bg-hero-2.jpg" alt="" aria-hidden="true" loading="eager" decoding="async" fetchpriority="high" width="1024" height="571">
+  <img class="bg-photo hero-bg hero-bg-2" src="assets/bg-hero.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="low" width="1024" height="571">
   <svg class="hero-decor" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
     <g fill="none" stroke="currentColor" stroke-width="0.6" style="color: var(--forest);">
       <circle cx="300" cy="300" r="270" opacity="0.18"/>
