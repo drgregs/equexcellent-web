@@ -525,6 +525,75 @@
   .hero-sub strong { color: var(--forest); font-weight: 600; }
   body.loaded .hero-sub { opacity: 1; transform: translateY(0); }
 
+  /* ─── Tooltip helper (used in hero copy) ─── */
+  .tip {
+    position: relative;
+    display: inline;
+    cursor: help;
+    color: var(--forest);
+    font-weight: 500;
+    border-bottom: 1px dotted var(--bronze);
+    outline: none;
+  }
+  .tip:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; border-radius: 2px; }
+  .tip-bubble {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    width: max-content;
+    max-width: min(340px, 80vw);
+    padding: 0.85rem 1rem;
+    background: var(--forest-deep);
+    color: var(--cream-warm);
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.55;
+    border-radius: 10px;
+    border: 1px solid rgba(184,149,77,0.45);
+    box-shadow: 0 14px 32px -12px rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms cubic-bezier(.25,.1,.25,1),
+                transform 220ms cubic-bezier(.25,.1,.25,1);
+    z-index: 50;
+    white-space: normal;
+    text-align: left;
+  }
+  .tip-bubble strong { color: var(--bronze); font-weight: 600; }
+  .tip-bubble em { color: var(--cream); font-style: italic; }
+  .tip-bubble::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--forest-deep);
+  }
+  .tip:hover .tip-bubble,
+  .tip:focus .tip-bubble,
+  .tip:focus-within .tip-bubble {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+  @media (max-width: 600px) {
+    .tip-bubble {
+      left: 0;
+      transform: translateX(0) translateY(6px);
+      max-width: min(300px, 88vw);
+    }
+    .tip-bubble::after { left: 28px; transform: none; }
+    .tip:hover .tip-bubble,
+    .tip:focus .tip-bubble,
+    .tip:focus-within .tip-bubble {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -2408,7 +2477,9 @@
 
     <p class="lede hero-sub">
       En la <strong>Hípica El Carrizal de Cubas</strong>, con caballos
-      especialmente domados y equipo multidisciplinar en educación y salud.
+      especialmente domados y
+      <span class="tip" tabindex="0" aria-describedby="tip-equipo-multi">equipo multidisciplinar<span id="tip-equipo-multi" role="tooltip" class="tip-bubble">Equipo multidisciplinar formado por el <strong>Campus Equexcellent</strong>, cuyo claustro está compuesto por profesionales del reconocido programa <em>"A Caballo por la Luna"</em>, especializado en intervenciones educativas y emocionales con caballos.</span></span>
+      en educación y salud.
     </p>
 
     <div class="hero-actions">
