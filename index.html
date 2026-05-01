@@ -1336,53 +1336,70 @@
   }
 
   .map-card {
-    aspect-ratio: 5/6;
-    background: linear-gradient(135deg, rgba(245,240,230,0.05), rgba(245,240,230,0.02));
-    border: 1px solid rgba(245,240,230,0.12);
-    border-radius: 2px;
-    padding: 2.5rem;
+    aspect-ratio: 4/5;
+    background: rgba(245,240,230,0.04);
+    border: 1px solid rgba(245,240,230,0.14);
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
     overflow: hidden;
   }
-  .map-decor {
-    position: absolute;
-    inset: 0;
-    opacity: 0.25;
-    display: grid;
-    place-items: center;
+  .map-frame {
+    flex: 1;
+    width: 100%;
+    border: 0;
+    display: block;
+    /* Subtle desaturation so Google's pixel-perfect color doesn't clash
+       with the editorial palette; returns to full color on hover. */
+    filter: saturate(0.78) contrast(0.96);
+    transition: filter 500ms cubic-bezier(.25,.1,.25,1);
   }
-  .map-card-top {
-    position: relative;
-    z-index: 1;
+  .map-card:hover .map-frame,
+  .map-card:focus-within .map-frame { filter: saturate(1) contrast(1); }
+  .map-caption {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-  }
-  .coords {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 0.85rem;
-    color: var(--bronze);
-    font-variation-settings: "opsz" 30;
-  }
-  .map-card-bottom {
-    position: relative;
-    z-index: 1;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid rgba(245,240,230,0.12);
+    background: linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.22));
+    flex-shrink: 0;
   }
   .map-place {
     font-family: var(--serif);
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     color: var(--cream-warm);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
     font-variation-settings: "opsz" 30;
+    line-height: 1.1;
   }
   .map-region {
-    font-size: 0.88rem;
-    color: rgba(245,240,230,0.6);
-    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+    color: rgba(245,240,230,0.65);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .map-cta {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--bronze);
+    white-space: nowrap;
+    transition: color var(--t-fast);
+  }
+  .map-cta:hover,
+  .map-cta:focus-visible { color: var(--cream-warm); }
+  @media (max-width: 820px) {
+    .map-card { aspect-ratio: 5/4; }
+  }
+  @media (max-width: 480px) {
+    .map-card { aspect-ratio: 4/3; }
+    .map-place { font-size: 1rem; }
+    .map-cta { font-size: 0.68rem; letter-spacing: 0.1em; }
   }
 
   /* ─────────────────────────────────────────────
@@ -2837,27 +2854,27 @@
         </ul>
       </div>
 
-      <div class="map-card reveal reveal-delay-1" aria-label="Coordenadas: Hípica El Carrizal, Cubas de la Sagra, Madrid">
-        <svg class="map-decor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <g fill="none" stroke="currentColor" stroke-width="0.5" style="color: var(--bronze);">
-            <circle cx="100" cy="100" r="80"/>
-            <circle cx="100" cy="100" r="60"/>
-            <circle cx="100" cy="100" r="40"/>
-            <line x1="20" y1="100" x2="180" y2="100"/>
-            <line x1="100" y1="20" x2="100" y2="180"/>
-            <line x1="40" y1="40" x2="160" y2="160"/>
-            <line x1="160" y1="40" x2="40" y2="160"/>
-          </g>
-          <circle cx="100" cy="100" r="4" fill="var(--bronze)"/>
-        </svg>
-
-        <div class="map-card-top">
-          <span class="eyebrow">Coordenadas</span>
-          <span class="coords">40.28° N · 3.83° W</span>
-        </div>
-        <div class="map-card-bottom">
-          <div class="map-place">Hípica El Carrizal</div>
-          <div class="map-region">Cubas de la Sagra · Madrid</div>
+      <div class="map-card reveal reveal-delay-1">
+        <iframe
+          class="map-frame"
+          src="https://www.google.com/maps?q=Hipica+El+Carrizal+Cubas+de+la+Sagra+Madrid&hl=es&z=15&output=embed"
+          title="Mapa de la Hípica El Carrizal — Cubas de la Sagra, Madrid"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          aria-label="Mapa de la ubicación de la Hípica El Carrizal en Cubas de la Sagra, Madrid"
+        ></iframe>
+        <div class="map-caption">
+          <div>
+            <div class="map-place">Hípica El Carrizal</div>
+            <div class="map-region">Cubas de la Sagra · Madrid</div>
+          </div>
+          <a
+            class="map-cta"
+            href="https://www.google.com/maps?q=Hipica+El+Carrizal+Cubas+de+la+Sagra+Madrid"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Cómo llegar →</a>
         </div>
       </div>
     </div>
