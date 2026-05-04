@@ -837,11 +837,11 @@
   .program-card:hover { transform: translateY(-4px); }
 
   .program-card.tea {
-    background: linear-gradient(155deg, var(--forest) 0%, var(--forest-deep) 100%);
+    background: linear-gradient(155deg, #2b3948 0%, #1a2733 100%);
     color: var(--cream-warm);
   }
   .program-card.emo {
-    background: linear-gradient(155deg, #2b3948 0%, #1a2733 100%);
+    background: linear-gradient(155deg, var(--forest) 0%, var(--forest-deep) 100%);
     color: var(--cream-warm);
   }
 
@@ -2201,9 +2201,11 @@
       heroSlideA 42s cubic-bezier(.45,0,.55,1) 1600ms infinite,
       heroPanA   42s cubic-bezier(.4,0,.4,1)   1600ms infinite;
   }
+  /* Image B starts hidden — only fades in via heroSlideB (no initial bgFadeIn,
+     which would cause a snap-back glitch when the slideshow takes over). */
   .hero img.bg-photo.hero-bg.hero-bg-2 {
+    opacity: 0;
     animation:
-      bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
       heroSlideB 42s cubic-bezier(.45,0,.55,1) 1600ms infinite,
       heroPanB   42s cubic-bezier(.4,0,.4,1)   1600ms infinite;
   }
@@ -2273,9 +2275,8 @@
         heroSlideA 46s cubic-bezier(.45,0,.55,1) 1600ms infinite;
     }
     .hero img.bg-photo.hero-bg.hero-bg-2 {
-      animation:
-        bgFadeIn 1400ms cubic-bezier(.25,.1,.25,1) 200ms both,
-        heroSlideB 46s cubic-bezier(.45,0,.55,1) 1600ms infinite;
+      opacity: 0;
+      animation: heroSlideB 46s cubic-bezier(.45,0,.55,1) 1600ms infinite;
     }
   }
 
